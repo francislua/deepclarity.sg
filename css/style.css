@@ -35,8 +35,8 @@ body {
   background: var(--warm-white);
   color: var(--navy);
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.0625rem;
+  line-height: 1.75;
   font-weight: 300;
 }
 
@@ -325,4 +325,24 @@ footer .footer-copy {
   .nav-toggle { display: flex; }
 
   footer .footer-links { text-align: left; }
+}
+
+/* ── MOBILE TYPOGRAPHY ── */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  p {
+    font-size: 1rem;
+    max-width: none;
+  }
+
+  h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  h3 { font-size: clamp(1.25rem, 4.5vw, 1.6rem); }
+
+  section {
+    padding: clamp(3rem, 7vw, 5rem) var(--pad-x);
+  }
 }
