@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Francis Lua — DeepClarity</title>
+  <meta name="description" content="Francis Lua founded DeepClarity after nearly 25 years leading HR and organisational transformation inside Johnson & Johnson, Microsoft, and TE Connectivity across Asia Pacific." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── ABOUT PAGE STYLES ── */
+
+    /* Page hero */
+    .page-hero {
+      padding-top: clamp(8rem, 14vw, 12rem);
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(46, 64, 112, 0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .label { color: var(--amber); margin-bottom: 1.5rem; display: block; }
+    .page-hero h1 { color: var(--warm-white); max-width: 18ch; }
+    .page-hero .page-hero-sub {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 1.05rem;
+      max-width: 48ch;
+      margin-top: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* Profile section */
+    .profile {
+      background: var(--warm-white);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+
+    .profile-photo-wrap {
+      position: sticky;
+      top: 7rem;
+    }
+
+    .profile-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+      text-transform: uppercase;
+      color: var(--grey);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .profile-photo-border {
+      position: relative;
+    }
+
+    .profile-photo-border::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      right: -1.2rem;
+      bottom: -1.2rem;
+      border: 1px solid var(--amber);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .profile-caption {
+      margin-top: 1.5rem;
+    }
+
+    .profile-caption strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--navy);
+    }
+
+    .profile-caption span {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* Profile content */
+    .profile-content .amber-rule { margin-bottom: 2.5rem; }
+
+    .profile-content h2 {
+      margin-bottom: 1.8rem;
+      max-width: 22ch;
+    }
+
+    .profile-content p {
+      color: var(--ink);
+      font-size: 1rem;
+      max-width: 58ch;
+    }
+
+    .profile-content p + p { margin-top: 1.4em; }
+
+    /* Pull quote */
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 2rem 2rem 2rem 2.5rem;
+      border-left: 2px solid var(--amber);
+      background: rgba(196, 154, 60, 0.04);
+    }
+
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.5;
+      max-width: none;
+    }
+
+    /* Career timeline */
+    .career {
+      background: var(--navy);
+    }
+
+    .career .section-label { color: var(--amber); margin-bottom: 1rem; }
+    .career h2 { color: var(--warm-white); margin-bottom: clamp(3rem, 5vw, 5rem); }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9.5rem;
+      top: 0.5rem;
+      bottom: 0;
+      width: 1px;
+      background: rgba(245, 243, 238, 0.1);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(245, 243, 238, 0.06);
+      position: relative;
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-period {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245, 243, 238, 0.35);
+      padding-top: 0.2rem;
+      text-align: right;
+      padding-right: 2rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 9.1rem;
+      top: 2.4rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .timeline-body h3 {
+      color: var(--warm-white);
+      font-size: 1.05rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .timeline-body .org {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .timeline-body p {
+      color: rgba(245, 243, 238, 0.55);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Foundations */
+    .foundations {
+      background: var(--warm-white);
+    }
+
+    .foundations .section-header {
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    .foundations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--grey-light);
+    }
+
+    .foundation-card {
+      background: var(--warm-white);
+      padding: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .foundation-card .amber-rule-sm { margin-bottom: 1.2rem; }
+
+    .foundation-card h4 {
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      font-size: 0.72rem;
+    }
+
+    .foundation-card p {
+      color: var(--ink);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Belief section */
+    .about-belief {
+      background: var(--warm-white);
+      text-align: center;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .about-belief h2 { margin-bottom: 1.5rem; }
+    .about-belief p { color: var(--ink); margin: 0 auto 2.5rem; font-size: 1.05rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .profile-grid { grid-template-columns: 1fr; }
+      .profile-photo-wrap { position: static; max-width: 340px; }
+      .foundations-grid { grid-template-columns: 1fr 1fr; }
+      .timeline::before { display: none; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .timeline-period { text-align: left; padding-right: 0; }
+      .timeline-dot { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .foundations-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="nav-descriptor">Leadership &amp; Organisational Advisory</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="label">About Francis Lua</span>
+      <h1>Transformation from the inside.</h1>
+      <p class="page-hero-sub">Nearly 25 years leading HR and organisational change across Asia Pacific — at Johnson &amp; Johnson Vision, TE Connectivity, and Microsoft. I founded DeepClarity to work on the problem I kept seeing from the inside.</p>
+    </div>
+  </header>
+
+  <!-- ── PROFILE ── -->
+  <section class="profile">
+    <div class="profile-grid">
+      <div class="profile-photo-wrap fade-in">
+        <div class="profile-photo-border">
+          <div class="profile-photo">
+            <img
+              src="images/francis_photo_about.jpg"
+              alt="Francis Lua — Founder, DeepClarity"
+              width="100%"
+              style="width:100%;max-width:100%;height:auto;display:block;"
+            />
+          </div>
+        </div>
+        <div class="profile-caption">
+          <strong>Francis Lua</strong>
+          <span>Founder, DeepClarity</span>
+        </div>
+      </div>
+
+      <div class="profile-content fade-in">
+        <div class="amber-rule"></div>
+        <h2>I've seen what gets in the way. That's the work.</h2>
+
+        <p>I spent nearly 25 years leading HR and organisational transformation from the inside — across Johnson &amp; Johnson Vision, TE Connectivity, and Microsoft in Asia Pacific. In that time, I sat in the room when strategies were set, when AI initiatives were launched, when leadership teams were convinced they were aligned. And I watched the same pattern repeat.</p>
+
+        <p>Not the absence of talent. Not the wrong technology. The absence of clarity.</p>
+
+        <div class="pull-quote">
+          <p>"Most AI transformations and leadership initiatives fail not from lack of technology or talent — but from lack of clarity. Unclear purpose. Misaligned teams. Avoided conversations."</p>
+        </div>
+
+        <p>I founded DeepClarity because I wanted to work on the real problem — the human system that determines whether transformation actually sticks. I bring a business-first lens, an OD and systems foundation, and a direct style. The work is always the same: get clear first, then move.</p>
+
+        <p>I partner with senior business leaders, CHROs, and regional HR leaders across Asia Pacific — on AI transformation, leadership effectiveness, and talent strategy. My measure of success is simple: what's still working six months after I've gone.</p>
+
+        <p>I hold a Master's in Organization Development from Pepperdine University and bring an applied coaching practice to every engagement. I operate from the belief that the practitioner's own presence — self as instrument, attending to what is actually alive in the system — is the primary tool. Not a fixed framework imposed on the client, but deep attention to what is actually there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAREER TIMELINE ── -->
+  <section class="career">
+    <span class="label section-label">Career</span>
+    <h2>Where the experience comes from.</h2>
+
+    <div class="timeline">
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">Present</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <span class="org">DeepClarity Pte. Ltd. · Singapore</span>
+          <h3>Founder</h3>
+          <p>Working with senior business leaders, CHROs, and regional HR leaders across Asia Pacific on AI transformation readiness, senior leadership team effectiveness, and talent strategy. Building capability the client owns — not dependency on DeepClarity.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">~8 years</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <span class="org">Johnson &amp; Johnson Vision · Asia Pacific</span>
+          <h3>Senior HR Leadership</h3>
+          <p>Led HR for J&amp;J's Vision business across Asia Pacific — a multi-billion dollar global business — partnering functions spanning commercial, R&amp;D, regulatory, and medical affairs across approximately 1,600 employees. Navigated complex multi-stakeholder environments through periods of significant commercial and organisational change. Experienced firsthand what it takes — and what gets in the way — when the stakes are real.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">Prior</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <span class="org">TE Connectivity · Asia Pacific</span>
+          <h3>Senior HR Leadership — Automotive</h3>
+          <p>Led HR for the Automotive business unit across Asia Pacific — a multi-billion dollar large-scale manufacturing and technology business with approximately 6,000 employees spanning sales, marketing, supply chain, and manufacturing — reporting directly to the President for Automotive APAC. That reporting line, outside the conventional HR structure and accountable directly to the business, sharpened a business-first perspective that has stayed central to the work ever since.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-period">Prior</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <span class="org">Microsoft · Asia Pacific</span>
+          <h3>Talent &amp; HR Leadership</h3>
+          <p>Began in APAC talent leadership — designing and running talent systems at scale across one of the world's most complex technology organisations. Progressed into broader HR leadership during a period of significant business transformation. The structured approach to talent strategy that DeepClarity brings to clients was built and refined here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOUNDATIONS ── -->
+  <section class="foundations">
+    <div class="section-header fade-in">
+      <div class="amber-rule"></div>
+      <h2>Intellectual foundations.</h2>
+    </div>
+    <div class="foundations-grid">
+      <div class="foundation-card fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>OD &amp; Systems Thinking</h4>
+        <p>Grounded in the traditions of Peter Block, Ed Schein, and Chris Worley — stewardship, process consultation, and sustainable organisational effectiveness. Not a framework imposed on every situation, but a way of reading what is actually there.</p>
+      </div>
+      <div class="foundation-card fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>MSOD &amp; Applied Practice</h4>
+        <p>Graduate-trained in organisational development (Pepperdine University, MSOD) with an applied coaching practice. The practitioner's presence — self as instrument, attending to what is actually alive in the system — is the primary tool. Not a script, not a fixed model, but deep attention to what is actually there.</p>
+      </div>
+      <div class="foundation-card fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>Business-First Lens</h4>
+        <p>Intellectual rigour, pragmatism, and the willingness to say difficult things plainly in service of a larger purpose. Credibility earned through precision, not vocabulary. If the work isn't connecting to commercial outcomes, something has gone wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLOSING CTA ── -->
+  <section class="about-belief fade-in">
+    <div class="amber-rule" style="margin: 0 auto 2rem;"></div>
+    <h2>Ready to have the conversation?</h2>
+    <p>If you're navigating growth, transformation, or AI adoption in Asia Pacific — I welcome a direct conversation.</p>
+    <a href="contact.html" class="btn btn-primary">Get in touch</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="footer-tagline">Clarity before momentum.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>
+      </div>
+      <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

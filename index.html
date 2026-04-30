@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepClarity — Clarity Before Momentum</title>
+  <meta name="description" content="DeepClarity partners with senior leaders and their teams to build the clarity, alignment, and cultural conditions that make AI transformation actually work — and leadership actually stick." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── HOME PAGE STYLES ── */
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 var(--pad-x) clamp(4rem, 8vw, 7rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(46, 64, 112, 0.5) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(196, 154, 60, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Large decorative letter */
+    .hero::after {
+      content: 'C';
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-55%);
+      font-family: var(--font-display);
+      font-size: clamp(20rem, 35vw, 42rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      color: var(--amber);
+      margin-bottom: 2.5rem;
+      display: block;
+    }
+
+    .hero h1 {
+      color: var(--warm-white);
+      font-weight: 300;
+      max-width: 18ch;
+      margin-bottom: 2rem;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: rgba(245, 243, 238, 0.55);
+    }
+
+    .hero-sub {
+      color: rgba(245, 243, 238, 0.65);
+      font-size: 1.05rem;
+      max-width: 68ch;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: clamp(2rem, 4vw, 3.5rem);
+      right: var(--pad-x);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(245, 243, 238, 0.3);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 3rem;
+      background: rgba(245, 243, 238, 0.2);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(0.6); }
+    }
+
+    /* Problem section */
+    .problem {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+
+    .problem-left h2 {
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .problem-left h2 span {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .problem-right {
+      padding-top: 0.5rem;
+    }
+
+    .problem-right p {
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+
+    .problem-stat {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .problem-stat blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.5;
+      max-width: 44ch;
+    }
+
+    .problem-stat cite {
+      display: block;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 1rem;
+    }
+
+    /* Services preview */
+    .services-preview {
+      background: var(--navy);
+    }
+
+    .services-preview .section-header {
+      margin-bottom: clamp(3rem, 5vw, 5rem);
+    }
+
+    .services-preview .section-header .label { color: var(--amber); }
+    .services-preview .section-header h2 { color: var(--warm-white); margin-top: 1rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(245, 243, 238, 0.08);
+      border: 1px solid rgba(245, 243, 238, 0.08);
+    }
+
+    .service-card {
+      padding: clamp(2rem, 3.5vw, 3rem);
+      background: var(--navy);
+      transition: background var(--transition);
+      position: relative;
+    }
+
+    .service-card:hover { background: var(--ink); }
+
+    .service-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(245, 243, 238, 0.08);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      color: var(--warm-white);
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .service-card .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.8rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      transition: gap var(--transition);
+    }
+
+    .service-card .card-link:hover { gap: 0.8rem; }
+    .service-card .card-link::after { content: '→'; }
+
+    .services-footer {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    /* About teaser */
+    .about-teaser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: center;
+    }
+
+    .about-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+    }
+
+    .about-photo-border {
+      position: relative;
+    }
+
+    .about-photo-border::before {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      right: -1.2rem;
+      bottom: -1.2rem;
+      border: 1px solid var(--amber);
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    .about-content .label { margin-bottom: 1.2rem; }
+    .about-content h2 { margin-bottom: 1.5rem; }
+    .about-content p { color: var(--ink); font-size: 1rem; }
+
+    .credential-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .credential-list li {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--slate);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    .credential-list li::before {
+      content: '';
+      width: 1.4rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .about-content .btn { margin-top: 2.5rem; }
+
+    /* Belief strip */
+    .belief {
+      background: var(--amber);
+      padding: clamp(3rem, 5vw, 5rem) var(--pad-x);
+      text-align: center;
+    }
+
+    .belief-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .belief blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+
+    .belief cite {
+      display: block;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(27, 42, 74, 0.55);
+      margin-top: 1.2rem;
+    }
+
+    /* CTA section */
+    .cta-section {
+      text-align: center;
+      background: var(--warm-white);
+    }
+
+    .cta-section h2 { margin-bottom: 1.2rem; }
+    .cta-section p { color: var(--ink); margin: 0 auto 2.5rem; font-size: 1.05rem; }
+    .cta-section .btn { margin: 0 auto; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .problem-grid  { grid-template-columns: 1fr; }
+      .about-teaser  { grid-template-columns: 1fr; }
+      .about-photo-border { max-width: 380px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero::after { display: none; }
+      .hero h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="nav-descriptor">Leadership &amp; Organisational Advisory</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="label hero-label">DeepClarity · Singapore</span>
+      <h1>Organisations don't fail at strategy.<br><br>They fail at the human conditions strategy depends on.</h1>
+      <p class="hero-sub">Leadership teams misalign. Strategies don't translate into execution. Transformations stall whether driven by AI, growth, or organisational change. Not for lack of intent, but for lack of clarity.</p>
+      <div class="hero-cta-group">
+        <a href="contact.html" class="btn btn-amber">Start a conversation</a>
+        <a href="work.html" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">See the work</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">Scroll</div>
+  </header>
+
+  <!-- ── PROBLEM ── -->
+  <section class="problem">
+    <div class="problem-grid">
+      <div class="problem-left fade-in">
+        <div class="amber-rule"></div>
+        <h2>Strategy rarely fails<br>on paper. It fails in<br>the <span>leadership room.</span></h2>
+      </div>
+      <div class="problem-right fade-in">
+        <p>Most transformations underdeliver. Most leadership initiatives don't stick. Not because of the strategy, intent, or technology but because the senior team isn't aligned, the culture isn't ready, and the conversations that need to happen haven't happened yet.</p>
+        <p>DeepClarity exists to fix that. We partner with senior business leaders, CHROs, and regional HR leaders to build the clarity, alignment, and cultural conditions that make transformation real.</p>
+        <div class="problem-stat">
+          <blockquote>
+            "DeepClarity measures success by what's still working six months after we've gone."
+          </blockquote>
+          <cite>Francis Lua · Founder, DeepClarity</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES PREVIEW ── -->
+  <section class="services-preview">
+    <div class="section-header fade-in">
+      <span class="label">What we do</span>
+      <h2>Three ways<br>we create clarity.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-number">01</div>
+        <h3>AI Transformation Readiness</h3>
+        <p>Your AI initiative is stalling — or you're about to start one and you can see the same patterns forming. The technology isn't the problem. We help senior teams build the clarity, governance, and cultural conditions that make AI actually deliver ROI.</p>
+        <a href="work.html#ai" class="card-link">Learn more</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-number">02</div>
+        <h3>Senior Leadership Team Effectiveness</h3>
+        <p>Your leadership team is capable. But something isn't working — misalignment that's hidden in plain sight, conversations being avoided, strategy that isn't translating into execution. We surface what's actually in the way and build the conditions to move forward.</p>
+        <a href="work.html#leadership" class="card-link">Learn more</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-number">03</div>
+        <h3>Talent Strategy</h3>
+        <p>Your talent architecture isn't connected to what the business actually needs. Built on 15 years of designing and running talent systems inside Microsoft, TE Connectivity, and Johnson &amp; Johnson — we build talent strategies organisations can own and sustain.</p>
+        <a href="work.html#talent" class="card-link">Learn more</a>
+      </div>
+    </div>
+    <div class="services-footer fade-in">
+      <a href="work.html" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">See all services</a>
+    </div>
+  </section>
+
+  <!-- ── ABOUT TEASER ── -->
+  <section>
+    <div class="about-teaser">
+      <div class="about-photo-border fade-in">
+        <div class="about-photo">
+          <img
+            src="images/francis_photo.jpg"
+            alt="Francis Lua — Founder, DeepClarity"
+            style="width:100%;max-width:500px;height:auto;display:block;"
+          />
+        </div>
+      </div>
+      <div class="about-content fade-in">
+        <span class="label">About Francis Lua</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>Nearly 25 years leading transformation from the inside.</h2>
+        <p>I founded DeepClarity after seeing the same pattern repeat across Johnson &amp; Johnson, Microsoft, and TE Connectivity across Asia Pacific: leaders with good intent, strong capability, and initiatives that weren't delivering.</p>
+        <p>Not because of the technology. Because of the human system around it.</p>
+        <ul class="credential-list">
+          <li>Johnson &amp; Johnson · Microsoft · TE Connectivity</li>
+          <li>Asia Pacific focus · Global scope</li>
+          <li>OD, executive coaching &amp; HR strategy</li>
+          <li>Nearly 25 years in transformation from the inside</li>
+        </ul>
+        <a href="about.html" class="btn btn-primary">Read Francis's story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BELIEF STRIP ── -->
+  <div class="belief">
+    <div class="belief-inner fade-in">
+      <blockquote>
+        "Clarity before momentum. When leaders know what they're trying to achieve, why it matters, and what's actually in the way — everything else becomes possible."
+      </blockquote>
+      <cite>The DeepClarity belief</cite>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="fade-in">
+      <div class="amber-rule" style="margin:0 auto 2rem;"></div>
+      <h2>Ready for a direct conversation?</h2>
+      <p>If you're navigating AI adoption, leadership alignment, or talent strategy in Asia Pacific — let's talk.</p>
+      <a href="contact.html" class="btn btn-primary">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="footer-tagline">Clarity before momentum.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>
+      </div>
+      <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

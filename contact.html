@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — DeepClarity</title>
+  <meta name="description" content="Start a conversation with DeepClarity. Francis Lua works with senior leaders across Asia Pacific on AI transformation, leadership effectiveness, and talent strategy." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── CONTACT PAGE STYLES ── */
+
+    /* Page hero */
+    .page-hero {
+      padding-top: clamp(8rem, 14vw, 12rem);
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(46, 64, 112, 0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .label { color: var(--amber); margin-bottom: 1.5rem; display: block; }
+    .page-hero h1 { color: var(--warm-white); max-width: 18ch; }
+    .page-hero .page-hero-sub {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 1.05rem;
+      max-width: 48ch;
+      margin-top: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* Contact layout */
+    .contact-section {
+      background: var(--warm-white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 7vw, 8rem);
+      align-items: start;
+    }
+
+    /* Left — context */
+    .contact-context .amber-rule { margin-bottom: 2rem; }
+    .contact-context h2 { margin-bottom: 1.5rem; }
+    .contact-context p { color: var(--ink); font-size: 1rem; }
+    .contact-context p + p { margin-top: 1.2em; }
+
+    .contact-situations {
+      margin-top: 2.5rem;
+    }
+
+    .contact-situations h4 {
+      font-size: 0.68rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .situation-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .situation-list li {
+      font-size: 0.9rem;
+      color: var(--slate);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .situation-list li::before {
+      content: '';
+      width: 1.4rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0.7rem;
+    }
+
+    .direct-contact {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .direct-contact h4 {
+      font-size: 0.68rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .direct-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .direct-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--ink);
+      transition: color var(--transition);
+    }
+
+    .direct-link:hover { color: var(--amber); }
+
+    .direct-link-icon {
+      width: 2rem;
+      height: 2rem;
+      background: rgba(27, 42, 74, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Right — form */
+    .contact-form-wrap h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-form-wrap .form-sub {
+      font-size: 0.88rem;
+      color: var(--grey);
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--grey-light);
+      margin-top: -1px;
+      margin-left: -1px;
+      background: var(--warm-white);
+      position: relative;
+      transition: border-color var(--transition);
+    }
+
+    .form-group:focus-within {
+      border-color: var(--navy);
+      z-index: 1;
+    }
+
+    .form-group label {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey);
+      padding: 1rem 1.2rem 0;
+      pointer-events: none;
+      transition: color var(--transition);
+    }
+
+    .form-group:focus-within label { color: var(--navy); }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 0.3rem 1.2rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--navy);
+      width: 100%;
+      resize: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      padding-top: 0.4rem;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238A8E96' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: transparent; }
+
+    /* Amber accent on left border when active */
+    .form-group::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--amber);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+    }
+
+    .form-group:focus-within::before { transform: scaleY(1); }
+
+    .form-submit {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--grey);
+      font-weight: 300;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      padding: 2.5rem;
+      background: rgba(27, 42, 74, 0.04);
+      border: 1px solid var(--grey-light);
+      border-left: 2px solid var(--amber);
+      text-align: center;
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+    }
+
+    .form-success p {
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    /* Reassurance strip */
+    .reassurance {
+      background: var(--navy);
+      padding: clamp(3rem, 5vw, 5rem) var(--pad-x);
+    }
+
+    .reassurance-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .reassurance-item .amber-rule-sm { margin-bottom: 1rem; }
+
+    .reassurance-item h4 {
+      color: var(--warm-white);
+      font-size: 0.72rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .reassurance-item p {
+      color: rgba(245, 243, 238, 0.55);
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Validation error message */
+    .form-error {
+      display: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #c0392b;
+      letter-spacing: 0.06em;
+      margin-top: 1rem;
+      padding: 0.7rem 1rem;
+      border-left: 2px solid #c0392b;
+      background: rgba(192, 57, 43, 0.04);
+    }
+
+    .form-error.visible { display: block; }
+
+    /* Error state on individual field */
+    .form-group.has-error { border-color: #c0392b; }
+    .form-group.has-error::before { background: #c0392b; transform: scaleY(1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-grid      { grid-template-columns: 1fr; }
+      .reassurance-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row          { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="nav-descriptor">Leadership &amp; Organisational Advisory</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="label">Contact</span>
+      <h1>Start a conversation.</h1>
+      <p class="page-hero-sub">Most conversations start with a situation, not a service. Tell me what you're navigating — and we'll work out what's needed from there.</p>
+    </div>
+  </header>
+
+  <!-- ── CONTACT SECTION ── -->
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <!-- Left: context -->
+      <div class="contact-context fade-in">
+        <div class="amber-rule"></div>
+        <h2>You don't need to have it figured out before reaching out.</h2>
+        <p>The first conversation is simply a conversation. No sales process. No deck. No pressure to engage. If there's a fit — in terms of the work, the timing, and what you actually need — it will become clear.</p>
+        <p>Francis responds personally to every message.</p>
+
+        <div class="contact-situations">
+          <h4>People typically reach out when</h4>
+          <ul class="situation-list">
+            <li>An AI initiative is underdelivering and they can't quite diagnose why</li>
+            <li>A leadership team is capable but something isn't working — and they need an outside perspective</li>
+            <li>A talent strategy exists but isn't connecting to what the business actually needs</li>
+            <li>A transformation is coming and they want to get the human side right from the start</li>
+            <li>They've heard Francis speak or been referred by a colleague and want to explore what's possible</li>
+          </ul>
+        </div>
+
+        <div class="direct-contact">
+          <h4>Prefer to reach out directly?</h4>
+          <div class="direct-links">
+            <a href="mailto:francislua@deepclarity.sg" class="direct-link">
+              <div class="direct-link-icon">✉</div>
+              francislua@deepclarity.sg
+            </a>
+            <a href="https://www.linkedin.com/in/francis-lua-60758b5/" target="_blank" rel="noopener" class="direct-link">
+              <div class="direct-link-icon">in</div>
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap fade-in">
+        <h3>Send a note.</h3>
+        <p class="form-sub">Francis will respond within one to two business days.</p>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First name</label>
+              <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last name</label>
+              <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="organisation">Organisation <span style="font-weight:300;letter-spacing:0;text-transform:none;font-size:0.9em;opacity:0.7;">(optional)</span></label>
+            <input type="text" id="organisation" name="organisation" autocomplete="organization" />
+          </div>
+
+          <div class="form-group">
+            <label for="role">Your role <span style="font-weight:300;letter-spacing:0;text-transform:none;font-size:0.9em;opacity:0.7;">(optional)</span></label>
+            <input type="text" id="role" name="role" autocomplete="organization-title" />
+          </div>
+
+          <div class="form-group">
+            <label for="topic">What are you navigating?</label>
+            <select id="topic" name="topic">
+              <option value="" disabled selected>Select a topic</option>
+              <option value="diagnostic">Leadership Decision Diagnostic</option>
+              <option value="ai">AI transformation readiness</option>
+              <option value="leadership">Senior leadership team effectiveness</option>
+              <option value="talent">Talent strategy</option>
+              <option value="other">Something else — I'll explain below</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell me more</label>
+            <textarea id="message" name="message" required placeholder="What you're navigating, what you've already tried, what a good outcome looks like."></textarea>
+          </div>
+
+          <div class="form-error" id="formError">Please complete all required fields before sending.</div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <span class="form-note">Your details are kept confidential and never shared.</span>
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <h3>Message received.</h3>
+          <p>Thank you for reaching out. Francis will respond personally within one to two business days.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── REASSURANCE ── -->
+  <div class="reassurance">
+    <div class="reassurance-inner">
+      <div class="reassurance-item fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>Senior access throughout</h4>
+        <p>Francis leads every engagement personally. The experience you're engaging is the experience you work with from first conversation to final session.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>Confidential by default</h4>
+        <p>Everything shared in an initial conversation stays within that conversation. No proposals are shared with third parties. No details are disclosed without consent.</p>
+      </div>
+      <div class="reassurance-item fade-in">
+        <div class="amber-rule-sm"></div>
+        <h4>Clarity before commitment</h4>
+        <p>If there's a fit, it will become clear. The first conversation is about understanding your situation — not closing an engagement. You'll know what you're getting into before anything is agreed.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="footer-tagline">Clarity before momentum.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>
+      </div>
+      <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── CONTACT FORM HANDLER — Cloudflare Workers + Resend ── */
+    const form     = document.getElementById('contactForm');
+    const success  = document.getElementById('formSuccess');
+    const errorMsg = document.getElementById('formError');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    /* WORKER_URL: replace this with your deployed Cloudflare Worker URL
+       e.g. https://deepclarity-form.YOUR-SUBDOMAIN.workers.dev        */
+    const WORKER_URL = 'REPLACE_WITH_YOUR_WORKER_URL';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      /* Reset previous error states */
+      form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+      errorMsg.classList.remove('visible');
+
+      /* Validate required fields */
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.closest('.form-group').classList.add('has-error');
+          valid = false;
+        }
+      });
+
+      if (!valid) {
+        errorMsg.classList.add('visible');
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      /* Disable button and show sending state */
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      /* Collect form data */
+      const payload = {
+        firstName:    form.firstName.value.trim(),
+        lastName:     form.lastName.value.trim(),
+        email:        form.email.value.trim(),
+        organisation: form.organisation.value.trim(),
+        role:         form.role.value.trim(),
+        topic:        form.topic.value,
+        message:      form.message.value.trim()
+      };
+
+      try {
+        const response = await fetch(WORKER_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          /* Success */
+          form.style.display = 'none';
+          success.style.display = 'block';
+          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          /* Server-side error */
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        /* Network or server failure — restore form with error message */
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+        errorMsg.textContent = 'Something went wrong sending your message. Please try again or email francislua@deepclarity.sg directly.';
+        errorMsg.classList.add('visible');
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+
+    /* Clear error state on field input */
+    form.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('input', () => {
+        if (field.value.trim()) {
+          field.closest('.form-group').classList.remove('has-error');
+        }
+        const anyEmpty = Array.from(form.querySelectorAll('[required]')).some(f => !f.value.trim());
+        if (!anyEmpty) {
+          errorMsg.classList.remove('visible');
+          errorMsg.textContent = 'Please complete all required fields before sending.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

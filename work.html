@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — DeepClarity</title>
+  <meta name="description" content="DeepClarity works with senior leaders on AI transformation readiness, senior leadership team effectiveness, and talent strategy across Asia Pacific." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── WORK PAGE STYLES ── */
+
+    /* Page hero */
+    .page-hero {
+      padding-top: clamp(8rem, 14vw, 12rem);
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(46, 64, 112, 0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .label { color: var(--amber); margin-bottom: 1.5rem; display: block; }
+    .page-hero h1 { color: var(--warm-white); max-width: 18ch; }
+    .page-hero .page-hero-sub {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 1.05rem;
+      max-width: 52ch;
+      margin-top: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* Service intro strip */
+    .service-nav-strip {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--grey-light);
+      padding: 0 var(--pad-x);
+    }
+
+    .service-nav-strip-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+
+    .service-nav-link {
+      padding: 1.4rem 0;
+      margin-right: 3rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .service-nav-link:hover {
+      color: var(--navy);
+      border-bottom-color: var(--grey-light);
+    }
+
+    /* Service sections */
+    .service-section {
+      padding: var(--pad-y) var(--pad-x);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .service-section + .service-section {
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+
+    .service-grid.reverse { direction: rtl; }
+    .service-grid.reverse > * { direction: ltr; }
+
+    .service-left .service-num {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 10vw, 9rem);
+      font-weight: 300;
+      color: rgba(27, 42, 74, 0.07);
+      line-height: 0.9;
+      margin-bottom: -1rem;
+    }
+
+    .service-left .label { margin-bottom: 1rem; }
+
+    .service-left h2 {
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-left .service-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-style: italic;
+      color: var(--slate);
+      font-weight: 300;
+      line-height: 1.5;
+      border-left: 2px solid var(--amber);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-right p {
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .service-right p + p { margin-top: 1.2em; }
+
+    /* What to expect */
+    .expect-list {
+      margin-top: 2.5rem;
+    }
+
+    .expect-list h4 {
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+      font-size: 0.7rem;
+    }
+
+    .expect-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .expect-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .expect-item::before {
+      content: '';
+      width: 1.4rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0.7rem;
+    }
+
+    .expect-item p {
+      font-size: 0.9rem;
+      color: var(--slate);
+      max-width: none;
+      font-weight: 300;
+    }
+
+    /* Who it's for */
+    .for-whom {
+      background: rgba(27, 42, 74, 0.04);
+      padding: 1.8rem;
+      margin-top: 2rem;
+      border-left: 2px solid rgba(27, 42, 74, 0.12);
+    }
+
+    .for-whom h4 {
+      color: var(--navy);
+      font-size: 0.68rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .for-whom p {
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    /* Delivery model */
+    .delivery {
+      background: var(--navy);
+    }
+
+    .delivery-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--pad-y) var(--pad-x);
+    }
+
+    .delivery .label { color: var(--amber); margin-bottom: 1rem; }
+    .delivery h2 { color: var(--warm-white); margin-bottom: clamp(2.5rem, 4vw, 4rem); max-width: 22ch; }
+
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(245, 243, 238, 0.08);
+    }
+
+    .delivery-card {
+      background: var(--navy);
+      padding: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .delivery-card h3 {
+      color: var(--warm-white);
+      font-size: 1.15rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .delivery-card p {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .delivery-card .amber-rule-sm { margin-bottom: 1.2rem; }
+
+    /* Differentiator */
+    .differentiator {
+      background: var(--amber);
+      padding: clamp(3rem, 5vw, 5rem) var(--pad-x);
+      text-align: center;
+    }
+
+    .differentiator-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .differentiator h2 {
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+
+    .differentiator p {
+      color: rgba(27, 42, 74, 0.75);
+      font-size: 1.05rem;
+      margin: 0 auto 2rem;
+    }
+
+    /* CTA */
+    .work-cta {
+      text-align: center;
+      background: var(--warm-white);
+    }
+
+    .work-cta h2 { margin-bottom: 1.2rem; }
+    .work-cta p { color: var(--ink); margin: 0 auto 2.5rem; font-size: 1.05rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .service-grid         { grid-template-columns: 1fr; }
+      .service-grid.reverse { direction: ltr; }
+      .delivery-grid        { grid-template-columns: 1fr; }
+      .service-nav-strip-inner { flex-wrap: wrap; gap: 0; }
+      .service-nav-link { margin-right: 1.5rem; }
+    }
+
+    /* Nested Diagnostic block within Leadership Effectiveness */
+    .diagnostic-nested {
+      margin-top: 2.5rem;
+      padding: 2rem 2rem 2rem 2.5rem;
+      border-left: 2px solid var(--amber);
+      background: rgba(196, 154, 60, 0.04);
+    }
+
+    .diagnostic-nested-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .diagnostic-nested h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .diagnostic-nested p {
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    .diagnostic-nested p + p {
+      margin-top: 0.8em;
+    }
+
+    .diagnostic-nested .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      transition: gap var(--transition);
+    }
+
+    .diagnostic-nested .card-link:hover { gap: 0.8rem; }
+    .diagnostic-nested .card-link::after { content: '→'; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="nav-descriptor">Leadership &amp; Organisational Advisory</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="label">The Work</span>
+      <h1>How we create clarity.</h1>
+      <p class="page-hero-sub">Every engagement starts with the same question: what is actually in the way? The answer shapes everything that follows.</p>
+    </div>
+  </header>
+
+  <!-- ── SERVICE NAV ── -->
+  <div class="service-nav-strip">
+    <div class="service-nav-strip-inner">
+      <a href="#ai" class="service-nav-link">AI Transformation</a>
+      <a href="#leadership" class="service-nav-link">Leadership Effectiveness</a>
+      <a href="#talent" class="service-nav-link">Talent Strategy</a>
+    </div>
+  </div>
+
+  <!-- ── SERVICE 01: AI TRANSFORMATION ── -->
+  <section class="service-section" id="ai">
+    <div class="service-grid">
+      <div class="service-left fade-in">
+        <div class="service-num">01</div>
+        <span class="label">AI Transformation Readiness</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>If AI sits in IT, it stalls. If it sits in the business, it scales.</h2>
+        <div class="service-tagline">
+          "20% technology. 80% culture. Most organisations keep getting this ratio backwards."
+        </div>
+      </div>
+      <div class="service-right fade-in">
+        <p>Most organisations have made the investment. The tools are in place. The ambition is real. And the initiative is stalling — or the patterns forming suggest it will.</p>
+        <p>The problem is almost never the technology. It is the leadership team that has not decided who actually owns AI outcomes. The governance structure that placed the initiative in IT rather than the business. The culture that was not ready to change how work actually gets done. And underneath all of it — a workforce whose roles are changing faster than anyone has acknowledged, because nobody has had the explicit conversation about what AI does to the work itself.</p>
+        <p>DeepClarity works at the level where these problems actually live: the senior team's clarity on purpose and ownership, the governance conditions that allow adoption to move beyond early pilots, and the honest conversation about workforce implications that most organisations are having too late — or not at all.</p>
+        <div class="expect-list">
+          <h4>What this engagement addresses</h4>
+          <div class="expect-items">
+            <div class="expect-item"><p>Leadership alignment on AI purpose, ownership, and what success actually means — beyond pilot metrics</p></div>
+            <div class="expect-item"><p>Governance and accountability structures that keep AI outcomes in the business, not IT</p></div>
+            <div class="expect-item"><p>The workforce and role implications of AI adoption — addressed deliberately, not discovered after the fact</p></div>
+            <div class="expect-item"><p>The honest conversation about what needs to change — and who needs to lead it — that the organisation has been deferring</p></div>
+          </div>
+        </div>
+        <div class="for-whom">
+          <h4>This engagement is for you if</h4>
+          <p>You are a senior business leader or CHRO whose AI initiative is underdelivering — or you are about to launch one and want to get the human and leadership conditions right from the start. Particularly relevant for organisations navigating global mandates that do not account for Asia Pacific operational reality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICE 02: LEADERSHIP ── -->
+  <section class="service-section" id="leadership">
+    <div class="service-grid reverse">
+      <div class="service-left fade-in">
+        <div class="service-num">02</div>
+        <span class="label">Senior Leadership Team Effectiveness</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>The misalignment that's hidden in plain sight.</h2>
+        <div class="service-tagline">
+          "Most misalignment in leadership teams isn't visible until execution starts. By then it's expensive."
+        </div>
+      </div>
+      <div class="service-right fade-in">
+        <p>Your leadership team is capable. Everyone in the room is smart and well-intentioned. But something isn't working — strategy that isn't translating into execution, energy spent on internal friction rather than external progress, conversations that everyone knows need to happen but somehow never do.</p>
+        <p>This is rarely a skills problem. It is a clarity and alignment problem. Leaders performing for each other rather than being honest with each other. Decisions being made — or avoided — without shared understanding of what they are actually trying to achieve.</p>
+        <p>DeepClarity surfaces the misalignment that is hidden in plain sight, enables the conversations teams are avoiding, and builds the aligned leadership culture that makes strategy executable.</p>
+        <div class="expect-list">
+          <h4>What this engagement addresses</h4>
+          <div class="expect-items">
+            <div class="expect-item"><p>Diagnosing what is actually getting in the way — not the presenting issue, the real one</p></div>
+            <div class="expect-item"><p>Enabling the conversations the team has been avoiding</p></div>
+            <div class="expect-item"><p>Building genuine alignment — not the surface agreement that collapses under execution pressure</p></div>
+            <div class="expect-item"><p>Developing the team norms and dynamics that sustain high performance over time</p></div>
+          </div>
+        </div>
+        <div class="for-whom">
+          <h4>This engagement is for you if</h4>
+          <p>You lead or sit on a senior leadership team that is capable but not performing at its potential. You may be a business leader who knows the team needs to have a conversation it keeps avoiding — or a CHRO who can see what is getting in the way but needs an outside perspective to name it.</p>
+        </div>
+        <div class="diagnostic-nested">
+          <div class="diagnostic-nested-label">The engagement</div>
+          <h3>Leadership Decision Diagnostic</h3>
+          <p>A 2–3 week engagement that surfaces the decisions your leadership team is avoiding and forces alignment on what to do next. It ends with a precise output: the 3–5 decisions blocking execution, and a clear recommended direction for each — not a list of options, a point of view.</p>
+          <p>Designed for CEOs, Regional Presidents, and Managing Directors who know something isn't moving and need to name what's actually at the centre of it. Scoped and priced as a defined engagement, not an open-ended retainer.</p>
+          <a href="contact.html" class="card-link">Enquire about this engagement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICE 03: TALENT ── -->
+  <section class="service-section" id="talent">
+    <div class="service-grid">
+      <div class="service-left fade-in">
+        <div class="service-num">03</div>
+        <span class="label">Talent Strategy</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>The difference between a talent strategy and a talent program.</h2>
+        <div class="service-tagline">
+          "Most organisations have the latter. A talent program fills a calendar. A talent strategy builds an organisation."
+        </div>
+      </div>
+      <div class="service-right fade-in">
+        <p>Most organisations have talent programmes. Assessment cycles, development frameworks, succession pipelines. Calendars full of activity. But the commercial priorities and the talent architecture exist in parallel — both credible on paper, rarely integrated in practice.</p>
+        <p>The gap is not the tools. It is that the talent strategy was built by HR for HR rather than built by HR for the business. Critical roles are defined by the org chart, not by what the next stage of growth actually requires. Succession conversations happen on a cycle, not when the business needs them. Development investment goes to the visible, not the critical.</p>
+        <p>DeepClarity builds talent architecture that connects directly to commercial priorities — and that the organisation can own and sustain independently. The goal is never dependency on an external adviser. It is a talent system that runs without one.</p>
+        <div class="expect-list">
+          <h4>What this engagement addresses</h4>
+          <div class="expect-items">
+            <div class="expect-item"><p>Talent assessment and role architecture aligned to where the business is actually going — not where it has been</p></div>
+            <div class="expect-item"><p>Succession and pipeline strategy built around critical roles, not just senior ones</p></div>
+            <div class="expect-item"><p>The accountability conversation that most talent strategies avoid: leaders responsible for talent outcomes, not just HR</p></div>
+            <div class="expect-item"><p>Internal HR capability built to sustain the strategy after the engagement ends</p></div>
+          </div>
+        </div>
+        <div class="for-whom">
+          <h4>This engagement is for you if</h4>
+          <p>You are a CHRO or Regional HR VP who knows your talent strategy is not working as hard as it should. You have the programmes. You need the architecture that connects them to the business — and the discipline to make leaders accountable for it, not just HR. Particularly relevant for organisations in Asia Pacific navigating rapid growth or significant business model change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DELIVERY MODEL ── -->
+  <div class="delivery">
+    <div class="delivery-inner">
+      <span class="label">How we work</span>
+      <h2>The delivery model.</h2>
+      <div class="delivery-grid">
+        <div class="delivery-card fade-in">
+          <div class="amber-rule-sm"></div>
+          <h3>Solo practitioner. Senior access throughout.</h3>
+          <p>Francis leads every engagement directly. You are not handed to a junior team after the sale. The experience and judgment you're engaging is the experience and judgment you work with.</p>
+        </div>
+        <div class="delivery-card fade-in">
+          <div class="amber-rule-sm"></div>
+          <h3>Retainer and project-based.</h3>
+          <p>Engagements are structured as retainers or defined projects — not open-ended consulting that runs indefinitely. Scope and success measures are agreed at the start. Every engagement is designed to end.</p>
+        </div>
+        <div class="delivery-card fade-in">
+          <div class="amber-rule-sm"></div>
+          <h3>No junior handoffs. Ever.</h3>
+          <p>Francis engages directly — from the first conversation through to the final session. There is no associate network between you and the work. The experience and judgment you're engaging is present in the room throughout.</p>
+        </div>
+        <div class="delivery-card fade-in">
+          <div class="amber-rule-sm"></div>
+          <h3>Built to transfer. Not to extend.</h3>
+          <p>Every engagement is designed with capability transfer in mind. DeepClarity measures success by what's still working six months after we've gone — not by how long we can extend the engagement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DIFFERENTIATOR ── -->
+  <div class="differentiator fade-in">
+    <div class="differentiator-inner">
+      <h2>Large firms sell methodology.<br>DeepClarity brings judgment.</h2>
+      <p>Judgment does not scale — which is precisely why it cannot be replicated. Nearly 25 years of leading transformation from the inside across Asia Pacific's most complex organisations. Not a framework. Not a program. A practitioner who has seen this from the inside and knows what it actually takes.</p>
+      <a href="contact.html" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <section class="work-cta fade-in">
+    <div class="amber-rule" style="margin: 0 auto 2rem;"></div>
+    <h2>Not sure which engagement is right?</h2>
+    <p>Most conversations start with a situation, not a service. Tell me what you're navigating — and we'll work out what's needed from there.</p>
+    <a href="contact.html" class="btn btn-primary">Get in touch</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="footer-tagline">Clarity before momentum.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>
+      </div>
+      <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
