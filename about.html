@@ -301,6 +301,21 @@
     @media (max-width: 600px) {
       .foundations-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── MOBILE NAV MENU OVERRIDE ── */
+    @media (max-width: 900px) {
+      .nav-links.open {
+        background: var(--navy) !important;
+        border-top: 1px solid rgba(245, 243, 238, 0.12);
+      }
+      .nav-links.open a {
+        color: var(--warm-white) !important;
+      }
+      .nav-links.open a:hover,
+      .nav-links.open a.active {
+        color: var(--amber) !important;
+      }
+    }
   </style>
 </head>
 <body>
