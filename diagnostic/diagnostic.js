@@ -122,7 +122,14 @@ function dcPrefill(responses) {
 
 /**
  * Standard page bootstrap. Call from each section page:
- *   dcBootstrapPage({ dimension: 'D1', page: 'd1-a', nextPage: 'd1-b.html' });
+ *   dcBootstrapPage({ dimension: 'D1', prevPage: 'd1-a.html', nextPage: 'd1-b.html' });
+ *
+ * `nextPage` is also what gets written to Clients.current_page when Continue
+ * is clicked (stripped of ".html"), since that's where the respondent should
+ * resume next time. `prevPage` (optional — omit on the very first page) wires
+ * up a Back button so respondents can revisit and edit earlier sections;
+ * Back never overwrites current_page, so the resume link still points to the
+ * furthest section reached.
  */
 function dcBootstrapPage(opts) {
   document.addEventListener('DOMContentLoaded', function () {
@@ -142,9 +149,17 @@ function dcBootstrapPage(opts) {
       const continueBtn = document.getElementById('dcContinue');
       if (continueBtn) {
         continueBtn.addEventListener('click', function () {
-          DC.setCurrentPage(opts.page).finally(function () {
+          const resumeCode = opts.nextPage.replace('.html', '');
+          DC.setCurrentPage(resumeCode).finally(function () {
             window.location.href = DC.withToken(opts.nextPage);
           });
+        });
+      }
+
+      const backBtn = document.getElementById('dcBack');
+      if (backBtn && opts.prevPage) {
+        backBtn.addEventListener('click', function () {
+          window.location.href = DC.withToken(opts.prevPage);
         });
       }
     });

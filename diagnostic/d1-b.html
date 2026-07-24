@@ -30,86 +30,82 @@
   <div class="dc-question">
     <span class="dc-question-number">Q6</span>
     <p class="dc-question-text">What products and services does your business currently offer? For each category, indicate whether you carry it and describe your brand and tier positioning.</p>
-    <div class="dc-table-wrap">
-      <table class="dc-table">
-        <thead>
-          <tr><th>Category</th><th>Carry?</th><th>Brand / tier positioning (luxury / mid-range / value)</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="dc-table-label">Prescription frames</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_frames_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_frames_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_frames_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Prescription lenses (single vision, bifocal, progressive)</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_rx_lenses_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_rx_lenses_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_rx_lenses_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Specialty lenses (ortho-k, myopia control, high-index, scleral)</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_specialty_lenses_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_specialty_lenses_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_specialty_lenses_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Sunglasses – prescription</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_sunglasses_rx_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_sunglasses_rx_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_sunglasses_rx_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Sunglasses – non-prescription / fashion</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_sunglasses_fashion_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_sunglasses_fashion_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_sunglasses_fashion_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Contact lenses – prescription (daily, reusable, speciality e.g. toric, multifocal, myopia)</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_contact_lenses_rx_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_contact_lenses_rx_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_contact_lenses_rx_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Beauty / cosmetic contact lenses</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_beauty_lenses_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_beauty_lenses_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_beauty_lenses_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Accessories (cases, cleaning solutions, straps, chains)</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_accessories_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_accessories_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_accessories_positioning" data-autosave /></td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Other (describe below)</td>
-            <td class="dc-yn">
-              <label><input type="radio" name="Q6_other_carry" value="Yes" data-autosave> Yes</label>
-              <label><input type="radio" name="Q6_other_carry" value="No" data-autosave> No</label>
-            </td>
-            <td><input type="text" name="Q6_other_positioning" data-autosave /></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="dc-qtable">
+      <div class="dc-qtable-head">
+        <span>Category</span><span>Carry?</span><span>Brand / tier positioning</span>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Prescription frames</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_frames_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_frames_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_frames_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Prescription lenses (single vision, bifocal, progressive)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_rx_lenses_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_rx_lenses_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_rx_lenses_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Specialty lenses (ortho-k, myopia control, high-index, scleral)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_specialty_lenses_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_specialty_lenses_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_specialty_lenses_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Sunglasses – prescription</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_sunglasses_rx_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_sunglasses_rx_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_sunglasses_rx_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Sunglasses – non-prescription / fashion</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_sunglasses_fashion_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_sunglasses_fashion_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_sunglasses_fashion_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Contact lenses – prescription (daily, reusable, speciality e.g. toric, multifocal, myopia)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_contact_lenses_rx_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_contact_lenses_rx_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_contact_lenses_rx_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Beauty / cosmetic contact lenses</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_beauty_lenses_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_beauty_lenses_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_beauty_lenses_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Accessories (cases, cleaning solutions, straps, chains)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_accessories_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_accessories_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_accessories_positioning" data-autosave />
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Other (describe below)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q6_other_carry" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q6_other_carry" value="No" data-autosave> No</label>
+        </div>
+        <input type="text" name="Q6_other_positioning" data-autosave />
+      </div>
     </div>
     <div class="dc-field" style="margin-top:1rem;">
       <textarea name="Q6_other_describe" data-autosave placeholder="If 'Other', describe it here"></textarea>
@@ -132,8 +128,11 @@
   </div>
 
   <div class="dc-nav-row">
-    <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
-    <button class="btn btn-primary" id="dcContinue">Continue</button>
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
   </div>
 </main>
 
@@ -148,6 +147,6 @@
 </footer>
 
 <script src="diagnostic.js"></script>
-<script>dcBootstrapPage({ dimension: 'D1', page: 'd1-b', nextPage: 'd1-c.html' });</script>
+<script>dcBootstrapPage({ dimension: 'D1', prevPage: 'd1-a.html', nextPage: 'd1-c.html' });</script>
 </body>
 </html>

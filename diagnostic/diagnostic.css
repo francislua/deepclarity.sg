@@ -176,36 +176,49 @@
   flex-shrink: 0;
 }
 
-/* Table-style questions (Q6, Q11) */
-.dc-table-wrap { overflow-x: auto; margin-top: 1rem; }
+/* Table-style questions (Q6, Q11) — built as CSS grid rows rather than an
+   HTML <table>, so a wrapping category label never collides with the row's
+   divider line (a literal <table> lets sibling cells fall out of sync in
+   height, which visually cut rules through wrapped text). */
+.dc-qtable { margin-top: 1rem; font-size: 0.85rem; }
 
-.dc-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85rem;
+.dc-qtable-head {
+  display: grid;
+  grid-template-columns: 1.6fr auto 2fr;
+  gap: 1.2rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--grey-light);
 }
 
-.dc-table th {
-  text-align: left;
+.dc-qtable-head.dc-qtable-2col { grid-template-columns: 1.8fr 1fr 1.2fr; }
+
+.dc-qtable-head span {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey);
   font-weight: 500;
-  padding: 0.6rem 0.8rem;
+}
+
+.dc-qtable-row {
+  display: grid;
+  grid-template-columns: 1.6fr auto 2fr;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--grey-light);
 }
 
-.dc-table td {
-  padding: 0.6rem 0.8rem;
-  border-bottom: 1px solid var(--grey-light);
-  vertical-align: middle;
-}
+.dc-qtable-row.dc-qtable-2col { grid-template-columns: 1.8fr 1fr 1.2fr; }
 
-.dc-table td.dc-table-label { color: var(--navy); font-weight: 400; max-width: 26ch; }
-.dc-table .dc-yn { display: flex; gap: 1rem; white-space: nowrap; }
-.dc-table .dc-yn label { display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer; }
-.dc-table input[type="text"] {
+.dc-qtable-row:last-child { border-bottom: none; }
+
+.dc-qtable-label { color: var(--navy); font-weight: 400; font-size: 0.92rem; line-height: 1.5; }
+
+.dc-qtable .dc-yn { display: flex; gap: 1rem; white-space: nowrap; }
+.dc-qtable .dc-yn label { display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer; }
+
+.dc-qtable input[type="text"] {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--grey-light);
@@ -215,21 +228,55 @@
   font-size: 0.88rem;
   color: var(--navy);
 }
-.dc-table input[type="text"]:focus { outline: none; border-bottom-color: var(--navy); }
-.dc-table .dc-reference { color: var(--grey); font-style: italic; }
+.dc-qtable input[type="text"]:focus { outline: none; border-bottom-color: var(--navy); }
+.dc-qtable .dc-reference { color: var(--grey); font-style: italic; font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .dc-qtable-head { display: none; }
+  .dc-qtable-row,
+  .dc-qtable-row.dc-qtable-2col {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 1.2rem 0;
+  }
+}
 
 /* Nav row */
 .dc-nav-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.dc-nav-row-right {
+  display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .dc-nav-note {
   font-size: 0.78rem;
   color: var(--grey);
+}
+
+/* Review/edit links (used on the pilot-end page to jump into any section) */
+.dc-review-link {
+  display: block;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--grey-light);
+  color: var(--navy);
+  font-size: 0.92rem;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.dc-review-link:hover {
+  border-color: var(--navy);
+  background: rgba(27, 42, 74, 0.03);
 }
 
 /* Locked / gated placeholder (used by future D2B, D7, D8 pages) */
@@ -275,10 +322,17 @@
 
 .dc-confidentiality h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--navy);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.dc-confidentiality p {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.65;
+  max-width: 60ch;
 }
 
 .dc-progress-bar-track {

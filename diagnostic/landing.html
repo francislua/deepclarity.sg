@@ -61,7 +61,8 @@
   const DC_PAGE_MAP = {
     'landing': 'd1-a.html',
     'd1-a': 'd1-a.html', 'd1-b': 'd1-b.html', 'd1-c': 'd1-c.html',
-    'd1-d': 'd1-d.html', 'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html'
+    'd1-d': 'd1-d.html', 'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html',
+    'pilot-end': 'pilot-end.html'
   };
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -80,7 +81,7 @@
       document.getElementById('dcPracticeLabel').textContent = state.practice_name || '';
 
       // Simple progress estimate for the D1 pilot: current_page position among 7 D1 pages.
-      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g'];
+      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','pilot-end'];
       const idx = order.indexOf(state.current_page);
       const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
       document.getElementById('dcProgressFill').style.width = pct + '%';

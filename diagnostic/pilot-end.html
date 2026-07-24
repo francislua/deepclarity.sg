@@ -18,10 +18,23 @@
   </div>
 </header>
 
-<main class="dc-main" style="text-align:center;">
-  <div class="dc-locked" style="margin-top:2rem;">
+<main class="dc-main">
+  <div class="dc-locked" style="margin-top:2rem;text-align:center;">
     <h3>You have reached the end of the D1 pilot.</h3>
     <p>This is a temporary stop, not the real completion page. Dimensions D2 through D8 are built next, using this same pattern; once they are live, this page is replaced by the actual completion screen described in the structure document.</p>
+  </div>
+
+  <div style="margin-top:2.5rem;">
+    <p class="dc-section-title">Review or edit any section</p>
+    <div style="display:flex;flex-direction:column;gap:0.6rem;" id="dcReviewLinks">
+      <a class="dc-review-link" href="d1-a.html">A · Your Value Proposition</a>
+      <a class="dc-review-link" href="d1-b.html">B · Product Portfolio and Positioning</a>
+      <a class="dc-review-link" href="d1-c.html">C · Clinical Services and Programmes</a>
+      <a class="dc-review-link" href="d1-d.html">D · Customer Data and Retention</a>
+      <a class="dc-review-link" href="d1-e.html">E · Conversion</a>
+      <a class="dc-review-link" href="d1-f.html">F · Online Presence</a>
+      <a class="dc-review-link" href="d1-g.html">G · Business Model Evolution</a>
+    </div>
   </div>
 </main>
 
@@ -35,5 +48,17 @@
   </div>
 </footer>
 
+<script src="diagnostic.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!DC.token) {
+      window.location.href = 'landing.html';
+      return;
+    }
+    document.querySelectorAll('#dcReviewLinks a').forEach(function (a) {
+      a.href = DC.withToken(a.getAttribute('href'));
+    });
+  });
+</script>
 </body>
 </html>

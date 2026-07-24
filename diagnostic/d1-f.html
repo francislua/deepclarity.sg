@@ -46,8 +46,11 @@
   </div>
 
   <div class="dc-nav-row">
-    <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
-    <button class="btn btn-primary" id="dcContinue">Continue</button>
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
   </div>
 </main>
 
@@ -62,6 +65,6 @@
 </footer>
 
 <script src="diagnostic.js"></script>
-<script>dcBootstrapPage({ dimension: 'D1', page: 'd1-f', nextPage: 'd1-g.html' });</script>
+<script>dcBootstrapPage({ dimension: 'D1', prevPage: 'd1-e.html', nextPage: 'd1-g.html' });</script>
 </body>
 </html>

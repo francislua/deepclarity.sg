@@ -56,42 +56,40 @@
     <span class="dc-question-number">Q11</span>
     <p class="dc-question-text">From your records or best estimate, what proportion of revenue comes from each of the following categories?</p>
     <p class="dc-question-help">Estimates are fine. Benchmark ranges are provided as a reference; they are not targets.</p>
-    <div class="dc-table-wrap">
-      <table class="dc-table">
-        <thead><tr><th>Category</th><th>Your estimate (%)</th><th>Typical range</th></tr></thead>
-        <tbody>
-          <tr>
-            <td class="dc-table-label">Frames and complete eyewear</td>
-            <td><input type="text" name="Q11_frames_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">50–65%</td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Eye examination fees</td>
-            <td><input type="text" name="Q11_exam_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">10–20%</td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Contact lenses (prescription)</td>
-            <td><input type="text" name="Q11_cl_rx_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">10–20%</td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Contact lenses (beauty / cosmetic)</td>
-            <td><input type="text" name="Q11_cl_beauty_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">2–8%</td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Specialty lenses and clinical programmes</td>
-            <td><input type="text" name="Q11_specialty_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">5–15%</td>
-          </tr>
-          <tr>
-            <td class="dc-table-label">Accessories and other</td>
-            <td><input type="text" name="Q11_accessories_pct" data-autosave placeholder="%" /></td>
-            <td class="dc-reference">2–5%</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="dc-qtable">
+      <div class="dc-qtable-head dc-qtable-2col">
+        <span>Category</span><span>Your estimate (%)</span><span>Typical range</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Frames and complete eyewear</div>
+        <input type="text" name="Q11_frames_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">50–65%</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Eye examination fees</div>
+        <input type="text" name="Q11_exam_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">10–20%</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Contact lenses (prescription)</div>
+        <input type="text" name="Q11_cl_rx_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">10–20%</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Contact lenses (beauty / cosmetic)</div>
+        <input type="text" name="Q11_cl_beauty_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">2–8%</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Specialty lenses and clinical programmes</div>
+        <input type="text" name="Q11_specialty_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">5–15%</span>
+      </div>
+      <div class="dc-qtable-row dc-qtable-2col">
+        <div class="dc-qtable-label">Accessories and other</div>
+        <input type="text" name="Q11_accessories_pct" data-autosave placeholder="%" />
+        <span class="dc-reference">2–5%</span>
+      </div>
     </div>
   </div>
 
@@ -120,8 +118,11 @@
   </div>
 
   <div class="dc-nav-row">
-    <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
-    <button class="btn btn-primary" id="dcContinue">Continue</button>
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
   </div>
 </main>
 
@@ -136,6 +137,6 @@
 </footer>
 
 <script src="diagnostic.js"></script>
-<script>dcBootstrapPage({ dimension: 'D1', page: 'd1-d', nextPage: 'd1-e.html' });</script>
+<script>dcBootstrapPage({ dimension: 'D1', prevPage: 'd1-c.html', nextPage: 'd1-e.html' });</script>
 </body>
 </html>
