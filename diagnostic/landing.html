@@ -17,7 +17,10 @@
         <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
       </div>
     </a>
-    <span class="dc-progress" id="dcPracticeLabel"></span>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress" id="dcPracticeLabel"></span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
   </div>
 </header>
 
@@ -37,6 +40,21 @@
     <div class="dc-confidentiality">
       <h3>Confidentiality</h3>
       <p>Everything entered here is treated as confidential business information. Responses are stored securely within DeepClarity's own systems and are visible only to your consultant. Nothing is shared with third parties, and information co-developed with the Optical Trade Association of Singapore follows the same confidentiality standard as the rest of this diagnostic.</p>
+    </div>
+
+    <div class="dc-confidentiality">
+      <h3>Business Snapshot</h3>
+      <p>A couple of quick facts about your practice before we begin. These help set context and are not part of the diagnostic dimensions that follow.</p>
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;">
+        <div>
+          <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">Years running this business</label>
+          <div class="dc-field dc-field-inline"><input type="text" name="years_running_business" data-autosave /></div>
+        </div>
+        <div>
+          <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">Number of outlets</label>
+          <div class="dc-field dc-field-inline"><input type="text" name="number_of_outlets" data-autosave /></div>
+        </div>
+      </div>
     </div>
 
     <div class="dc-nav-row">
@@ -79,6 +97,13 @@
       document.getElementById('dcContent').style.display = 'block';
       document.getElementById('dcPracticeName').textContent = state.practice_name || 'there';
       document.getElementById('dcPracticeLabel').textContent = state.practice_name || '';
+
+      // Business Snapshot fields save straight to the Clients tab (dimension: 'Clients').
+      dcPrefill({
+        years_running_business: state.years_running_business,
+        number_of_outlets: state.number_of_outlets
+      });
+      dcInitAutosave('Clients');
 
       // Simple progress estimate for the D1 pilot: current_page position among 7 D1 pages.
       const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','pilot-end'];
