@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D1 · Clinical Services — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 3 of 7 · Business Model</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<main class="dc-main">
+  <span class="dc-eyebrow label">D1 — Business Model</span>
+  <h1>Clinical Services and Programmes</h1>
+  <p class="dc-section-title">Section C · Questions Q8–Q9</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q8</span>
+    <p class="dc-question-text">Do you offer any structured clinical programmes beyond standard eye examinations? Tick all that apply.</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Myopia management" data-autosave> Myopia management (e.g. orthokeratology, myopia control lenses, atropine therapy)</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Contact lens fitting programmes" data-autosave> Contact lens fitting programmes</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Low vision assessment and management" data-autosave> Low vision assessment and management</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Glaucoma or intraocular pressure screening" data-autosave> Glaucoma or intraocular pressure screening</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Diabetic retinopathy or anterior segment screening" data-autosave> Diabetic retinopathy or anterior segment screening</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Dry eye assessment and management" data-autosave> Dry eye assessment and management</label>
+      <label class="dc-option"><input type="checkbox" name="Q8_programmes" value="Other" data-autosave> Other (describe below)</label>
+    </div>
+    <div class="dc-field" style="margin-top:1rem;">
+      <textarea name="Q8_other_describe" data-autosave placeholder="If 'Other', describe it here"></textarea>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If you offer myopia management or other structured programmes, approximately what proportion of your patient base is involved, and is this growing?</p>
+    <div class="dc-field">
+      <textarea name="Q8_proportion_growing" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q9</span>
+    <p class="dc-question-text">Are you currently involved in, or have you considered, any co-management arrangements with hospitals, polyclinics, or specialist clinics?</p>
+    <div class="dc-field">
+      <textarea name="Q9_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-nav-row">
+    <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
+    <button class="btn btn-primary" id="dcContinue">Continue</button>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D1', page: 'd1-c', nextPage: 'd1-d.html' });</script>
+</body>
+</html>

@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your DeepClarity Business Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
 
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      </div>
+    </a>
+    <span class="dc-progress" id="dcPracticeLabel"></span>
+  </div>
+</header>
+
+<main class="dc-main" id="dcMain">
+  <div class="dc-loading" id="dcLoading">Loading your diagnostic…</div>
+
+  <div id="dcContent" style="display:none;">
+    <span class="dc-eyebrow label">Welcome to your DeepClarity Business Diagnostic</span>
+    <h1 id="dcWelcomeHeading">Welcome, <span id="dcPracticeName">there</span>.</h1>
+
+    <div class="dc-progress-bar-track"><div class="dc-progress-bar-fill" id="dcProgressFill" style="width:0%"></div></div>
+
+    <p>This questionnaire is a thinking prompt, not a test. Complete what you can before your first meeting. There are no wrong answers, and finishing every section is not required. Some questions are best explored together during your discussion sessions, so leave them if they do not feel ready yet.</p>
+
+    <p>Your answers save automatically as you go. You do not need to click a save button; a small "Saved" note will confirm each answer has been recorded. This link is unique to your practice, so returning to it later brings you back to exactly where you left off, on any device.</p>
+
+    <div class="dc-confidentiality">
+      <h3>Confidentiality</h3>
+      <p>Everything entered here is treated as confidential business information. Responses are stored securely within DeepClarity's own systems and are visible only to your consultant. Nothing is shared with third parties, and information co-developed with the Optical Trade Association of Singapore follows the same confidentiality standard as the rest of this diagnostic.</p>
+    </div>
+
+    <div class="dc-nav-row">
+      <button class="btn btn-primary" id="dcContinueBtn">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>
+  // Maps the `current_page` value stored in Clients to the actual file to open.
+  const DC_PAGE_MAP = {
+    'landing': 'd1-a.html',
+    'd1-a': 'd1-a.html', 'd1-b': 'd1-b.html', 'd1-c': 'd1-c.html',
+    'd1-d': 'd1-d.html', 'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html'
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!DC.token) {
+      document.getElementById('dcLoading').textContent = 'This link is missing its access token. Please use the link your consultant sent you.';
+      return;
+    }
+    DC.loadState().then(function (state) {
+      document.getElementById('dcLoading').style.display = 'none';
+      if (!state || state.error) {
+        document.getElementById('dcMain').innerHTML = '<p class="dc-error">' + (state && state.error ? state.error : 'This link could not be verified.') + '</p>';
+        return;
+      }
+      document.getElementById('dcContent').style.display = 'block';
+      document.getElementById('dcPracticeName').textContent = state.practice_name || 'there';
+      document.getElementById('dcPracticeLabel').textContent = state.practice_name || '';
+
+      // Simple progress estimate for the D1 pilot: current_page position among 7 D1 pages.
+      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g'];
+      const idx = order.indexOf(state.current_page);
+      const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
+      document.getElementById('dcProgressFill').style.width = pct + '%';
+
+      const target = DC_PAGE_MAP[state.current_page] || 'd1-a.html';
+      document.getElementById('dcContinueBtn').addEventListener('click', function () {
+        window.location.href = DC.withToken(target);
+      });
+    }).catch(function () {
+      document.getElementById('dcLoading').textContent = 'Could not reach the diagnostic service. Please check your connection and try again.';
+    });
+  });
+</script>
+
+</body>
+</html>

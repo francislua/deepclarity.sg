@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D1 · Customer Data and Retention — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 4 of 7 · Business Model</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<main class="dc-main">
+  <span class="dc-eyebrow label">D1 — Business Model</span>
+  <h1>Customer Data and Retention</h1>
+  <p class="dc-section-title">Section D · Questions Q10–Q13</p>
+  <p class="dc-question-help">Estimates are fine here. We are also assessing what data you track, not just the numbers themselves.</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q10</span>
+    <p class="dc-question-text">What data do you currently capture about your customers and patients? Where is it stored, and who is responsible for maintaining it?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Basic contact details" data-autosave> Basic contact details (name, phone, email)</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Prescription history and eye examination records" data-autosave> Prescription history and eye examination records</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Purchase history and transaction records" data-autosave> Purchase history and transaction records</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Recall dates and follow-up reminder dates" data-autosave> Recall dates and follow-up reminder dates</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Myopia progression data" data-autosave> Myopia progression data</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Contact lens wearing schedule and replacement history" data-autosave> Contact lens wearing schedule and replacement history</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Chronic condition monitoring data" data-autosave> Chronic condition monitoring data (glaucoma, diabetic retinopathy, etc.)</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Appointment history" data-autosave> Appointment history</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Marketing consent and communication preferences" data-autosave> Marketing consent and communication preferences</label>
+      <label class="dc-option"><input type="checkbox" name="Q10_data_types" value="Other" data-autosave> Other (describe below)</label>
+    </div>
+    <div class="dc-field" style="margin-top:1rem;">
+      <textarea name="Q10_other_describe" data-autosave placeholder="If 'Other', describe it here"></textarea>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">What system or tool do you use to store this data?</p>
+    <div class="dc-field">
+      <textarea name="Q10_storage_system" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q11</span>
+    <p class="dc-question-text">From your records or best estimate, what proportion of revenue comes from each of the following categories?</p>
+    <p class="dc-question-help">Estimates are fine. Benchmark ranges are provided as a reference; they are not targets.</p>
+    <div class="dc-table-wrap">
+      <table class="dc-table">
+        <thead><tr><th>Category</th><th>Your estimate (%)</th><th>Typical range</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="dc-table-label">Frames and complete eyewear</td>
+            <td><input type="text" name="Q11_frames_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">50–65%</td>
+          </tr>
+          <tr>
+            <td class="dc-table-label">Eye examination fees</td>
+            <td><input type="text" name="Q11_exam_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">10–20%</td>
+          </tr>
+          <tr>
+            <td class="dc-table-label">Contact lenses (prescription)</td>
+            <td><input type="text" name="Q11_cl_rx_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">10–20%</td>
+          </tr>
+          <tr>
+            <td class="dc-table-label">Contact lenses (beauty / cosmetic)</td>
+            <td><input type="text" name="Q11_cl_beauty_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">2–8%</td>
+          </tr>
+          <tr>
+            <td class="dc-table-label">Specialty lenses and clinical programmes</td>
+            <td><input type="text" name="Q11_specialty_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">5–15%</td>
+          </tr>
+          <tr>
+            <td class="dc-table-label">Accessories and other</td>
+            <td><input type="text" name="Q11_accessories_pct" data-autosave placeholder="%" /></td>
+            <td class="dc-reference">2–5%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q12</span>
+    <p class="dc-question-text">From your records or best estimate, what proportion of your customers in a typical year are first-time visitors versus returning customers?</p>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;">
+      <div>
+        <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">First-time visitors</label>
+        <div class="dc-field dc-field-inline"><input type="text" name="Q12_first_time_pct" data-autosave placeholder="%" /></div>
+      </div>
+      <div>
+        <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">Returning customers</label>
+        <div class="dc-field dc-field-inline"><input type="text" name="Q12_returning_pct" data-autosave placeholder="%" /></div>
+      </div>
+    </div>
+    <p class="dc-question-help" style="margin-top:1rem;">Benchmark guidance: a well-managed optical practice typically sees 60–70% of annual customers as returning patients on a 1–2 year recall cycle.</p>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q13</span>
+    <p class="dc-question-text">Do you have a sense of customers who came once and did not return? How would you know, and do you have a view on why?</p>
+    <div class="dc-field">
+      <textarea name="Q13_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-nav-row">
+    <span class="dc-nav-note">Your answers are already saved — Continue just takes you to the next section.</span>
+    <button class="btn btn-primary" id="dcContinue">Continue</button>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D1', page: 'd1-d', nextPage: 'd1-e.html' });</script>
+</body>
+</html>
