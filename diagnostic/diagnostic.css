@@ -316,6 +316,23 @@
   color: var(--warm-white);
 }
 
+.dc-jumpnav-home {
+  width: auto !important;
+  height: 2rem;
+  border-radius: 999px !important;
+  padding: 0 0.9rem;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dc-jumpnav-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--grey-light);
+  margin: 0 0.3rem;
+}
+
 /* Locked / gated placeholder (used by future D2B, D7, D8 pages) */
 .dc-locked {
   background: rgba(27, 42, 74, 0.04);
