@@ -279,6 +279,43 @@
   background: rgba(27, 42, 74, 0.03);
 }
 
+/* Jump-to-section nav — a slim strip below the header, present on every
+   page, so respondents aren't limited to sequential Back/Continue. */
+.dc-jumpnav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 760px;
+  margin: 1.4rem auto 0;
+  padding: 0 var(--pad-x);
+}
+
+.dc-jumpnav a {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--grey-light);
+  border-radius: 50%;
+  color: var(--grey);
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: var(--warm-white);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.dc-jumpnav a:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.dc-jumpnav a.is-active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--warm-white);
+}
+
 /* Locked / gated placeholder (used by future D2B, D7, D8 pages) */
 .dc-locked {
   background: rgba(27, 42, 74, 0.04);

@@ -121,6 +121,20 @@ function dcPrefill(responses) {
 }
 
 /**
+ * Wires up the jump-to-section nav strip (.dc-jumpnav a): carries the token
+ * along on every link and highlights whichever page you're currently on.
+ * Safe to call on any page — it's a no-op if the strip isn't present.
+ */
+function dcInitJumpNav() {
+  const current = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.dc-jumpnav a').forEach(function (a) {
+    const href = a.getAttribute('href');
+    if (href === current) a.classList.add('is-active');
+    a.href = DC.withToken(href);
+  });
+}
+
+/**
  * Standard page bootstrap. Call from each section page:
  *   dcBootstrapPage({ dimension: 'D1', prevPage: 'd1-a.html', nextPage: 'd1-b.html' });
  *
@@ -145,6 +159,7 @@ function dcBootstrapPage(opts) {
       }
       dcPrefill(state.responses);
       dcInitAutosave(opts.dimension);
+      dcInitJumpNav();
 
       const continueBtn = document.getElementById('dcContinue');
       if (continueBtn) {
