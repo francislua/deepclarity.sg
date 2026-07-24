@@ -5,7 +5,7 @@
    ============================================================ */
 
 // ── FILL THIS IN once you have deployed the Apps Script web app ──
-const DC_API_URL = 'https://script.google.com/macros/library/d/1bq1KPk803H6mjgPDLLSJnudRrvgxXIv6axO2rcg_09QR4feVhh1BjrX1/1';
+const DC_API_URL = 'https://script.google.com/macros/s/AKfycbwYSyLuhJxStfSKslNIcwuQe0eStZZp2t43je7_VV-ZTJAzHffqsxh0Uxn7yEwVr-2nmA/exec';
 
 const DC = (function () {
   const params = new URLSearchParams(window.location.search);
