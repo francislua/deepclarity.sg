@@ -127,9 +127,16 @@ function dcPrefill(responses) {
  */
 function dcInitJumpNav() {
   const current = window.location.pathname.split('/').pop();
+  const currentDim = (current.match(/^(d\d)-/) || [])[1];
   document.querySelectorAll('.dc-jumpnav a').forEach(function (a) {
     const href = a.getAttribute('href');
-    if (href === current) a.classList.add('is-active');
+    const dim = a.getAttribute('data-dim');
+    if (dim) {
+      // Dimension pill: stays active across every section within that dimension.
+      if (dim === currentDim) a.classList.add('is-active');
+    } else if (href === current) {
+      a.classList.add('is-active');
+    }
     a.href = DC.withToken(href);
   });
 }
@@ -160,6 +167,22 @@ function dcBootstrapPage(opts) {
       dcPrefill(state.responses);
       dcInitAutosave(opts.dimension);
       dcInitJumpNav();
+
+      if (opts.gate) {
+        const gating = state.gating || {};
+        let unlocked = false;
+        if (opts.gate === 'D2B') {
+          unlocked = !!gating.release_D2B || !!gating.meeting_1_date;
+        } else if (opts.gate === 'D7') {
+          unlocked = !!gating.release_D7;
+        } else if (opts.gate === 'D8') {
+          unlocked = !!gating.release_D8;
+        }
+        const gated = document.getElementById('dcGatedContent');
+        const locked = document.getElementById('dcLockedPlaceholder');
+        if (gated) gated.style.display = unlocked ? '' : 'none';
+        if (locked) locked.style.display = unlocked ? 'none' : '';
+      }
 
       const continueBtn = document.getElementById('dcContinue');
       if (continueBtn) {

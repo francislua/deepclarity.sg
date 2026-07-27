@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D4 · AI Readiness — Business Intelligence — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 4 of 6 · Operations and Technology</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d4-a.html" title="A · Operational Technology Foundation">A</a>
+  <a href="d4-b.html" title="B · AI Readiness — Operational Automation">B</a>
+  <a href="d4-c.html" title="C · AI Readiness — Functional Capability">C</a>
+  <a href="d4-d.html" title="D · AI Readiness — Business Intelligence">D</a>
+  <a href="d4-e.html" title="E · AI Readiness — Clinical AI (Current)">E</a>
+  <a href="d4-f.html" title="F · Emerging Clinical AI — OTAS Partnership Context">F</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D4 — Operations and Technology</span>
+  <h1>AI Readiness — Business Intelligence</h1>
+  <p class="dc-section-title">Section D · Questions Q45–Q46</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q45</span>
+    <p class="dc-question-text">What data do you currently review regularly to understand how the business is performing?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Daily or weekly sales figures" data-autosave> Daily or weekly sales figures</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Conversion rate" data-autosave> Conversion rate, examinations to purchases</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Basket size" data-autosave> Basket size, average spend per transaction</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Stock turnover" data-autosave> Stock turnover by product category</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="New vs returning customers" data-autosave> New vs returning customer proportions</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Marketing/online performance" data-autosave> Marketing or online presence performance metrics</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Overall revenue only" data-autosave> I review overall revenue but not broken down by these categories</label>
+      <label class="dc-option"><input type="checkbox" name="Q45_data_reviewed" value="Do not review regularly" data-autosave> I do not review business performance data regularly</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Is this data produced automatically by your systems, or do you or your staff compile it manually?</p>
+    <div class="dc-field">
+      <textarea name="Q45_automatic_or_manual" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q46</span>
+    <p class="dc-question-text">Can you give an example of a business decision you made in the last six months that was based on data rather than instinct or observation?</p>
+    <div class="dc-field">
+      <textarea name="Q46_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D4', prevPage: 'd4-c.html', nextPage: 'd4-e.html' });</script>
+</body>
+</html>

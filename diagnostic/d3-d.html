@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D3 · Sourcing and Supplier Strategy — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 4 of 5 · Financial Profile</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d3-a.html" title="A · Revenue Profile">A</a>
+  <a href="d3-b.html" title="B · Cost Structure and Financial Tracking">B</a>
+  <a href="d3-c.html" title="C · Inventory and Working Capital">C</a>
+  <a href="d3-d.html" title="D · Sourcing and Supplier Strategy">D</a>
+  <a href="d3-e.html" title="E · Rental and Location Economics">E</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D3 — Financial Profile</span>
+  <h1>Sourcing and Supplier Strategy</h1>
+  <p class="dc-section-title">Section D · Questions Q29–Q32</p>
+
+  <p class="dc-question-help" style="margin-bottom:2rem;">These questions are about how your sourcing decisions connect to your business positioning. There are no right or wrong answers, the diagnostic looks for coherence between what you carry, where you source it, and the customers you are trying to serve.</p>
+  <div class="dc-question">
+    <span class="dc-question-number">Q29</span>
+    <p class="dc-question-text">How do you primarily source your spectacle frames?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q29_frame_sourcing" value="Direct from brand distributors" data-autosave> Direct from brand distributors or brand principals</label>
+      <label class="dc-option"><input type="radio" name="Q29_frame_sourcing" value="Through agents or intermediaries" data-autosave> Through agents or intermediaries</label>
+      <label class="dc-option"><input type="radio" name="Q29_frame_sourcing" value="Own-label or unbranded" data-autosave> Own-label or unbranded frames</label>
+      <label class="dc-option"><input type="radio" name="Q29_frame_sourcing" value="Mix" data-autosave> A mix of the above (describe below)</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If a mix, describe the combination:</p>
+    <div class="dc-field">
+      <textarea name="Q29_mix_describe" data-autosave placeholder="Your answer"></textarea>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Does your frame sourcing approach reflect your intended brand and pricing positioning?</p>
+    <div class="dc-field">
+      <textarea name="Q29_positioning" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q30</span>
+    <p class="dc-question-text">How do you source and process prescription lenses?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q30_lens_sourcing" value="In-house edging lab" data-autosave> In-house edging lab, we cut and edge lenses on site</label>
+      <label class="dc-option"><input type="radio" name="Q30_lens_sourcing" value="External optical lab" data-autosave> External optical lab, we send jobs to a lab for processing</label>
+      <label class="dc-option"><input type="radio" name="Q30_lens_sourcing" value="Pre-edged lenses" data-autosave> Pre-edged lenses supplied directly by the manufacturer or distributor</label>
+      <label class="dc-option"><input type="radio" name="Q30_lens_sourcing" value="Mix" data-autosave> A mix of approaches depending on lens type</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Who is your primary lens supplier, and do you have negotiated volume or pricing terms with them?</p>
+    <div class="dc-field">
+      <textarea name="Q30_supplier_terms" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q31</span>
+    <p class="dc-question-text">How do you source contact lenses, and do you have negotiated terms with your contact lens distributors?</p>
+    <div class="dc-field">
+      <textarea name="Q31_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q32</span>
+    <p class="dc-question-text">How do you manage sourcing for clinical consumables and accessories (cases, cleaning solutions, straps)?</p>
+    <div class="dc-field">
+      <textarea name="Q32_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D3', prevPage: 'd3-c.html', nextPage: 'd3-e.html' });</script>
+</body>
+</html>

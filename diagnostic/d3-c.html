@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D3 · Inventory and Working Capital — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 3 of 5 · Financial Profile</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d3-a.html" title="A · Revenue Profile">A</a>
+  <a href="d3-b.html" title="B · Cost Structure and Financial Tracking">B</a>
+  <a href="d3-c.html" title="C · Inventory and Working Capital">C</a>
+  <a href="d3-d.html" title="D · Sourcing and Supplier Strategy">D</a>
+  <a href="d3-e.html" title="E · Rental and Location Economics">E</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D3 — Financial Profile</span>
+  <h1>Inventory and Working Capital</h1>
+  <p class="dc-section-title">Section C · Questions Q25–Q28</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q25</span>
+    <p class="dc-question-text">What is the approximate total retail value of your current frame stock?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="Under $50,000" data-autosave> Under $50,000</label>
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="$50,000-$100,000" data-autosave> $50,000 to $100,000</label>
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="$100,000-$200,000" data-autosave> $100,000 to $200,000</label>
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="$200,000-$400,000" data-autosave> $200,000 to $400,000</label>
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="Above $400,000" data-autosave> Above $400,000</label>
+      <label class="dc-option"><input type="radio" name="Q25_stock_value" value="Not estimated" data-autosave> I have not estimated this</label>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q26</span>
+    <p class="dc-question-text">Of your current frame stock, roughly what proportion has been in your display or storage for more than 12 months?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q26_slow_moving_pct" value="Less than 10%" data-autosave> Less than 10%</label>
+      <label class="dc-option"><input type="radio" name="Q26_slow_moving_pct" value="10%-25%" data-autosave> 10% to 25%</label>
+      <label class="dc-option"><input type="radio" name="Q26_slow_moving_pct" value="25%-40%" data-autosave> 25% to 40%</label>
+      <label class="dc-option"><input type="radio" name="Q26_slow_moving_pct" value="More than 40%" data-autosave> More than 40%</label>
+      <label class="dc-option"><input type="radio" name="Q26_slow_moving_pct" value="Do not know" data-autosave> I do not know</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Do you have a process for regularly reviewing and clearing slow-moving frame stock?</p>
+    <div class="dc-field">
+      <textarea name="Q26_review_process" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q27</span>
+    <p class="dc-question-text">What are your typical payment terms with your main suppliers?</p>
+    <div class="dc-field">
+      <textarea name="Q27_payment_terms" data-autosave placeholder="Your answer"></textarea>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Do you have any negotiated extended payment terms with key suppliers?</p>
+    <div class="dc-field">
+      <textarea name="Q27_extended_terms" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q28</span>
+    <p class="dc-question-text">If you needed to cover operating costs from cash on hand without any new revenue, roughly how many weeks could the business sustain itself?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q28_cash_runway" value="Less than 2 weeks" data-autosave> Less than 2 weeks</label>
+      <label class="dc-option"><input type="radio" name="Q28_cash_runway" value="2-4 weeks" data-autosave> 2 to 4 weeks</label>
+      <label class="dc-option"><input type="radio" name="Q28_cash_runway" value="4-8 weeks" data-autosave> 4 to 8 weeks</label>
+      <label class="dc-option"><input type="radio" name="Q28_cash_runway" value="More than 8 weeks" data-autosave> More than 8 weeks</label>
+      <label class="dc-option"><input type="radio" name="Q28_cash_runway" value="Not thought about" data-autosave> I have not thought about this</label>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D3', prevPage: 'd3-b.html', nextPage: 'd3-d.html' });</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D3 · Cost Structure and Financial Tracking — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 2 of 5 · Financial Profile</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d3-a.html" title="A · Revenue Profile">A</a>
+  <a href="d3-b.html" title="B · Cost Structure and Financial Tracking">B</a>
+  <a href="d3-c.html" title="C · Inventory and Working Capital">C</a>
+  <a href="d3-d.html" title="D · Sourcing and Supplier Strategy">D</a>
+  <a href="d3-e.html" title="E · Rental and Location Economics">E</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D3 — Financial Profile</span>
+  <h1>Cost Structure and Financial Tracking</h1>
+  <p class="dc-section-title">Section B · Questions Q22–Q24</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q22</span>
+    <p class="dc-question-text">Which of the following cost categories do you track as separate line items? For each one you track, indicate whether you know it as a rough percentage of revenue.</p>
+    <div class="dc-qtable">
+      <div class="dc-qtable-head">
+        <span>Cost category</span>        <span>Tracked separately</span>        <span>Known as % of revenue</span>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Frame cost of goods (purchase cost of frames)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_frame_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_frame_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_frame_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_frame_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_frame_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Lens cost of goods (purchase cost of lenses)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_lens_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_lens_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_lens_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_lens_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_lens_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">External lab fees (lens edging and processing)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_lab_fees_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_lab_fees_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_lab_fees_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_lab_fees_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_lab_fees_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Contact lens cost of goods</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_cl_cog_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_cl_cog_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_cl_cog_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_cl_cog_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_cl_cog_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Rental and utilities</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_rental_util_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_rental_util_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_rental_util_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_rental_util_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_rental_util_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Staff salaries and CPF</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_staff_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_staff_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_staff_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_staff_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_staff_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Clinical consumables (eye drops, trial lenses, etc.)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_consumables_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_consumables_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_consumables_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_consumables_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_consumables_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Marketing and advertising</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_marketing_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_marketing_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_marketing_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_marketing_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_marketing_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Professional fees (accounting, legal, etc.)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_prof_fees_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_prof_fees_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_prof_fees_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_prof_fees_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_prof_fees_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Equipment depreciation or lease</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_depreciation_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_depreciation_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_depreciation_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_depreciation_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_depreciation_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+      <div class="dc-qtable-row">
+        <div class="dc-qtable-label">Other (describe below)</div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_other_track" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_other_track" value="No" data-autosave> No</label>
+        </div>
+        <div class="dc-yn">
+          <label><input type="radio" name="Q22_other_pct" value="Yes" data-autosave> Yes</label>
+          <label><input type="radio" name="Q22_other_pct" value="Roughly" data-autosave> Roughly</label>
+          <label><input type="radio" name="Q22_other_pct" value="No" data-autosave> No</label>
+        </div>
+      </div>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If 'Other' applies, describe the category:</p>
+    <div class="dc-field">
+      <textarea name="Q22_other_describe" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q23</span>
+    <p class="dc-question-text">How frequently do you review your financial performance, profit and loss, revenue versus costs?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q23_review_frequency" value="Monthly" data-autosave> Monthly, I review a P&L or management accounts every month</label>
+      <label class="dc-option"><input type="radio" name="Q23_review_frequency" value="Quarterly" data-autosave> Quarterly, I review financials every quarter</label>
+      <label class="dc-option"><input type="radio" name="Q23_review_frequency" value="Annually" data-autosave> Annually, mainly at tax time or year-end</label>
+      <label class="dc-option"><input type="radio" name="Q23_review_frequency" value="No regular process" data-autosave> I do not have a regular financial review process</label>
+      <label class="dc-option"><input type="radio" name="Q23_review_frequency" value="Rely on accountant" data-autosave> I rely on my accountant to tell me how the business is doing</label>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q24</span>
+    <p class="dc-question-text">How do you draw your own income from the business?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q24_income_method" value="Fixed salary" data-autosave> Fixed salary, I pay myself a set salary separate from business profit</label>
+      <label class="dc-option"><input type="radio" name="Q24_income_method" value="Drawings" data-autosave> Drawings, I take money from the business as needed</label>
+      <label class="dc-option"><input type="radio" name="Q24_income_method" value="Mixed" data-autosave> Mixed, a combination of salary and drawings</label>
+      <label class="dc-option"><input type="radio" name="Q24_income_method" value="Not sure" data-autosave> I am not sure how to categorise it</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">When you assess whether the business is profitable, do you include your own income as a cost to the business?</p>
+    <div class="dc-field">
+      <textarea name="Q24_profit_view" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D3', prevPage: 'd3-a.html', nextPage: 'd3-c.html' });</script>
+</body>
+</html>

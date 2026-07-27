@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D4 · Operational Technology Foundation — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 1 of 6 · Operations and Technology</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d4-a.html" title="A · Operational Technology Foundation">A</a>
+  <a href="d4-b.html" title="B · AI Readiness — Operational Automation">B</a>
+  <a href="d4-c.html" title="C · AI Readiness — Functional Capability">C</a>
+  <a href="d4-d.html" title="D · AI Readiness — Business Intelligence">D</a>
+  <a href="d4-e.html" title="E · AI Readiness — Clinical AI (Current)">E</a>
+  <a href="d4-f.html" title="F · Emerging Clinical AI — OTAS Partnership Context">F</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D4 — Operations and Technology</span>
+  <h1>Operational Technology Foundation</h1>
+  <p class="dc-section-title">Section A · Questions Q37–Q41</p>
+
+  <p class="dc-question-help" style="margin-bottom:2rem;">Gaps identified in this section may be addressable through the Productivity Solutions Grant (PSG), which co-funds approved technology adoption for Singapore SMEs. Your DeepClarity consultant will flag relevant opportunities during your discussion.</p>
+  <div class="dc-question">
+    <span class="dc-question-number">Q37</span>
+    <p class="dc-question-text">What system do you currently use to manage sales transactions and basic business records?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q37_pos_system" value="Basic POS" data-autosave> Basic point-of-sale (POS) system, handles sales and receipts only</label>
+      <label class="dc-option"><input type="radio" name="Q37_pos_system" value="Practice management system" data-autosave> Practice management system, integrates POS, patient records, appointments, and recalls</label>
+      <label class="dc-option"><input type="radio" name="Q37_pos_system" value="Separate systems" data-autosave> Separate systems for different functions (describe below)</label>
+      <label class="dc-option"><input type="radio" name="Q37_pos_system" value="Primarily manual" data-autosave> Primarily manual, paper records, spreadsheets, or basic accounting software only</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If separate systems, describe them:</p>
+    <div class="dc-field">
+      <textarea name="Q37_separate_describe" data-autosave placeholder="Your answer"></textarea>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">How long have you been using your current system, and how well does it meet your needs?</p>
+    <div class="dc-field">
+      <textarea name="Q37_how_long" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q38</span>
+    <p class="dc-question-text">How do you manage patient and customer records, prescriptions, examination history, contact lens details, and recall information?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q38_records_mgmt" value="Fully in system" data-autosave> Fully within our practice management system, structured and searchable</label>
+      <label class="dc-option"><input type="radio" name="Q38_records_mgmt" value="Partially in system" data-autosave> Partially in a system, partially in paper files or spreadsheets</label>
+      <label class="dc-option"><input type="radio" name="Q38_records_mgmt" value="Primarily paper-based" data-autosave> Primarily paper-based or in separate files</label>
+      <label class="dc-option"><input type="radio" name="Q38_records_mgmt" value="Multiple tools" data-autosave> Across multiple tools with no single source of truth</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Is this data consistently captured by all staff across all transactions, or does quality vary?</p>
+    <div class="dc-field">
+      <textarea name="Q38_consistency" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q39</span>
+    <p class="dc-question-text">How do you currently manage appointment booking and patient recall?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q39_recall_mgmt" value="Fully automated" data-autosave> Fully automated, system sends appointment reminders and recall notifications without manual intervention</label>
+      <label class="dc-option"><input type="radio" name="Q39_recall_mgmt" value="Semi-automated" data-autosave> Semi-automated, system generates reminders but staff still manage follow-up manually</label>
+      <label class="dc-option"><input type="radio" name="Q39_recall_mgmt" value="Mostly manual" data-autosave> Mostly manual, staff contact patients directly by phone, WhatsApp, or SMS</label>
+      <label class="dc-option"><input type="radio" name="Q39_recall_mgmt" value="Not systematically managed" data-autosave> Recall is not systematically managed</label>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q40</span>
+    <p class="dc-question-text">How do you manage frame and lens inventory?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q40_inventory_mgmt" value="Dedicated system" data-autosave> Dedicated inventory management system with reorder triggers or alerts</label>
+      <label class="dc-option"><input type="radio" name="Q40_inventory_mgmt" value="Basic tracking in POS" data-autosave> Basic stock tracking within our POS or practice management system</label>
+      <label class="dc-option"><input type="radio" name="Q40_inventory_mgmt" value="Manual counts" data-autosave> Manual counts and spreadsheets</label>
+      <label class="dc-option"><input type="radio" name="Q40_inventory_mgmt" value="Informal" data-autosave> Informal, managed by observation and supplier relationships</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">Do you know your current stock levels and slow-moving items at any point in time, or only when you do a manual count?</p>
+    <div class="dc-field">
+      <textarea name="Q40_stock_visibility" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q41</span>
+    <p class="dc-question-text">How consistently is data captured across your business, across different staff members, different transaction types, and (if applicable) different outlets?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q41_data_consistency" value="Very consistently" data-autosave> Very consistently, we have clear processes and all staff follow them</label>
+      <label class="dc-option"><input type="radio" name="Q41_data_consistency" value="Mostly consistently" data-autosave> Mostly consistently, but gaps exist depending on who is working or how busy it is</label>
+      <label class="dc-option"><input type="radio" name="Q41_data_consistency" value="Inconsistently" data-autosave> Inconsistently, data quality varies significantly</label>
+      <label class="dc-option"><input type="radio" name="Q41_data_consistency" value="Not thought about" data-autosave> We have not thought about data consistency as a managed discipline</label>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D4', prevPage: 'd3-e.html', nextPage: 'd4-b.html' });</script>
+</body>
+</html>

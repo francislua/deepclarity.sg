@@ -24,16 +24,17 @@
   </div>
 </header>
 
-<div class="dc-jumpnav" role="navigation" aria-label="Jump to section">
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
   <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
   <span class="dc-jumpnav-divider"></span>
-  <a href="d1-a.html" title="A · Your Value Proposition">A</a>
-  <a href="d1-b.html" title="B · Product Portfolio and Positioning">B</a>
-  <a href="d1-c.html" title="C · Clinical Services and Programmes">C</a>
-  <a href="d1-d.html" title="D · Customer Data and Retention">D</a>
-  <a href="d1-e.html" title="E · Conversion">E</a>
-  <a href="d1-f.html" title="F · Online Presence">F</a>
-  <a href="d1-g.html" title="G · Business Model Evolution">G</a>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
 </div>
 
 <main class="dc-main" id="dcMain">
@@ -90,9 +91,16 @@
   // Maps the `current_page` value stored in Clients to the actual file to open.
   const DC_PAGE_MAP = {
     'landing': 'd1-a.html',
-    'd1-a': 'd1-a.html', 'd1-b': 'd1-b.html', 'd1-c': 'd1-c.html',
-    'd1-d': 'd1-d.html', 'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html',
-    'pilot-end': 'pilot-end.html'
+    'd1-a': 'd1-a.html', 'd1-b': 'd1-b.html', 'd1-c': 'd1-c.html', 'd1-d': 'd1-d.html',
+    'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html',
+    'd2-a': 'd2-a.html', 'd2-b': 'd2-b.html', 'd2-c': 'd2-c.html', 'd2-d': 'd2-d.html',
+    'd3-a': 'd3-a.html', 'd3-b': 'd3-b.html', 'd3-c': 'd3-c.html', 'd3-d': 'd3-d.html', 'd3-e': 'd3-e.html',
+    'd4-a': 'd4-a.html', 'd4-b': 'd4-b.html', 'd4-c': 'd4-c.html', 'd4-d': 'd4-d.html', 'd4-e': 'd4-e.html', 'd4-f': 'd4-f.html',
+    'd5-a': 'd5-a.html', 'd5-b': 'd5-b.html', 'd5-c': 'd5-c.html', 'd5-d': 'd5-d.html', 'd5-e': 'd5-e.html',
+    'd6-a': 'd6-a.html', 'd6-b': 'd6-b.html', 'd6-c': 'd6-c.html', 'd6-d': 'd6-d.html', 'd6-e': 'd6-e.html', 'd6-f': 'd6-f.html',
+    'd7-a': 'd7-a.html', 'd7-b': 'd7-b.html', 'd7-c': 'd7-c.html',
+    'd8-a': 'd8-a.html', 'd8-b': 'd8-b.html',
+    'complete': 'complete.html'
   };
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -118,8 +126,8 @@
       dcInitAutosave('Clients');
       dcInitJumpNav();
 
-      // Simple progress estimate for the D1 pilot: current_page position among 7 D1 pages.
-      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','pilot-end'];
+      // Progress estimate across the full 38-section diagnostic.
+      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','d2-a','d2-b','d2-c','d2-d','d3-a','d3-b','d3-c','d3-d','d3-e','d4-a','d4-b','d4-c','d4-d','d4-e','d4-f','d5-a','d5-b','d5-c','d5-d','d5-e','d6-a','d6-b','d6-c','d6-d','d6-e','d6-f','d7-a','d7-b','d7-c','d8-a','d8-b','complete'];
       const idx = order.indexOf(state.current_page);
       const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
       document.getElementById('dcProgressFill').style.width = pct + '%';

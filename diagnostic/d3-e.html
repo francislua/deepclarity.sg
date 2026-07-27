@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D3 · Rental and Location Economics — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 5 of 5 · Financial Profile</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d3-a.html" title="A · Revenue Profile">A</a>
+  <a href="d3-b.html" title="B · Cost Structure and Financial Tracking">B</a>
+  <a href="d3-c.html" title="C · Inventory and Working Capital">C</a>
+  <a href="d3-d.html" title="D · Sourcing and Supplier Strategy">D</a>
+  <a href="d3-e.html" title="E · Rental and Location Economics">E</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D3 — Financial Profile</span>
+  <h1>Rental and Location Economics</h1>
+  <p class="dc-section-title">Section E · Questions Q33–Q36</p>
+
+  <p class="dc-question-help" style="margin-bottom:2rem;">Rental cost is one of the most significant fixed cost variables for a retail optical SME. These questions connect directly to the location discussion in D2.</p>
+  <div class="dc-question">
+    <span class="dc-question-number">Q33</span>
+    <p class="dc-question-text">What is your approximate monthly rental for your primary location?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="Under $3,000" data-autosave> Under $3,000 per month</label>
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="$3,000-$6,000" data-autosave> $3,000 to $6,000 per month</label>
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="$6,000-$10,000" data-autosave> $6,000 to $10,000 per month</label>
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="$10,000-$20,000" data-autosave> $10,000 to $20,000 per month</label>
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="Above $20,000" data-autosave> Above $20,000 per month</label>
+      <label class="dc-option"><input type="radio" name="Q33_rent_band" value="Owned premises" data-autosave> I operate from an owned premises</label>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q34</span>
+    <p class="dc-question-text">What is the structure of your rental arrangement?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q34_rent_structure" value="Fixed monthly rent" data-autosave> Fixed monthly rent</label>
+      <label class="dc-option"><input type="radio" name="Q34_rent_structure" value="Stepped rent" data-autosave> Stepped rent (increases at set intervals)</label>
+      <label class="dc-option"><input type="radio" name="Q34_rent_structure" value="Turnover rent" data-autosave> Turnover rent (includes a percentage of revenue component)</label>
+      <label class="dc-option"><input type="radio" name="Q34_rent_structure" value="Mixed" data-autosave> Mixed fixed and turnover</label>
+      <label class="dc-option"><input type="radio" name="Q34_rent_structure" value="Other" data-autosave> Other (describe below)</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If other, describe the arrangement:</p>
+    <div class="dc-field">
+      <textarea name="Q34_other_describe" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q35</span>
+    <p class="dc-question-text">Do you know your rent-to-revenue ratio, what proportion of your total revenue goes to rental costs?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q35_rent_ratio_known" value="Yes" data-autosave> Yes, I track this and review it regularly</label>
+      <label class="dc-option"><input type="radio" name="Q35_rent_ratio_known" value="Roughly" data-autosave> Roughly, I have an approximate sense</label>
+      <label class="dc-option"><input type="radio" name="Q35_rent_ratio_known" value="No" data-autosave> No, I have not calculated this</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">If yes or roughly, what is your approximate rent-to-revenue ratio?</p>
+    <div class="dc-field">
+      <textarea name="Q35_rent_ratio_value" data-autosave placeholder="e.g. 12%"></textarea>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q36</span>
+    <p class="dc-question-text">If you operate more than one outlet, do you track the rental economics and profitability of each location separately?</p>
+    <div class="dc-field">
+      <textarea name="Q36_response" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D3', prevPage: 'd3-d.html', nextPage: 'd4-a.html' });</script>
+</body>
+</html>

@@ -333,6 +333,21 @@
   margin: 0 0.3rem;
 }
 
+/* Two-tier nav: a top row of dimension pills (D1-D8), and a second row of
+   section-letter pills scoped to whichever dimension the current page
+   belongs to. The second row sits closer to the first so the pair reads
+   as one navigation block rather than two separate strips. */
+.dc-jumpnav-dims a[data-dim] {
+  width: auto;
+  min-width: 2.1rem;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+}
+
+.dc-jumpnav-sections {
+  margin-top: 0.5rem;
+}
+
 /* Locked / gated placeholder (used by future D2B, D7, D8 pages) */
 .dc-locked {
   background: rgba(27, 42, 74, 0.04);
