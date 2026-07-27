@@ -184,7 +184,13 @@
 
 .dc-qtable-head {
   display: grid;
-  grid-template-columns: 1.6fr auto 2fr;
+  /* Fixed width (not auto) on the middle column: .dc-qtable-head and
+     .dc-qtable-row are separate grid containers, so an "auto" track sizes
+     independently in each — the header's "Carry?" label is narrower than
+     the Yes/No radio pair in the rows below it, which pushed the third
+     column out of alignment with its own header. A fixed width keeps both
+     containers' columns lined up regardless of what each one contains. */
+  grid-template-columns: 1.6fr 8rem 2fr;
   gap: 1.2rem;
   padding: 0 0 0.7rem;
   border-bottom: 1px solid var(--grey-light);
@@ -202,7 +208,7 @@
 
 .dc-qtable-row {
   display: grid;
-  grid-template-columns: 1.6fr auto 2fr;
+  grid-template-columns: 1.6fr 8rem 2fr;
   gap: 1.2rem;
   align-items: center;
   padding: 1rem 0;
