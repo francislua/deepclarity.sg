@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work — DeepClarity</title>
-  <meta name="description" content="DeepClarity works with senior leaders on AI transformation readiness, senior leadership team effectiveness, and talent strategy across Asia Pacific." />
+  <title>Work | Situations DeepClarity Helps Clients Navigate</title>
+  <meta name="description" content="DeepClarity works with business owners and senior leaders on decisions involving growth, succession, transformation, AI and organisational capability." />
   
   <!-- Open Graph -->
   <meta property="og:type"         content="website" />
   <meta property="og:url"          content="https://deepclarity.sg/work.html" />
-  <meta property="og:title"        content="Work — DeepClarity" />
-  <meta property="og:description"  content="Three advisory practices — AI transformation readiness, senior leadership team effectiveness, and talent strategy — each designed to build clarity that enables real organisational progress." />
+  <meta property="og:title"        content="Work | Situations DeepClarity Helps Clients Navigate" />
+  <meta property="og:description"  content="DeepClarity works with business owners and senior leaders on decisions involving growth, succession, transformation, AI and organisational capability." />
   <meta property="og:image"        content="https://deepclarity.sg/deepclarity_featured.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="627" />
@@ -48,11 +48,11 @@
     }
 
     .page-hero .label { color: var(--amber); margin-bottom: 1.5rem; display: block; }
-    .page-hero h1 { color: var(--warm-white); max-width: 18ch; }
+    .page-hero h1 { color: var(--warm-white); max-width: 20ch; }
     .page-hero .page-hero-sub {
       color: rgba(245, 243, 238, 0.6);
       font-size: 1.05rem;
-      max-width: 52ch;
+      max-width: 56ch;
       margin-top: 1.5rem;
       font-weight: 300;
     }
@@ -69,11 +69,12 @@
       margin: 0 auto;
       display: flex;
       gap: 0;
+      flex-wrap: wrap;
     }
 
     .service-nav-link {
       padding: 1.4rem 0;
-      margin-right: 3rem;
+      margin-right: 2.2rem;
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.12em;
@@ -204,7 +205,7 @@
       font-weight: 300;
     }
 
-    /* Delivery model */
+    /* Delivery model / What clients can expect */
     .delivery {
       background: var(--navy);
     }
@@ -216,7 +217,7 @@
     }
 
     .delivery .label { color: var(--amber); margin-bottom: 1rem; }
-    .delivery h2 { color: var(--warm-white); margin-bottom: clamp(2.5rem, 4vw, 4rem); max-width: 22ch; }
+    .delivery h2 { color: var(--warm-white); margin-bottom: clamp(2.5rem, 4vw, 4rem); max-width: 24ch; }
 
     .delivery-grid {
       display: grid;
@@ -244,29 +245,6 @@
     }
 
     .delivery-card .amber-rule-sm { margin-bottom: 1.2rem; }
-
-    /* Differentiator */
-    .differentiator {
-      background: var(--amber);
-      padding: clamp(3rem, 5vw, 5rem) var(--pad-x);
-      text-align: center;
-    }
-
-    .differentiator-inner {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .differentiator h2 {
-      color: var(--navy);
-      margin-bottom: 1.2rem;
-    }
-
-    .differentiator p {
-      color: rgba(27, 42, 74, 0.75);
-      font-size: 1.05rem;
-      margin: 0 auto 2rem;
-    }
 
     /* CTA */
     .work-cta {
@@ -304,7 +282,7 @@
     .service-section .card-link:hover { gap: 0.8rem; }
     .service-section .card-link::after { content: '→'; }
 
-    /* Decision Map output block within the DeepClarity Decision Diagnostic */
+    /* Decision Review output block */
     .diagnostic-nested {
       margin-top: 2.5rem;
       padding: 2rem 2rem 2rem 2.5rem;
@@ -341,22 +319,32 @@
       margin-top: 0.8em;
     }
 
-    .diagnostic-nested .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--amber);
-      transition: gap var(--transition);
+    .diagnostic-nested ul {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
-    .diagnostic-nested .card-link:hover { gap: 0.8rem; }
-    .diagnostic-nested .card-link::after { content: '→'; }
+    .diagnostic-nested ul li {
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      line-height: 1.6;
+    }
 
+    .diagnostic-nested ul li::before {
+      content: '';
+      width: 1.2rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0.65rem;
+    }
 
     /* ── MOBILE NAV MENU OVERRIDE ── */
     @media (max-width: 900px) {
@@ -390,6 +378,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="approach.html">Approach</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -398,217 +387,204 @@
   <!-- ── PAGE HERO ── -->
   <header class="page-hero">
     <div class="page-hero-inner">
-      <span class="label">The Work</span>
-      <h1>How I create clarity.</h1>
-      <p class="page-hero-sub">My flagship engagement is <strong>the DeepClarity Decision Diagnostic</strong>, a 2–3 week intervention that surfaces the 3–5 decisions your leadership team is avoiding, and forces alignment on what to do next.</p>
+      <span class="label">The work</span>
+      <h1>Situations I help clients navigate.</h1>
+      <p class="page-hero-sub">Clients usually contact me with an important decision, a recurring difficulty or a change that is proving more complex than expected. I help them bring together the relevant commercial, operational, technological and people perspectives, understand how those perspectives connect and decide what the situation requires.</p>
     </div>
   </header>
 
   <!-- ── SERVICE NAV ── -->
   <div class="service-nav-strip">
     <div class="service-nav-strip-inner">
-      <a href="#decision-diagnostic" class="service-nav-link">DeepClarity Decision Diagnostic</a>
-      <a href="#ai" class="service-nav-link">AI Transformation Readiness</a>
-      <a href="#leadership" class="service-nav-link">Leadership Effectiveness</a>
-      <a href="#talent" class="service-nav-link">Talent Strategy</a>
+      <a href="#growth" class="service-nav-link">Growth</a>
+      <a href="#succession" class="service-nav-link">Succession</a>
+      <a href="#transformation" class="service-nav-link">Transformation</a>
+      <a href="#ai" class="service-nav-link">AI &amp; Future of Work</a>
+      <a href="#leadership" class="service-nav-link">Leadership</a>
+      <a href="#talent" class="service-nav-link">Talent</a>
     </div>
   </div>
 
-  <!-- ── SERVICE 01: DEEPCLARITY DECISION DIAGNOSTIC ── -->
-  <section class="service-section" id="decision-diagnostic">
+  <!-- ── SITUATION 1: GROWTH ── -->
+  <section class="service-section" id="growth">
     <div class="service-grid">
       <div class="service-left fade-in">
         <div class="service-num">01</div>
+        <span class="label">Growth and professionalisation</span>
         <div class="amber-rule-sm" style="margin-top:1rem;"></div>
-        <h2>DeepClarity Decision Diagnostic</h2>
-        <div class="service-tagline">
-          "Most leadership teams aren't stuck. They're avoiding. There's a difference, and it has a cost."
-        </div>
+        <h2>Growth is changing what the business needs from its leaders and organisation.</h2>
       </div>
       <div class="service-right fade-in">
-        <p>Most leadership teams have 3–5 decisions they are managing around rather than making. Not because they are incapable, but because the decisions are uncomfortable, the trade-offs are hard, and no one has created the conditions for clarity.</p>
-
-        <p>The DeepClarity Decision Diagnostic creates those conditions. It applies a 5-lens framework to surface the decisions blocking your team:</p>
+        <p>As a business grows, the practices that supported its earlier success may place increasing demands on the owner or a small group of experienced people. Decisions take longer, responsibilities overlap and knowledge remains concentrated.</p>
+        <p>I help owners and leadership teams understand what the next stage of the business requires, where current arrangements are becoming limiting and which responsibilities, capabilities and ways of working need to develop.</p>
 
         <div class="expect-list">
+          <h4>Typical questions</h4>
           <div class="expect-items">
-            <div class="expect-item"><p><strong>The Decision That Keeps Moving.</strong> What decision has the team been circling for months, reframing, deferring, redefining, instead of actually making?</p></div>
-            <div class="expect-item"><p><strong>The Information That Stays in Silos.</strong> Where is information being controlled rather than shared, and what decision does that control protect?</p></div>
-            <div class="expect-item"><p><strong>The Trade-Off No One Will Name.</strong> What hard trade-off is the team endlessly negotiating around rather than calling, and what is that avoidance costing?</p></div>
-            <div class="expect-item"><p><strong>The Risk Everyone Knows About.</strong> What risk is sitting in plain sight, unspoken, and who actually owns the call to address it?</p></div>
-            <div class="expect-item"><p><strong>The Decision Hidden Inside 'Change Management.'</strong> What structural or capability decision is being deferred under the label of change management, and what does continued delay cost the business?</p></div>
+            <div class="expect-item"><p>Which decisions should remain with the owner, and which should move elsewhere?</p></div>
+            <div class="expect-item"><p>What roles and capabilities will the next stage of growth require?</p></div>
+            <div class="expect-item"><p>Where is the business dependent on personal knowledge or intervention?</p></div>
+            <div class="expect-item"><p>What management practices need to become more consistent?</p></div>
           </div>
         </div>
 
-        <div class="diagnostic-nested">
-          <div class="diagnostic-nested-label">The Output</div>
-          <h3>A Decision Map</h3>
-          <p>A precise, opinionated recommendation for each of the 3–5 decisions blocking execution. Not a list of options. A point of view.</p>
-        </div>
-
-        <div class="for-whom">
-          <h4>Who it's for</h4>
-          <p>CEOs, Regional Presidents, and Managing Directors who know something isn't moving and need to name what's actually at the centre of it.</p>
-        </div>
-
-        <a href="contact.html" class="card-link">Enquire about this engagement</a>
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICE 02: AI TRANSFORMATION ── -->
-  <section class="service-section" id="ai">
+  <!-- ── SITUATION 2: SUCCESSION ── -->
+  <section class="service-section" id="succession">
     <div class="service-grid reverse">
       <div class="service-left fade-in">
         <div class="service-num">02</div>
-        <span class="label">AI Transformation Readiness</span>
+        <span class="label">Succession and leadership transition</span>
         <div class="amber-rule-sm" style="margin-top:1rem;"></div>
-        <h2>If AI sits in IT, it stalls. If it sits in the business, it scales.</h2>
-        <div class="service-tagline">
-          "20% technology. 80% culture. Most organisations keep getting this ratio backwards."
-        </div>
+        <h2>Succession involves the organisation as well as the individual leader.</h2>
       </div>
       <div class="service-right fade-in">
-        <p>Most organisations have made the investment. The tools are in place. The ambition is real. And the initiative is stalling, or the patterns forming suggest it will.</p>
+        <p>A leadership transition affects decision authority, stakeholder relationships, governance, knowledge and confidence across the organisation. These matters need to be considered together if the new arrangement is to work.</p>
+        <p>I help owners and leadership teams examine the wider implications of succession, agree how leadership will operate and build the organisational conditions that support a successful transition.</p>
 
-        <p>The problem is almost never the technology. It's that leadership hasn't decided who actually owns AI outcomes, governance that sits in IT rather than the business, or the culture that wasn't prepared for how work would actually change. And underneath all of it, a workforce whose roles are changing faster than anyone has acknowledged, because nobody has had the explicit conversation about what AI does to the work itself.</p>
-
-        <p>I work at the level where these problems actually live: the senior team's clarity on purpose and ownership, the governance conditions that allow adoption to move beyond early pilots, and the honest conversation about workforce implications that most organisations are having too late, or not at all.</p>
-
-        <div class="expect-list">
-          <h4>What this engagement addresses</h4>
-          <div class="expect-items">
-            <div class="expect-item"><p>Leadership alignment on AI purpose, ownership, and what success actually means, beyond pilot metrics</p></div>
-            <div class="expect-item"><p>Governance and accountability structures that keep AI outcomes in the business, not IT</p></div>
-            <div class="expect-item"><p>The workforce and role implications of AI adoption, addressed deliberately, not discovered after the fact</p></div>
-            <div class="expect-item"><p>The honest conversation about what needs to change, and who needs to lead it, that the organisation has been deferring</p></div>
-          </div>
-        </div>
-
-        <div class="for-whom">
-          <h4>This engagement is for you if</h4>
-          <p>You are a senior business leader or CHRO whose AI initiative is underdelivering, or you are about to launch one and want to get the human and leadership conditions right from the start. Particularly relevant for organisations navigating global mandates that do not account for Asia Pacific operational reality.</p>
-        </div>
-
-        <a href="contact.html" class="card-link">Enquire about this engagement</a>
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICE 03: LEADERSHIP EFFECTIVENESS ── -->
-  <section class="service-section" id="leadership">
+  <!-- ── SITUATION 3: TRANSFORMATION ── -->
+  <section class="service-section" id="transformation">
     <div class="service-grid">
       <div class="service-left fade-in">
         <div class="service-num">03</div>
-        <span class="label">Senior Leadership Team Effectiveness</span>
+        <span class="label">Transformation</span>
         <div class="amber-rule-sm" style="margin-top:1rem;"></div>
-        <h2>The misalignment that's hidden in plain sight.</h2>
-        <div class="service-tagline">
-          "Most misalignment in leadership teams isn't visible until execution starts. By then it's expensive."
-        </div>
+        <h2>A major change is understood differently across the organisation.</h2>
       </div>
       <div class="service-right fade-in">
-        <p>Your leadership team is capable. Everyone in the room is smart and well-intentioned. But something isn't working. Strategy that isn't translating into execution, energy spent on internal friction rather than external progress, conversations that everyone knows need to happen but somehow never do.</p>
+        <p>Transformations often involve several legitimate perspectives. The business may focus on value and speed, operations on continuity, technology on delivery, and employees on how their work will change.</p>
+        <p>I help the leadership team bring these perspectives together, reach the decisions needed for coordinated action and translate those decisions into changes in leadership, accountability and work.</p>
 
-        <p>This is almost always a clarity and alignment problem rather than a lack of capability. Leaders performing for each other rather than being honest with each other. Decisions being made, or avoided, without shared understanding of what they are actually trying to achieve.</p>
-
-        <p>I surface the misalignment that is hidden in plain sight, enable the conversations teams are avoiding, and build the aligned leadership culture that makes strategy executable.</p>
-
-        <div class="expect-list">
-          <h4>What this engagement addresses</h4>
-          <div class="expect-items">
-            <div class="expect-item"><p>Diagnosing the underlying friction rather than treating the presenting symptoms</p></div>
-            <div class="expect-item"><p>Enabling the conversations the team has been avoiding</p></div>
-            <div class="expect-item"><p>Building genuine alignment, not the surface agreement that collapses under execution pressure</p></div>
-            <div class="expect-item"><p>Developing the team norms and dynamics that sustain high performance over time</p></div>
-          </div>
-        </div>
-
-        <div class="for-whom">
-          <h4>This engagement is for you if</h4>
-          <p>You lead or sit on a senior leadership team that is capable but not performing at its potential. You may be a business leader who knows the team needs to have a conversation it keeps avoiding, or a CHRO who can see what is getting in the way but needs an outside perspective to name it. If you're not sure where to start, <a href="#decision-diagnostic" style="color:var(--navy);text-decoration:underline;text-underline-offset:3px;">the DeepClarity Decision Diagnostic</a> is the structured entry point, a 2–3 week engagement that names what's in the way before any broader work begins.</p>
-        </div>
-
-        <a href="contact.html" class="card-link">Enquire about this engagement</a>
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
       </div>
     </div>
   </section>
 
-  <!-- ── SERVICE 04: TALENT STRATEGY ── -->
-  <section class="service-section" id="talent">
+  <!-- ── SITUATION 4: AI AND THE FUTURE OF WORK ── -->
+  <section class="service-section" id="ai">
     <div class="service-grid reverse">
       <div class="service-left fade-in">
         <div class="service-num">04</div>
-        <span class="label">Talent Strategy</span>
+        <span class="label">AI and the future of work</span>
         <div class="amber-rule-sm" style="margin-top:1rem;"></div>
-        <h2>The difference between a talent strategy and a talent program.</h2>
-        <div class="service-tagline">
-          "Most organisations have the latter. A talent program fills a calendar. A talent strategy builds an organisation."
-        </div>
+        <h2>AI decisions are also decisions about work, responsibility and capability.</h2>
       </div>
       <div class="service-right fade-in">
-        <p>Most organisations have talent programmes. Assessment cycles, development frameworks, succession pipelines. Calendars full of activity. But the commercial priorities and the talent architecture exist in parallel, both credible on paper, rarely integrated in practice.</p>
+        <p>AI can change how information is used, where judgement sits, how roles are divided and what people need to learn. These organisational questions are easier to address before technology choices become fixed.</p>
+        <p>I help leaders connect the business purpose for AI with its operational and people implications. Where appropriate, I support the design of governance, roles, workflows and capability-building needed for responsible adoption.</p>
 
-        <p>The gap is not the tools. It is that the talent strategy was built by HR for HR rather than built by HR for the business. Critical roles are defined by the org chart, not by what the next stage of growth actually requires. Succession conversations happen on a cycle, not when the business needs them. Development investment goes to the visible, not the critical.</p>
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
+      </div>
+    </div>
+  </section>
 
-        <p>I build talent architecture that connects directly to commercial priorities, and that the organisation can own and sustain independently. The goal is never dependency on an external adviser. It is a talent system that runs without one.</p>
+  <!-- ── SITUATION 5: LEADERSHIP AND RECURRING EXECUTION PROBLEMS ── -->
+  <section class="service-section" id="leadership">
+    <div class="service-grid">
+      <div class="service-left fade-in">
+        <div class="service-num">05</div>
+        <span class="label">Leadership and recurring execution problems</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>The same issue keeps returning despite repeated efforts to address it.</h2>
+      </div>
+      <div class="service-right fade-in">
+        <p>A recurring problem can indicate that different parts of the organisation are responding to different versions of the issue. It may also reflect unclear responsibility, competing priorities or an unresolved trade-off.</p>
+        <p>I help leaders examine the issue from the perspectives involved, identify what is sustaining it and agree a response that addresses the connections between leadership decisions and everyday work.</p>
 
-        <div class="expect-list">
-          <h4>What this engagement addresses</h4>
-          <div class="expect-items">
-            <div class="expect-item"><p>Talent assessment and role architecture aligned to where the business is actually going, not where it has been</p></div>
-            <div class="expect-item"><p>Succession and pipeline strategy built around critical roles, not just senior ones</p></div>
-            <div class="expect-item"><p>The accountability conversation that most talent strategies avoid: leaders responsible for talent outcomes, not just HR</p></div>
-            <div class="expect-item"><p>Internal HR capability built to sustain the strategy after the engagement ends</p></div>
-          </div>
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SITUATION 6: TALENT AND ORGANISATIONAL CAPABILITY ── -->
+  <section class="service-section" id="talent">
+    <div class="service-grid reverse">
+      <div class="service-left fade-in">
+        <div class="service-num">06</div>
+        <span class="label">Talent and organisational capability</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>The organisation's people priorities need a clearer connection to the business.</h2>
+      </div>
+      <div class="service-right fade-in">
+        <p>Decisions about critical roles, succession and capability should reflect where the business is going and how work is changing. I help business and HR leaders bring these considerations together and develop an approach that leaders can use and sustain.</p>
+
+        <a href="contact.html" class="card-link">Enquire about this situation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEEPCLARITY DECISION REVIEW ── -->
+  <section class="service-section" id="decision-review">
+    <div class="service-grid">
+      <div class="service-left fade-in">
+        <span class="label">One way to begin</span>
+        <div class="amber-rule-sm" style="margin-top:1rem;"></div>
+        <h2>DeepClarity Decision Review</h2>
+      </div>
+      <div class="service-right fade-in">
+        <p>A focused engagement for an important decision that affects several parts of the organisation.</p>
+        <p>The review brings together relevant business information and stakeholder perspectives, identifies connections and implications that need leadership attention, and clarifies the choices and trade-offs involved.</p>
+
+        <div class="diagnostic-nested">
+          <div class="diagnostic-nested-label">The Output</div>
+          <h3>A decision brief</h3>
+          <p>The output is a decision brief that sets out:</p>
+          <ul>
+            <li>the decision in its full business and organisational context</li>
+            <li>the perspectives and evidence that need to be considered</li>
+            <li>the most important implications and trade-offs</li>
+            <li>the decisions requiring leadership agreement</li>
+            <li>recommended next steps and areas requiring further design</li>
+          </ul>
         </div>
 
-        <div class="for-whom">
-          <h4>This engagement is for you if</h4>
-          <p>You are a CHRO or Regional HR VP who knows your talent strategy is not working as hard as it should. You have the programmes. You need the architecture that connects them to the business, and the discipline to make leaders accountable for it, not just HR. Particularly relevant for organisations in Asia Pacific navigating rapid growth or significant business model change.</p>
-        </div>
+        <p style="margin-top:2rem;">Scope and timing depend on the complexity of the decision and the number of people involved.</p>
 
         <a href="contact.html" class="card-link">Enquire about this engagement</a>
       </div>
     </div>
   </section>
 
-  <!-- ── DELIVERY MODEL ── -->
+  <!-- ── WHAT CLIENTS CAN EXPECT ── -->
   <div class="delivery">
     <div class="delivery-inner">
-      <span class="label">How I work</span>
-      <h2>The delivery model.</h2>
+      <h2>What clients can expect</h2>
       <div class="delivery-grid">
         <div class="delivery-card fade-in">
           <div class="amber-rule-sm"></div>
-          <h3>Senior judgment in every room.</h3>
-          <p>I lead every conversation, workshop, and diagnostic directly. You work with the experience you hired, from first contact to final deliverable.</p>
+          <h3>An independent, connected view</h3>
+          <p>I consider the decision across the relevant business and organisational perspectives and help leaders understand how a choice in one area may affect another.</p>
         </div>
         <div class="delivery-card fade-in">
           <div class="amber-rule-sm"></div>
-          <h3>Retainer and project-based.</h3>
-          <p>Engagements are structured around defined outcomes or dedicated monthly retainers, never open-ended consulting that runs indefinitely. Scope and success measures are explicit from day one. Every engagement is designed to end.</p>
+          <h3>Direct access</h3>
+          <p>I lead the inquiry, working sessions, synthesis and recommendations personally throughout the engagement.</p>
         </div>
         <div class="delivery-card fade-in">
           <div class="amber-rule-sm"></div>
-          <h3>No associate networks.</h3>
-          <p>The work is never white-labeled or sub-contracted out to an associate network to scale volume. The synthesis, recommendations, and execution belong entirely to one practitioner.</p>
+          <h3>Work shaped around the situation</h3>
+          <p>The scope follows the decision and the change it requires. The engagement may begin with a focused review and extend into design and implementation where further support is useful.</p>
         </div>
         <div class="delivery-card fade-in">
           <div class="amber-rule-sm"></div>
-          <h3>Built to transfer. Not to extend.</h3>
-          <p>Every engagement is designed with capability transfer in mind. I measure success by what's still working six months after I've gone, not by how long I can extend the engagement.</p>
+          <h3>Practical involvement</h3>
+          <p>I work with the leaders and teams responsible for putting the decision into practice, so that the design reflects the realities of the organisation.</p>
+        </div>
+        <div class="delivery-card fade-in">
+          <div class="amber-rule-sm"></div>
+          <h3>Internal ownership</h3>
+          <p>Implementation support includes clear review points and the development of internal ownership. The work should continue to improve after my direct involvement ends.</p>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ── DIFFERENTIATOR ── -->
-  <div class="differentiator fade-in">
-    <div class="differentiator-inner">
-      <h2>Large firms sell methodology.<br>I bring judgment.</h2>
-      <p>Judgment does not scale, which is precisely why it cannot be replicated. Over two decades of leading transformation from the inside across Asia Pacific's most complex organisations. Not a framework. Not a program. A practitioner who has seen this from the inside and knows what it actually takes.</p>
-      <a href="contact.html" class="btn btn-primary">Start a conversation</a>
     </div>
   </div>
 
@@ -616,7 +592,7 @@
   <section class="work-cta fade-in">
     <div class="amber-rule" style="margin: 0 auto 2rem;"></div>
     <h2>Not sure which engagement is right?</h2>
-    <p>Most conversations start with a situation, not a service. Tell me what you're navigating and I'll work out what's needed from there.</p>
+    <p>Tell me what you're navigating, and I'll work out what's needed from there.</p>
     <a href="contact.html" class="btn btn-primary">Start a conversation</a>
   </section>
 
@@ -630,6 +606,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
         <a href="work.html">Work</a>
         <a href="contact.html">Contact</a>
         <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>

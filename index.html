@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeepClarity — Clarity Before Momentum</title>
-  <meta name="description" content="DeepClarity partners with senior leaders and their teams to build the clarity, alignment, and cultural conditions that make AI transformation actually work — and leadership actually stick." />
+  <title>DeepClarity | Better Business Decisions Through a Wider Perspective</title>
+  <meta name="description" content="DeepClarity helps business owners and senior leaders bring commercial, operational, technological and people perspectives together, make better-informed choices and put them into practice." />
   
   <!-- Open Graph -->
   <meta property="og:type"         content="website" />
   <meta property="og:url"          content="https://deepclarity.sg/" />
-  <meta property="og:title"        content="DeepClarity — Clarity Before Momentum" />
-  <meta property="og:description"  content="DeepClarity partners with senior business leaders across Asia Pacific to navigate AI transformation, sharpen leadership team effectiveness, and build talent strategy that holds." />
+  <meta property="og:title"        content="DeepClarity | Better Business Decisions Through a Wider Perspective" />
+  <meta property="og:description"  content="DeepClarity helps business owners and senior leaders bring commercial, operational, technological and people perspectives together, make better-informed choices and put them into practice." />
   <meta property="og:image"        content="https://deepclarity.sg/deepclarity_featured.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="627" />
@@ -198,7 +198,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: rgba(245, 243, 238, 0.08);
       border: 1px solid rgba(245, 243, 238, 0.08);
@@ -255,6 +255,58 @@
       margin-top: 3rem;
       text-align: center;
     }
+
+    /* When DeepClarity can help */
+    .when-section {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .when-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 7rem);
+      align-items: start;
+    }
+
+    .when-left h2 {
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .when-right p {
+      color: var(--ink);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .when-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .when-list li {
+      font-size: 0.95rem;
+      color: var(--slate);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .when-list li::before {
+      content: '';
+      width: 1.4rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0.7rem;
+    }
+
+    .when-right .btn { margin-top: 2.5rem; }
 
     /* About teaser */
     .about-teaser {
@@ -418,6 +470,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="approach.html">Approach</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -426,11 +479,12 @@
   <!-- ── HERO ── -->
   <header class="hero">
     <div class="hero-inner">
-      <h1>When strategy fails, the plan is rarely the problem.<br><br>The real issue is the environment driving how your people act.</h1>
-      <p class="hero-sub">Most leadership teams have 3–5 decisions they are managing around rather than making. <strong>The DeepClarity Decision Diagnostic surfaces those decisions and forces alignment on what to do next, all in 2–3 weeks.</strong></p>
+      <h1>See the full picture behind an important business decision.</h1>
+      <p class="hero-sub">Business decisions are often viewed through a single lens: commercial, operational, technological or people. Through DeepClarity, I bring these perspectives together so owners and senior leaders can see the connections, uncover what may be missed and make better-informed choices.</p>
+      <p class="hero-sub">Where further support is required, I work with leaders, internal teams and relevant specialists to translate those choices into changes in how the organisation is led and how work gets done.</p>
       <div class="hero-cta-group">
+        <a href="approach.html" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">Explore how I work</a>
         <a href="contact.html" class="btn btn-amber">Start a conversation</a>
-        <a href="work.html#decision-diagnostic" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">DeepClarity Decision Diagnostic</a>
       </div>
     </div>
     <div class="hero-scroll" aria-hidden="true">Scroll</div>
@@ -440,18 +494,19 @@
   <section class="problem">
     <div class="problem-grid">
       <div class="problem-left fade-in">
-        <div class="amber-rule"></div>
-        <h2>Strategy rarely fails<br>on paper. It fails in<br>the <span>leadership room.</span></h2>
+        <span class="label">Why DeepClarity</span>
+        <div class="amber-rule" style="margin-top:1rem;"></div>
+        <h2>One decision can affect<br>the whole <span>organisation.</span></h2>
       </div>
       <div class="problem-right fade-in">
-        <p>Stop blaming strategy when you are not achieving your objectives. Instead, start looking at where, how, and by whom strategy is created and who is executing it.</p>
-        <p>When transformations underdeliver and leadership initiatives don't create impact, it is often due to misalignment within senior teams, the culture delivering what it's designed to deliver, and conversations that need to happen but haven't happened yet.</p>
-        <p>DeepClarity exists to fix that. I partner with senior business leaders, CHROs, and regional HR leaders to build the clarity, alignment, and cultural conditions that make transformation real.</p>
+        <p>A decision about growth can change the capabilities a business needs and the decisions an owner must begin sharing with others.</p>
+        <p>A decision about AI can affect roles, workflows, accountability and how people use their judgement.</p>
+        <p>Succession can require changes in governance, leadership relationships and how knowledge is passed on.</p>
+        <p>These implications are closely connected, although they are often considered by different people at different times. DeepClarity brings them into the same conversation, while there is still time to make deliberate choices.</p>
         <div class="problem-stat">
           <blockquote>
-            "I measure success by what's still working six months after I've gone."
+            "A sound decision takes account of the organisation that will have to carry it."
           </blockquote>
-          <cite>Francis Lua · Founder, DeepClarity</cite>
         </div>
       </div>
     </div>
@@ -466,31 +521,45 @@
     <div class="services-grid">
       <div class="service-card fade-in">
         <div class="service-number">01</div>
-        <h3>DeepClarity Decision Diagnostic</h3>
-        <p>A 2–3 week intervention that surfaces the 3–5 decisions your leadership team is avoiding and forces alignment on what to do next. The output: a Decision Map with a precise, opinionated recommendation for each decision blocking execution.</p>
-        <a href="work.html#decision-diagnostic" class="card-link">Learn more</a>
+        <h3>See the decision clearly</h3>
+        <p>I gather the relevant business and organisational perspectives, identify where views differ and trace how the decision may affect other parts of the organisation.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-number">02</div>
-        <h3>AI Transformation Readiness</h3>
-        <p>AI investments rarely fail on technology. They fail on unclear ownership, cultural resistance, and fragmented executive alignment. I work with senior teams to establish the governance, leadership consensus, and operational accountability required to turn AI initiatives into measurable ROI.</p>
-        <a href="work.html#ai" class="card-link">Learn more</a>
+        <h3>Work through the choices</h3>
+        <p>I help leaders examine assumptions, implications and trade-offs so they can decide what the situation requires and what they are prepared to change.</p>
       </div>
       <div class="service-card fade-in">
         <div class="service-number">03</div>
-        <h3>Senior Leadership Team Effectiveness</h3>
-        <p>Even highly capable executive teams get stuck in internal friction and unaddressed dynamics. I work with leadership teams to surface the elephant in the room, eliminate wasted energy, and build a cohesive operating culture where strategy naturally translates into accountability and execution.</p>
-        <a href="work.html#leadership" class="card-link">Learn more</a>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-number">04</div>
-        <h3>Talent Strategy</h3>
-        <p>Most organisations have talent programmes. Few have a talent strategy connected to commercial priorities. I help CHROs and regional HR leaders build talent architecture the business can own and sustain.</p>
-        <a href="work.html#talent" class="card-link">Learn more</a>
+        <h3>Put the decision into practice</h3>
+        <p>Where further support is needed, I may lead, co-create or coordinate with internal teams and specialists to design, test and put the required changes into practice in leadership, roles, decision-making, technology or ways of working.</p>
       </div>
     </div>
     <div class="services-footer fade-in">
-      <a href="work.html" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">See all services</a>
+      <a href="approach.html" class="btn btn-outline" style="color:var(--warm-white);border-color:rgba(245,243,238,0.35);">How an engagement works</a>
+    </div>
+  </section>
+
+  <!-- ── WHEN DEEPCLARITY CAN HELP ── -->
+  <section class="when-section">
+    <div class="when-grid">
+      <div class="when-left fade-in">
+        <div class="amber-rule"></div>
+        <h2>When a wider<br>view is needed.</h2>
+      </div>
+      <div class="when-right fade-in">
+        <p>DeepClarity is most useful when an important decision affects several parts of the organisation and no single specialist view captures the whole issue.</p>
+        <ul class="when-list">
+          <li>Growth is placing new demands on leadership, people and ways of working.</li>
+          <li>Too many decisions still return to the owner or senior leadership team.</li>
+          <li>A transformation has begun, but different parts of the organisation understand it differently.</li>
+          <li>AI is being introduced without a shared view of how work, roles and accountability will change.</li>
+          <li>Succession raises questions about governance, capability and how the business will operate under new leadership.</li>
+          <li>A recurring problem has been addressed several times but continues to return.</li>
+          <li>The leadership team needs an independent perspective before committing to a major course of action.</li>
+        </ul>
+        <a href="work.html" class="btn btn-outline">Explore the situations I work with</a>
+      </div>
     </div>
   </section>
 
@@ -509,14 +578,15 @@
       <div class="about-content fade-in">
         <span class="label">About Francis Lua</span>
         <div class="amber-rule-sm" style="margin-top:1rem;"></div>
-        <h2>Over two decades leading transformation from the inside.</h2>
-        <p>I founded DeepClarity after seeing the same pattern repeat across Johnson &amp; Johnson, Microsoft, and TE Connectivity across Asia Pacific: leaders with good intent, strong capability, and initiatives that weren't delivering.</p>
-        <p>It became clear that without reshaping the underlying organizational conditions driving everyday behavior, even the best plans remain stuck on paper.</p>
+        <h2>A regional perspective shaped inside complex organisations.</h2>
+        <p>I founded DeepClarity after over two decades working with management teams across Asia Pacific at Microsoft, TE Connectivity and Johnson &amp; Johnson.</p>
+        <p>My roles placed me close to the business decisions and organisational realities that determine whether change takes hold. They also taught me to consider commercial priorities, leadership, operations and people together, rather than treating each as a separate subject.</p>
+        <p>Today, I bring that experience to business owners and senior leaders who need a thoughtful, independent view of an important decision and its wider implications.</p>
         <ul class="credential-list">
-          <li>Johnson &amp; Johnson · Microsoft · TE Connectivity</li>
-          <li>Asia Pacific focus · Global scope</li>
-          <li>Leadership alignment, AI readiness &amp; talent strategy</li>
-          <li>Trusted advisor to CEOs, CHROs &amp; senior leadership teams</li>
+          <li>Over two decades of regional experience</li>
+          <li>Microsoft, TE Connectivity and Johnson &amp; Johnson</li>
+          <li>Master of Science in Organization Development, Pepperdine University</li>
+          <li>Business, leadership, organisational and people perspectives</li>
         </ul>
         <a href="about.html" class="btn btn-primary">Read Francis's story</a>
       </div>
@@ -527,9 +597,8 @@
   <div class="belief">
     <div class="belief-inner fade-in">
       <blockquote>
-        "Clarity before momentum. When leaders know what they're trying to achieve, why it matters, and what's actually in the way, everything else becomes possible."
+        "Better decisions begin by seeing how the different parts of the organisation connect."
       </blockquote>
-      <cite>The DeepClarity belief</cite>
     </div>
   </div>
 
@@ -537,8 +606,8 @@
   <section class="cta-section">
     <div class="fade-in">
       <div class="amber-rule" style="margin:0 auto 2rem;"></div>
-      <h2>Ready to surface the unmade decisions holding your team back?</h2>
-      <p>If you are a senior business leader or CHRO and suspect your team is navigating around a hard truth, let's talk. Start with a 30-minute Clarity Call. No pitch, just a direct conversation.</p>
+      <h2>Considering a decision with wider implications?</h2>
+      <p>Tell me what you are considering, what has made the decision difficult and which parts of the organisation may be affected. We can use an initial conversation to understand the situation and decide whether a deeper engagement would be useful.</p>
       <a href="contact.html" class="btn btn-primary">Start a conversation</a>
     </div>
   </section>
@@ -553,6 +622,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
         <a href="work.html">Work</a>
         <a href="contact.html">Contact</a>
         <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>

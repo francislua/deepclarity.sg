@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Approach | How DeepClarity Works</title>
+  <meta name="description" content="Learn how DeepClarity helps business owners and senior leaders bring different perspectives together, make well-informed choices and put those choices into practice." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://deepclarity.sg/approach.html" />
+  <meta property="og:title"        content="Approach | How DeepClarity Works" />
+  <meta property="og:description"  content="Learn how DeepClarity helps business owners and senior leaders bring different perspectives together, make well-informed choices and put those choices into practice." />
+  <meta property="og:image"        content="https://deepclarity.sg/deepclarity_featured.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="627" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── APPROACH PAGE STYLES ── */
+
+    /* Page hero */
+    .page-hero {
+      padding-top: clamp(6rem, 10vw, 8rem);
+      padding-bottom: clamp(4rem, 7vw, 7rem);
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(46, 64, 112, 0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .label { color: var(--amber); margin-bottom: 1.5rem; display: block; }
+    .page-hero h1 { color: var(--warm-white); max-width: 20ch; }
+    .page-hero .page-hero-sub {
+      color: rgba(245, 243, 238, 0.6);
+      font-size: 1.05rem;
+      max-width: 56ch;
+      margin-top: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* Generic content section */
+    .approach-section {
+      padding: var(--pad-y) var(--pad-x);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .approach-section + .approach-section {
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .approach-section.on-navy {
+      max-width: none;
+      background: var(--navy);
+      border-top: none;
+    }
+
+    .approach-section.on-navy .approach-section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: var(--pad-y) var(--pad-x);
+    }
+
+    .section-header { margin-bottom: clamp(2.5rem, 4vw, 4rem); }
+    .section-header .label { margin-bottom: 1rem; display: block; }
+    .section-header h2 { color: var(--navy); max-width: 26ch; }
+    .section-header p.section-intro {
+      color: var(--ink);
+      font-size: 1.02rem;
+      margin-top: 1.5rem;
+      max-width: 68ch;
+    }
+    .section-header p.section-intro + p.section-intro { margin-top: 1.2em; }
+
+    .on-navy .section-header h2 { color: var(--warm-white); }
+    .on-navy .section-header p.section-intro { color: rgba(245, 243, 238, 0.65); }
+
+    /* Perspectives grid */
+    .perspectives-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--grey-light);
+      margin-top: 2.5rem;
+    }
+
+    .perspective-card {
+      background: var(--warm-white);
+      padding: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .perspective-card .amber-rule-sm { margin-bottom: 1.2rem; }
+
+    .perspective-card h4 {
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+      font-size: 0.72rem;
+    }
+
+    .perspective-card p {
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    .approach-closing-copy {
+      color: var(--ink);
+      font-size: 1.02rem;
+      margin-top: 2.5rem;
+      max-width: 68ch;
+    }
+
+    /* Numbered process steps */
+    .process-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 4rem 1fr;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .process-item:first-child { padding-top: 0; }
+    .process-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .process-number {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .process-body h3 {
+      color: var(--navy);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .process-body p {
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+
+    /* Deliverables list */
+    .deliverables-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 2rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .deliverables-list li {
+      font-size: 0.92rem;
+      color: var(--slate);
+      font-weight: 300;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      line-height: 1.55;
+    }
+
+    .deliverables-list li::before {
+      content: '';
+      width: 1.2rem;
+      height: 1px;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0.65rem;
+    }
+
+    /* How Francis works — on navy */
+    .works-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .works-item p {
+      color: rgba(245, 243, 238, 0.7);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 68ch;
+    }
+
+    /* Closing pull quote — amber strip */
+    .approach-quote {
+      background: var(--amber);
+      padding: clamp(3rem, 5vw, 5rem) var(--pad-x);
+      text-align: center;
+    }
+
+    .approach-quote-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .approach-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    /* Closing CTA */
+    .approach-cta {
+      text-align: center;
+      background: var(--warm-white);
+    }
+
+    .approach-cta h2 { margin-bottom: 1.2rem; }
+    .approach-cta p { color: var(--ink); margin: 0 auto 2.5rem; font-size: 1.05rem; max-width: 56ch; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .perspectives-grid   { grid-template-columns: 1fr 1fr; }
+      .deliverables-list   { grid-template-columns: 1fr; }
+      .process-item        { grid-template-columns: 3rem 1fr; gap: 1rem; }
+    }
+
+    @media (max-width: 600px) {
+      .perspectives-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── MOBILE NAV MENU OVERRIDE ── */
+    @media (max-width: 900px) {
+      .nav-links.open {
+        background: var(--navy) !important;
+        border-top: 1px solid rgba(245, 243, 238, 0.12);
+      }
+      .nav-links.open a {
+        color: var(--warm-white) !important;
+      }
+      .nav-links.open a:hover,
+      .nav-links.open a.active {
+        color: var(--amber) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav>
+    <a href="index.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="nav-descriptor">Leadership &amp; Organisational Advisory</div>
+      </div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="approach.html">Approach</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <span class="label">The DeepClarity approach</span>
+      <h1>A wider view of the decision and a practical path forward.</h1>
+      <p class="page-hero-sub">An engagement begins with the decision or situation the leadership team is facing. I examine it from the perspectives that matter to the business, help leaders understand how those perspectives connect and support them in deciding what should happen next.</p>
+    </div>
+  </header>
+
+  <!-- ── SECTION: BRINGING THE RELEVANT PERSPECTIVES TOGETHER ── -->
+  <section class="approach-section">
+    <div class="section-header fade-in">
+      <span class="label">Bringing the relevant perspectives together</span>
+      <div class="amber-rule" style="margin-top:1rem;"></div>
+      <h2>Looking at the decision from the perspectives it affects</h2>
+      <p class="section-intro">Important business decisions often cross functional boundaries. I use four broad perspectives to understand how a decision may affect the organisation and to identify the people, evidence and expertise that should inform the discussion.</p>
+      <p class="section-intro">These perspectives do not represent four areas of specialist advice from DeepClarity. My role is to ask the connecting questions, draw in the knowledge and expertise relevant to the situation, and help leaders understand how the different considerations affect one another.</p>
+      <p class="section-intro">The balance varies from one engagement to another. The purpose is to understand the decision as a whole, including the connections between its commercial intent and the organisation expected to deliver it.</p>
+    </div>
+
+    <div class="perspectives-grid fade-in">
+      <div class="perspective-card">
+        <div class="amber-rule-sm"></div>
+        <h4>Commercial</h4>
+        <p>What business outcome is the decision intended to support? What assumptions about value, investment, risk and commercial trade-offs need to be examined, and whose knowledge or expertise should inform them?</p>
+      </div>
+      <div class="perspective-card">
+        <div class="amber-rule-sm"></div>
+        <h4>Operational</h4>
+        <p>How could the decision affect customers, processes, capacity, responsibilities and day-to-day delivery? What knowledge from the people closest to the work needs to inform the decision?</p>
+      </div>
+      <div class="perspective-card">
+        <div class="amber-rule-sm"></div>
+        <h4>Technological</h4>
+        <p>What systems, data or digital capabilities may be involved? Where is technical expertise needed, and how could the technology affect work, judgement and accountability?</p>
+      </div>
+      <div class="perspective-card">
+        <div class="amber-rule-sm"></div>
+        <h4>People and organisation</h4>
+        <p>What could the decision require from leaders and employees? How might it affect roles, capabilities, relationships, behaviour and the way decisions are made?</p>
+      </div>
+    </div>
+
+    <p class="approach-closing-copy fade-in">Bringing these perspectives into the same discussion helps leaders see the connections between them, identify gaps that require further expertise and make choices with a fuller understanding of what implementation will require.</p>
+  </section>
+
+  <!-- ── SECTION: WHAT AN ENGAGEMENT INVOLVES ── -->
+  <section class="approach-section">
+    <div class="section-header fade-in">
+      <span class="label">What an engagement involves</span>
+      <div class="amber-rule" style="margin-top:1rem;"></div>
+      <h2>From an important question to a workable response</h2>
+    </div>
+
+    <div class="process-list fade-in">
+      <div class="process-item">
+        <div class="process-number">01</div>
+        <div class="process-body">
+          <h3>Understand the situation</h3>
+          <p>I begin with the business context, the decision being considered and the reasons it matters now. I review relevant information and speak with the people who hold important parts of the picture.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-number">02</div>
+        <div class="process-body">
+          <h3>Connect the perspectives</h3>
+          <p>I bring the different views together and trace the relationships between them. This reveals where assumptions differ, where consequences may have been overlooked and where the leadership team needs to make a choice.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-number">03</div>
+        <div class="process-body">
+          <h3>Reach the necessary decisions</h3>
+          <p>I work with the owners or leadership team to examine the implications and trade-offs. The result is a shared view of the issue, clear decisions and agreement on what needs to change.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-number">04</div>
+        <div class="process-body">
+          <h3>Design the required changes</h3>
+          <p>If the organisation needs further support, I work with the relevant leaders and teams to design the changes. These may involve leadership responsibilities, decision-making, governance, roles, workflows, people capability or the use of technology.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-number">05</div>
+        <div class="process-body">
+          <h3>Put the changes into practice</h3>
+          <p>Organisational capability develops through use. We test the design in the realities of the business, learn from implementation and refine it until the organisation has the confidence and internal ownership to continue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION: WHAT THE WORK PRODUCES ── -->
+  <section class="approach-section">
+    <div class="section-header fade-in">
+      <span class="label">What the work produces</span>
+      <div class="amber-rule" style="margin-top:1rem;"></div>
+      <h2>The deliverables depend on the decision</h2>
+      <p class="section-intro">The first stage usually produces a clear account of the situation, the connections between different perspectives, the choices and trade-offs requiring leadership attention, and an agreed path forward.</p>
+      <p class="section-intro">Further work is scoped after those choices have been made. DeepClarity may lead some areas directly, co-create others with the client, and involve internal teams, client-appointed experts or specialist partners where additional expertise is required.</p>
+      <p class="section-intro">Depending on the engagement, the work may produce:</p>
+    </div>
+
+    <ul class="deliverables-list fade-in">
+      <li>Agreed leadership and decision responsibilities</li>
+      <li>Design principles and priorities for change</li>
+      <li>Governance and management routines</li>
+      <li>Role and accountability designs</li>
+      <li>Requirements or briefs for workflow, workforce or technology changes</li>
+      <li>Capability and succession plans</li>
+      <li>Coordinated contributions from internal teams, experts or vendors</li>
+      <li>Implementation plans, ownership arrangements and measures of progress</li>
+    </ul>
+
+    <p class="approach-closing-copy fade-in">My role is to keep these parts connected. I help define what each piece of work needs to achieve, involve the right people and ensure that the solutions support the business decision and work together as a whole.</p>
+    <p class="approach-closing-copy fade-in">The outputs, responsibilities and timing are agreed for each phase. Organisational capability develops through implementation, so some design, specialist delivery and internal adoption may continue beyond the initial engagement.</p>
+  </section>
+
+  <!-- ── SECTION: WAYS TO BEGIN ── -->
+  <section class="approach-section">
+    <div class="section-header fade-in">
+      <span class="label">Ways to begin</span>
+      <div class="amber-rule" style="margin-top:1rem;"></div>
+      <h2>The first step is to frame the right engagement</h2>
+      <p class="section-intro">Some situations can be clarified through a short diagnostic engagement. Others require deeper investigation or a longer period of design and implementation. The initial conversation is used to understand the decision, who is affected, what has already been attempted and what kind of support would be useful.</p>
+      <p class="section-intro">From there, I propose a defined first phase with a clear purpose, scope, participants and outputs. Any subsequent work is scoped around the decisions and priorities that emerge.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION: HOW FRANCIS WORKS ── -->
+  <section class="approach-section on-navy">
+    <div class="approach-section-inner">
+      <div class="section-header fade-in">
+        <span class="label">How Francis works</span>
+        <div class="amber-rule" style="margin-top:1rem;"></div>
+        <h2>Direct involvement throughout the engagement</h2>
+      </div>
+      <div class="works-list fade-in">
+        <div class="works-item">
+          <p>I lead the inquiry, leadership conversations, synthesis and recommendations personally. Clients work with the same adviser from the first conversation through design and implementation.</p>
+        </div>
+        <div class="works-item">
+          <p>My role is to contribute an independent view, ask questions that widen the discussion and help leaders connect commercial intent with organisational reality. I work closely with internal leaders and specialists, since they hold knowledge that any workable solution must reflect.</p>
+        </div>
+        <div class="works-item">
+          <p>Every engagement includes explicit outcomes and review points. When implementation support is required, the aim is to develop sufficient internal ownership for the organisation to sustain and improve the work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CLOSING PULL QUOTE ── -->
+  <div class="approach-quote fade-in">
+    <div class="approach-quote-inner">
+      <blockquote>
+        "I measure success by what's still working six months after I've gone."
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- ── CLOSING CTA ── -->
+  <section class="approach-cta fade-in">
+    <div class="amber-rule" style="margin: 0 auto 2rem;"></div>
+    <h2>Considering an important business decision?</h2>
+    <p>An initial conversation is a useful place to start, whatever stage you are at.</p>
+    <a href="contact.html" class="btn btn-primary">Start a conversation</a>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+        <div class="footer-tagline">Clarity before momentum.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>
+      </div>
+      <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
