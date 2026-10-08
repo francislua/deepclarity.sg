@@ -49,7 +49,7 @@
 <script src="diagnostic.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart({ allowSubmitted: true, section: 'none' }).then(function (state) {
+    dcStart({ allowSubmitted: true, recordPage: false }).then(function (state) {
       if (!state) return;
       if (!state.submitted) {
         // Not submitted yet: the review page is where submission happens.

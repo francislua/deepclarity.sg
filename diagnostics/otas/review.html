@@ -118,6 +118,8 @@
     return e;
   }
 
+  let confirmTicked = false;
+
   function renderReview(state) {
     const gating = state.gating || {};
     const progress = {};
@@ -168,20 +170,25 @@
       const label = el('label', 'dc-confirm');
       const tick = el('input');
       tick.type = 'checkbox';
+      tick.checked = confirmTicked;
       label.appendChild(tick);
       label.appendChild(el('span', null, 'I understand that my answers cannot be changed after I submit.'));
       box.appendChild(label);
       const btn = el('button', 'btn btn-primary', 'Submit diagnostic');
       btn.type = 'button';
-      btn.disabled = true;
-      tick.addEventListener('change', function () { btn.disabled = !tick.checked; });
+      btn.disabled = !confirmTicked;
+      tick.addEventListener('change', function () { confirmTicked = tick.checked; btn.disabled = !tick.checked; });
       const err = el('p', 'dc-submit-error');
       err.style.display = 'none';
       btn.addEventListener('click', function () {
         btn.disabled = true;
         btn.textContent = 'Submitting…';
         err.style.display = 'none';
-        DC.submit().then(function (res) {
+        // Make sure every answer has reached the sheet before submitting.
+        DC.saveAll().then(function (saved) {
+          if (!saved) throw new Error('unsaved');
+          return DC.submit();
+        }).then(function (res) {
           if (res && res.ok) { window.location.href = DC.link('complete.html'); return; }
           if (res && (res.error === 'session_expired' || res.error === 'no_access')) { dcShowProblem(res); return; }
           err.textContent = (res && res.message) || 'Your diagnostic could not be submitted. Please try again.';
@@ -208,11 +215,15 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart().then(function (state) {
+    let ready = false;
+    dcStart({
+      full: true,
+      onRefresh: function (state) { if (ready) renderReview(state); }
+    }).then(function (state) {
       if (!state) return;
+      ready = true;
       dcInitJumpNav();
       renderReview(state);
-      DC.setCurrentPage('review');
     });
   });
 </script>

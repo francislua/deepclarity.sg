@@ -106,7 +106,24 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart({ section: 'none' }).then(function (state) {
+    let target = 'd1-a.html';
+    const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','d2-a','d2-b','d2-c','d2-d','d3-a','d3-b','d3-c','d3-d','d3-e','d4-a','d4-b','d4-c','d4-d','d4-e','d4-f','d5-a','d5-b','d5-c','d5-d','d5-e','d6-a','d6-b','d6-c','d6-d','d6-e','d6-f','d7-a','d7-b','d7-c','d8-a','d8-b','review'];
+
+    // Progress estimate and the page to resume at.
+    function showProgress(state) {
+      const idx = order.indexOf(state.current_page);
+      const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
+      document.getElementById('dcProgressFill').style.width = pct + '%';
+      target = DC_PAGE_MAP[state.current_page] || 'd1-a.html';
+    }
+
+    dcStart({
+      recordPage: false,
+      onRefresh: function (state) {
+        dcPrefill(state.respondent.fields, true);
+        showProgress(state);
+      }
+    }).then(function (state) {
       if (!state) return;
       document.getElementById('dcLoading').style.display = 'none';
       document.getElementById('dcContent').style.display = 'block';
@@ -117,18 +134,9 @@
       dcPrefill(state.respondent.fields);
       dcInitAutosave('Respondents');
       dcInitJumpNav();
+      showProgress(state);
 
-      // Progress estimate across the full diagnostic.
-      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','d2-a','d2-b','d2-c','d2-d','d3-a','d3-b','d3-c','d3-d','d3-e','d4-a','d4-b','d4-c','d4-d','d4-e','d4-f','d5-a','d5-b','d5-c','d5-d','d5-e','d6-a','d6-b','d6-c','d6-d','d6-e','d6-f','d7-a','d7-b','d7-c','d8-a','d8-b','review'];
-      const idx = order.indexOf(state.current_page);
-      const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
-      document.getElementById('dcProgressFill').style.width = pct + '%';
-
-      const target = DC_PAGE_MAP[state.current_page] || 'd1-a.html';
-      const continueBtn = document.getElementById('dcContinueBtn');
-      continueBtn.addEventListener('click', function () {
-        dcLeaveAfterSaving(continueBtn, null, target);
-      });
+      document.getElementById('dcContinueBtn').addEventListener('click', function () { dcLeave(target); });
     });
   });
 </script>
