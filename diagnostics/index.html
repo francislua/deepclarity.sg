@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Diagnostics | DeepClarity</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="platform.css" />
+</head>
+<body>
+
+<header class="dcp-header">
+  <div class="dcp-header-inner">
+    <a href="./" class="nav-wordmark" aria-label="DeepClarity diagnostics home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div class="dcp-account dcp-hidden" id="dcpAccount">
+      <button type="button" id="dcpSignOut">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<main class="dcp-main">
+  <p class="dcp-loading" id="dcpLoading">Loading…</p>
+
+  <!-- Signed out: sign-in form -->
+  <section class="dcp-hidden" id="dcpSignIn" aria-labelledby="dcpSignInHeading">
+    <span class="dcp-eyebrow label">DeepClarity Diagnostics</span>
+    <h1 id="dcpSignInHeading">Sign in to your diagnostics</h1>
+    <p class="dcp-lead">Enter your email address and the personal access code from your invitation email.</p>
+
+    <form class="dcp-form" id="dcpForm" novalidate>
+      <div>
+        <label for="dcpEmail">Email address</label>
+        <input class="dcp-input" type="email" id="dcpEmail" name="email" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="dcpCode">Access code</label>
+        <input class="dcp-input dcp-input-code" type="text" id="dcpCode" name="code" autocomplete="off"
+               autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX" required />
+      </div>
+      <div class="dcp-message is-error dcp-hidden" id="dcpFormError" role="alert"></div>
+      <button class="btn btn-primary" type="submit" id="dcpSubmit">Sign in</button>
+      <p class="dcp-help">If you cannot find your access code, please contact Francis at
+        <a href="mailto:francislua@deepclarity.sg">francislua@deepclarity.sg</a>.</p>
+    </form>
+  </section>
+
+  <!-- Signed in: dashboard -->
+  <section class="dcp-hidden" id="dcpDashboard" aria-labelledby="dcpDashHeading">
+    <span class="dcp-eyebrow label" id="dcpOrg">Your diagnostics</span>
+    <h1 id="dcpDashHeading">Welcome, <span id="dcpName">there</span>.</h1>
+    <p class="dcp-lead">Your answers save automatically as you go, so you can stop at any point and pick up where you left off.</p>
+    <div class="dcp-cards" id="dcpCards"></div>
+  </section>
+
+  <div class="dcp-message is-error dcp-hidden" id="dcpPageError" role="alert"></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="platform.js"></script>
+<script>
+(function () {
+  const $ = function (id) { return document.getElementById(id); };
+  const NETWORK_ERROR = 'We could not reach the diagnostics service. Please check your connection and try again.';
+
+  function show(id) {
+    ['dcpLoading', 'dcpSignIn', 'dcpDashboard'].forEach(function (x) {
+      $(x).classList.toggle('dcp-hidden', x !== id);
+    });
+    $('dcpAccount').classList.toggle('dcp-hidden', id !== 'dcpDashboard');
+  }
+
+  function pageError(text) {
+    $('dcpPageError').textContent = text;
+    $('dcpPageError').classList.remove('dcp-hidden');
+  }
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  // ── Sign-in ──
+  function showSignIn(message) {
+    show('dcpSignIn');
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    if (email && !$('dcpEmail').value) $('dcpEmail').value = email;
+    if (message) {
+      $('dcpFormError').textContent = message;
+      $('dcpFormError').classList.remove('dcp-hidden');
+    }
+    ($('dcpEmail').value ? $('dcpCode') : $('dcpEmail')).focus();
+  }
+
+  $('dcpForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = $('dcpEmail').value.trim();
+    const code = $('dcpCode').value.trim();
+    $('dcpFormError').classList.add('dcp-hidden');
+    if (!email || !code) {
+      $('dcpFormError').textContent = 'Please enter both your email address and your access code.';
+      $('dcpFormError').classList.remove('dcp-hidden');
+      return;
+    }
+    $('dcpSubmit').disabled = true;
+    $('dcpSubmit').textContent = 'Signing in…';
+    DCP.login(email, code).then(function (res) {
+      if (res && res.ok) {
+        $('dcpCode').value = '';
+        // Drop ?email= from the address bar once signed in.
+        if (window.history && history.replaceState) history.replaceState(null, '', window.location.pathname);
+        loadDashboard();
+        return;
+      }
+      $('dcpFormError').textContent = (res && res.message) || 'Sign-in did not work. Please try again.';
+      $('dcpFormError').classList.remove('dcp-hidden');
+    }).catch(function () {
+      $('dcpFormError').textContent = NETWORK_ERROR;
+      $('dcpFormError').classList.remove('dcp-hidden');
+    }).finally(function () {
+      $('dcpSubmit').disabled = false;
+      $('dcpSubmit').textContent = 'Sign in';
+    });
+  });
+
+  $('dcpSignOut').addEventListener('click', function () { DCP.logout(); });
+
+  // ── Dashboard ──
+  function statusClass(status) {
+    if (status === 'Completed') return 'is-completed';
+    if (status === 'In progress') return 'is-in-progress';
+    return 'is-not-started';
+  }
+
+  function renderCard(a) {
+    const done = a.status === 'Completed';
+    const card = el('article', 'dcp-card' + (done ? ' is-completed' : ''));
+    const body = el('div');
+    body.appendChild(el('h2', null, a.display_name));
+    if (a.label) body.appendChild(el('span', 'dcp-card-label', a.label));
+    if (a.description) body.appendChild(el('p', null, a.description));
+
+    const meta = el('div', 'dcp-card-meta');
+    meta.appendChild(el('span', 'dcp-status ' + statusClass(a.status), done ? 'Submitted' : a.status));
+    let when = '';
+    if (done && a.date_completed) when = 'Submitted on ' + DCP.formatDate(a.date_completed);
+    else if (a.status === 'In progress' && a.last_updated) when = 'Last saved ' + DCP.formatDate(a.last_updated);
+    if (when) meta.appendChild(el('span', null, when));
+    body.appendChild(meta);
+    card.appendChild(body);
+
+    if (!done) {
+      const btn = el('a', 'btn ' + (a.status === 'In progress' ? 'btn-primary' : 'btn-outline'),
+        a.status === 'In progress' ? 'Continue' : 'Start');
+      btn.href = new URL(a.url, DCP.root).href;
+      card.appendChild(btn);
+    }
+    return card;
+  }
+
+  function loadDashboard() {
+    show('dcpLoading');
+    DCP.call('dashboard').then(function (res) {
+      if (!res || res.error) {
+        if (res && res.error === 'session_expired') { showSignIn(); return; }
+        show('dcpSignIn');
+        pageError((res && res.message) || NETWORK_ERROR);
+        return;
+      }
+      $('dcpName').textContent = (res.name || '').split(' ')[0] || 'there';
+      $('dcpOrg').textContent = res.organisation ? res.organisation : 'Your diagnostics';
+      const cards = $('dcpCards');
+      cards.innerHTML = '';
+      if (!res.assignments.length) {
+        const empty = el('div', 'dcp-empty');
+        empty.appendChild(document.createTextNode('No diagnostics are available to you at the moment. If you were expecting one, please contact Francis at '));
+        const mail = el('a', null, 'francislua@deepclarity.sg');
+        mail.href = 'mailto:francislua@deepclarity.sg';
+        empty.appendChild(mail);
+        empty.appendChild(document.createTextNode('.'));
+        cards.appendChild(empty);
+      } else {
+        res.assignments.forEach(function (a) { cards.appendChild(renderCard(a)); });
+      }
+      show('dcpDashboard');
+    }).catch(function () {
+      show('dcpSignIn');
+      pageError(NETWORK_ERROR);
+    });
+  }
+
+  if (DCP.isSignedIn()) loadDashboard(); else showSignIn();
+})();
+</script>
+</body>
+</html>

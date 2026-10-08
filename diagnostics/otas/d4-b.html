@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D4 · AI Readiness — Operational Automation — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+<link rel="stylesheet" href="../platform.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 2 of 6 · Operations and Technology</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d4-a.html" title="A · Operational Technology Foundation">A</a>
+  <a href="d4-b.html" title="B · AI Readiness — Operational Automation">B</a>
+  <a href="d4-c.html" title="C · AI Readiness — Functional Capability">C</a>
+  <a href="d4-d.html" title="D · AI Readiness — Business Intelligence">D</a>
+  <a href="d4-e.html" title="E · AI Readiness — Clinical AI (Current)">E</a>
+  <a href="d4-f.html" title="F · Emerging Clinical AI — OTAS Partnership Context">F</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D4 — Operations and Technology</span>
+  <h1>AI Readiness — Operational Automation</h1>
+  <p class="dc-section-title">Section B · Question Q42</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q42</span>
+    <p class="dc-question-text">Which of the following are currently automated in your business, meaning they happen without manual staff intervention?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="checkbox" name="Q42_automated" value="Appointment confirmation messages" data-autosave> Appointment confirmation messages to patients</label>
+      <label class="dc-option"><input type="checkbox" name="Q42_automated" value="Recall reminders" data-autosave> Recall reminders (e.g. annual eye test due, contact lens replacement due)</label>
+      <label class="dc-option"><input type="checkbox" name="Q42_automated" value="Inventory reorder alerts" data-autosave> Inventory reorder alerts or automatic reorder triggers</label>
+      <label class="dc-option"><input type="checkbox" name="Q42_automated" value="Automatic sales reporting" data-autosave> Sales and revenue reporting, generated automatically by the system</label>
+      <label class="dc-option"><input type="checkbox" name="Q42_automated" value="None" data-autosave> None of the above are currently automated</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">For anything automated, how long has it been running, and do you review whether it is working effectively?</p>
+    <div class="dc-field">
+      <textarea name="Q42_review" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../platform.js"></script>
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D4', prevPage: 'd4-a.html', nextPage: 'd4-c.html' });</script>
+</body>
+</html>

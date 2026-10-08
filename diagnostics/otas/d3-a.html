@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D3 · Revenue Profile — DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+<link rel="stylesheet" href="../platform.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress">Section 1 of 5 · Financial Profile</span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+<div class="dc-jumpnav dc-jumpnav-sections" role="navigation" aria-label="Jump to section">
+  <a href="d3-a.html" title="A · Revenue Profile">A</a>
+  <a href="d3-b.html" title="B · Cost Structure and Financial Tracking">B</a>
+  <a href="d3-c.html" title="C · Inventory and Working Capital">C</a>
+  <a href="d3-d.html" title="D · Sourcing and Supplier Strategy">D</a>
+  <a href="d3-e.html" title="E · Rental and Location Economics">E</a>
+</div>
+<main class="dc-main">
+  <span class="dc-eyebrow label">D3 — Financial Profile</span>
+  <h1>Revenue Profile</h1>
+  <p class="dc-section-title">Section A · Questions Q20–Q21</p>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q20</span>
+    <p class="dc-question-text">Which of the following best describes your business's total annual revenue?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="Under $300,000" data-autosave> Under $300,000</label>
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="$300,000-$600,000" data-autosave> $300,000 to $600,000</label>
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="$600,000-$1,000,000" data-autosave> $600,000 to $1,000,000</label>
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="$1,000,000-$2,000,000" data-autosave> $1,000,000 to $2,000,000</label>
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="Above $2,000,000" data-autosave> Above $2,000,000</label>
+      <label class="dc-option"><input type="radio" name="Q20_revenue_band" value="Not sure" data-autosave> I am not sure / I do not track this</label>
+    </div>
+  </div>
+
+  <div class="dc-question">
+    <span class="dc-question-number">Q21</span>
+    <p class="dc-question-text">How would you describe your revenue trend over the last two to three years?</p>
+    <div class="dc-options">
+      <label class="dc-option"><input type="radio" name="Q21_revenue_trend" value="Growing" data-autosave> Growing, revenue has increased year on year</label>
+      <label class="dc-option"><input type="radio" name="Q21_revenue_trend" value="Stable" data-autosave> Stable, revenue has remained broadly consistent</label>
+      <label class="dc-option"><input type="radio" name="Q21_revenue_trend" value="Declining" data-autosave> Declining, revenue has decreased</label>
+      <label class="dc-option"><input type="radio" name="Q21_revenue_trend" value="Variable" data-autosave> Variable, significant ups and downs with no clear trend</label>
+    </div>
+    <p class="dc-question-help" style="margin-top:1.2rem;">What do you believe is driving this trend?</p>
+    <div class="dc-field">
+      <textarea name="Q21_driver" data-autosave placeholder="Your answer"></textarea>
+    </div>
+  </div>
+
+
+  <div class="dc-nav-row">
+    <button class="btn btn-outline" id="dcBack">Back</button>
+    <div class="dc-nav-row-right">
+      <span class="dc-nav-note">Your answers are already saved — continue just takes you to the next section.</span>
+      <button class="btn btn-primary" id="dcContinue">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../platform.js"></script>
+<script src="diagnostic.js"></script>
+<script>dcBootstrapPage({ dimension: 'D3', prevPage: 'd2-d.html', nextPage: 'd3-b.html' });</script>
+</body>
+</html>

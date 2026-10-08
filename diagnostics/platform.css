@@ -1,0 +1,221 @@
+/* ============================================================
+   DeepClarity Diagnostics: shared styles for the sign-in and
+   dashboard page, plus the account links shown on every
+   diagnostic page. Loads after ../css/style.css (or ../../ from
+   a project folder) and reuses its design tokens.
+   ============================================================ */
+
+/* ── Slim header ── */
+.dcp-header {
+  background: var(--navy);
+  padding: 1.5rem var(--pad-x);
+}
+
+.dcp-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Account links (Dashboard · Sign out). Also injected into each
+   diagnostic's header by its own script. */
+.dcp-account {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.dcp-account a,
+.dcp-account button {
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.7);
+  transition: color var(--transition);
+}
+
+.dcp-account a:hover,
+.dcp-account button:hover { color: var(--amber); }
+
+.dcp-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--pad-x) 6rem;
+  min-height: 60vh;
+}
+
+.dcp-eyebrow {
+  color: var(--amber);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.dcp-main h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.dcp-lead {
+  color: var(--ink);
+  max-width: 56ch;
+  margin-bottom: 2.5rem;
+}
+
+.dcp-hidden { display: none !important; }
+
+/* ── Sign-in form ── */
+.dcp-form {
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.dcp-form label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.45rem;
+}
+
+.dcp-input {
+  width: 100%;
+  border: 1px solid var(--grey-light);
+  background: var(--warm-white);
+  padding: 0.95rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--navy);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.dcp-input:focus { border-color: var(--navy); box-shadow: inset 2px 0 0 var(--amber); }
+
+.dcp-input-code {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.dcp-form .btn { align-self: flex-start; }
+.dcp-form .btn[disabled] { opacity: 0.55; cursor: default; transform: none; }
+
+.dcp-help {
+  font-size: 0.85rem;
+  color: var(--grey);
+  max-width: 48ch;
+}
+
+.dcp-help a { color: var(--ink); border-bottom: 1px solid var(--grey-light); }
+
+.dcp-message {
+  font-size: 0.88rem;
+  color: var(--ink);
+  background: rgba(27, 42, 74, 0.04);
+  border-left: 2px solid var(--amber);
+  padding: 0.9rem 1.2rem;
+  max-width: 56ch;
+}
+
+.dcp-message.is-error {
+  border-left-color: #b5523b;
+  background: rgba(181, 82, 59, 0.06);
+}
+
+/* ── Dashboard ── */
+.dcp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dcp-card {
+  border: 1px solid var(--grey-light);
+  border-left: 2px solid var(--amber);
+  background: #fff;
+  padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+.dcp-card.is-completed { border-left-color: var(--slate); background: rgba(255, 255, 255, 0.6); }
+
+.dcp-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+
+.dcp-card-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.dcp-card p {
+  font-size: 0.9rem;
+  color: var(--ink);
+  max-width: 52ch;
+  margin-bottom: 0.9rem;
+}
+
+.dcp-card-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+.dcp-status {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid currentColor;
+}
+
+.dcp-status.is-not-started { color: var(--grey); }
+.dcp-status.is-in-progress { color: #9a7424; background: rgba(196, 154, 60, 0.08); }
+.dcp-status.is-completed   { color: var(--slate); background: rgba(74, 94, 138, 0.07); }
+
+.dcp-card .btn { white-space: nowrap; }
+
+.dcp-empty {
+  border: 1px dashed var(--grey-light);
+  padding: 2.25rem;
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.dcp-loading { color: var(--grey); font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .dcp-card { grid-template-columns: 1fr; padding: 1.5rem; }
+  .dcp-card .btn { justify-self: start; }
+}

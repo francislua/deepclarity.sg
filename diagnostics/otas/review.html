@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Review and submit | DeepClarity Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+<link rel="stylesheet" href="../platform.css" />
+<style>
+  .dc-review-dim { margin-top: 2rem; }
+  .dc-review-dim-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: 0.7rem;
+  }
+  .dc-review-dim-head .dc-section-title { margin-bottom: 0; color: var(--navy); }
+  .dc-review-state { font-size: 0.78rem; color: var(--grey); }
+  .dc-review-state.is-complete { color: var(--slate); }
+  .dc-review-state.is-locked { color: #9a7424; }
+  .dc-review-links { display: flex; flex-direction: column; gap: 0.6rem; }
+  .dc-review-link.is-locked {
+    color: var(--grey); border-style: dashed; cursor: default;
+    display: flex; justify-content: space-between; gap: 1rem;
+  }
+  .dc-review-link.is-locked:hover { border-color: var(--grey-light); background: none; }
+  .dc-submit-box { margin-top: 3.5rem; text-align: left; }
+  .dc-submit-box p { margin: 0 0 1.2rem; max-width: 56ch; }
+  .dc-confirm {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    font-size: 0.9rem; color: var(--navy); margin-bottom: 1.6rem; cursor: pointer;
+  }
+  .dc-confirm input { margin-top: 0.35rem; accent-color: var(--navy); width: 1rem; height: 1rem; }
+  .dc-submit-box .btn[disabled] { opacity: 0.5; cursor: default; transform: none; }
+  .dc-submit-error { color: #b5523b; font-size: 0.85rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress" id="dcPracticeLabel"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+
+<main class="dc-main" id="dcMain">
+  <div class="dc-loading">Loading your diagnostic…</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../platform.js"></script>
+<script src="diagnostic.js"></script>
+<script>
+  // Sections of the diagnostic. `gate` marks a section (or one page) that
+  // opens only once Francis releases it for this respondent.
+  const DC_SECTIONS = [
+    { dim: 'D1', name: 'Business Model', pages: [
+      ['d1-a.html', 'A · Your Value Proposition'], ['d1-b.html', 'B · Product Portfolio and Positioning'],
+      ['d1-c.html', 'C · Clinical Services and Programmes'], ['d1-d.html', 'D · Customer Data and Retention'],
+      ['d1-e.html', 'E · Conversion'], ['d1-f.html', 'F · Online Presence'], ['d1-g.html', 'G · Business Model Evolution']] },
+    { dim: 'D2', name: 'Customers and Market Position', pages: [
+      ['d2-a.html', 'A · Location and Catchment'], ['d2-b.html', 'B · Customer Profiling and Segmentation', 'D2B'],
+      ['d2-c.html', 'C · Customer Acquisition'], ['d2-d.html', 'D · Competitive Landscape']] },
+    { dim: 'D3', name: 'Financial Profile', pages: [
+      ['d3-a.html', 'A · Revenue Profile'], ['d3-b.html', 'B · Cost Structure and Financial Tracking'],
+      ['d3-c.html', 'C · Inventory and Working Capital'], ['d3-d.html', 'D · Sourcing and Supplier Strategy'],
+      ['d3-e.html', 'E · Rental and Location Economics']] },
+    { dim: 'D4', name: 'Operations and Technology', pages: [
+      ['d4-a.html', 'A · Operational Technology Foundation'], ['d4-b.html', 'B · AI Readiness, Operational Automation'],
+      ['d4-c.html', 'C · AI Readiness, Functional Capability'], ['d4-d.html', 'D · AI Readiness, Business Intelligence'],
+      ['d4-e.html', 'E · AI Readiness, Clinical AI (Current)'], ['d4-f.html', 'F · Emerging Clinical AI, OTAS Partnership Context']] },
+    { dim: 'D5', name: 'HR Operations', pages: [
+      ['d5-a.html', 'A · Employment Documentation'], ['d5-b.html', 'B · Workforce Composition and Employment Status'],
+      ['d5-c.html', 'C · Hiring and Onboarding Documentation'], ['d5-d.html', 'D · Payroll, Leave, and Time and Attendance'],
+      ['d5-e.html', 'E · Insurance and Employee Benefits']] },
+    { dim: 'D6', name: 'Strategic HR', pages: [
+      ['d6-a.html', 'A · Performance Management and Development'], ['d6-b.html', 'B · Competency Expectations'],
+      ['d6-c.html', 'C · Career Pathways and Progression'], ['d6-d.html', 'D · Compensation Strategy'],
+      ['d6-e.html', 'E · Talent Attraction and Retention'], ['d6-f.html', 'F · Top Challenges and Open Reflections']] },
+    { dim: 'D7', name: 'Team and Culture', gate: 'D7', pages: [
+      ['d7-a.html', 'A · Team Composition and Effectiveness'], ['d7-b.html', 'B · Culture: What Exists and How It Got Built'],
+      ['d7-c.html', 'C · Culture: Perception and Intentionality']] },
+    { dim: 'D8', name: 'Owner Leadership', gate: 'D8', pages: [
+      ['d8-a.html', 'A · How You Lead Today'], ['d8-b.html', 'B · How You Think and Reflect']] }
+  ];
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function renderReview(state) {
+    const gating = state.gating || {};
+    const progress = {};
+    (state.progress || []).forEach(function (p) { progress[p.section] = p; });
+    const main = document.getElementById('dcMain');
+    main.innerHTML = '';
+
+    main.appendChild(el('span', 'dc-eyebrow label', 'Review and submit'));
+    main.appendChild(el('h1', null, 'Before you submit'));
+    main.appendChild(el('p', null, 'Here is where each part of the diagnostic stands. You can open any section to add to or change your answers before submitting. Not every question needs an answer; leave anything that is better discussed in person.'));
+
+    DC_SECTIONS.forEach(function (s) {
+      const block = el('div', 'dc-review-dim');
+      const head = el('div', 'dc-review-dim-head');
+      head.appendChild(el('p', 'dc-section-title', s.dim + ' · ' + s.name));
+      const sectionOpen = !s.gate || gating[s.gate];
+      const p = progress[s.dim] || { answered: 0, total: 0 };
+      let stateText, stateCls = '';
+      if (!sectionOpen) { stateText = 'Opens after your meeting'; stateCls = 'is-locked'; }
+      else if (!p.answered) stateText = 'No answers yet';
+      else if (p.answered >= p.total) { stateText = 'All answered'; stateCls = 'is-complete'; }
+      else stateText = p.answered + ' of ' + p.total + ' answers given';
+      head.appendChild(el('span', 'dc-review-state ' + stateCls, stateText));
+      block.appendChild(head);
+
+      const links = el('div', 'dc-review-links');
+      s.pages.forEach(function (pg) {
+        const pageOpen = sectionOpen && (!pg[2] || gating[pg[2]]);
+        if (pageOpen) {
+          const a = el('a', 'dc-review-link', pg[1]);
+          a.href = DC.link(pg[0]);
+          links.appendChild(a);
+        } else {
+          const d = el('div', 'dc-review-link is-locked');
+          d.appendChild(el('span', null, pg[1]));
+          d.appendChild(el('span', null, 'Opens after your meeting'));
+          links.appendChild(d);
+        }
+      });
+      block.appendChild(links);
+      main.appendChild(block);
+    });
+
+    const box = el('div', 'dc-locked dc-submit-box');
+    if (state.can_submit) {
+      box.appendChild(el('h3', null, 'Ready to submit?'));
+      box.appendChild(el('p', null, 'Submitting is final. Once you submit, your answers are locked and cannot be changed. If you would like to revisit anything, use the sections above first.'));
+      const label = el('label', 'dc-confirm');
+      const tick = el('input');
+      tick.type = 'checkbox';
+      label.appendChild(tick);
+      label.appendChild(el('span', null, 'I understand that my answers cannot be changed after I submit.'));
+      box.appendChild(label);
+      const btn = el('button', 'btn btn-primary', 'Submit diagnostic');
+      btn.type = 'button';
+      btn.disabled = true;
+      tick.addEventListener('change', function () { btn.disabled = !tick.checked; });
+      const err = el('p', 'dc-submit-error');
+      err.style.display = 'none';
+      btn.addEventListener('click', function () {
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+        err.style.display = 'none';
+        DC.submit().then(function (res) {
+          if (res && res.ok) { window.location.href = DC.link('complete.html'); return; }
+          if (res && (res.error === 'session_expired' || res.error === 'no_access')) { dcShowProblem(res); return; }
+          err.textContent = (res && res.message) || 'Your diagnostic could not be submitted. Please try again.';
+          err.style.display = '';
+          btn.textContent = 'Submit diagnostic';
+          btn.disabled = !tick.checked;
+        }).catch(function () {
+          err.textContent = 'We could not reach the diagnostics service. Your answers are saved; please check your connection and try again.';
+          err.style.display = '';
+          btn.textContent = 'Submit diagnostic';
+          btn.disabled = !tick.checked;
+        });
+      });
+      box.appendChild(btn);
+      box.appendChild(err);
+    } else {
+      box.appendChild(el('h3', null, 'Some sections open after your meeting'));
+      box.appendChild(el('p', null, 'Your answers so far are saved. The remaining sections will be opened after your meeting with Francis, and you can then complete them and submit. You can sign out and come back at any time.'));
+      const dash = el('a', 'btn btn-primary', 'Go to your dashboard');
+      dash.href = DCP.root;
+      box.appendChild(dash);
+    }
+    main.appendChild(box);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    dcStart().then(function (state) {
+      if (!state) return;
+      dcInitJumpNav();
+      renderReview(state);
+      DC.setCurrentPage('review');
+    });
+  });
+</script>
+</body>
+</html>

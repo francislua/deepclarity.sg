@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your DeepClarity Business Diagnostic</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="diagnostic.css" />
+<link rel="stylesheet" href="../platform.css" />
+</head>
+<body>
+
+<header class="dc-header">
+  <div class="dc-header-inner">
+    <a href="landing.html" class="nav-wordmark" aria-label="DeepClarity home">
+      <div>
+        <div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.5rem;">
+      <span class="dc-progress" id="dcPracticeLabel"></span>
+      <span class="dc-save-status" id="dcSaveStatus"></span>
+    </div>
+  </div>
+</header>
+
+<div class="dc-jumpnav dc-jumpnav-dims" role="navigation" aria-label="Jump to dimension">
+  <a href="landing.html" class="dc-jumpnav-home" title="Back to welcome and overview">Start</a>
+  <span class="dc-jumpnav-divider"></span>
+  <a href="d1-a.html" data-dim="d1" title="D1 · Business Model">D1</a>
+  <a href="d2-a.html" data-dim="d2" title="D2 · Customers and Market Position">D2</a>
+  <a href="d3-a.html" data-dim="d3" title="D3 · Financial Profile">D3</a>
+  <a href="d4-a.html" data-dim="d4" title="D4 · Operations and Technology">D4</a>
+  <a href="d5-a.html" data-dim="d5" title="D5 · HR Operations">D5</a>
+  <a href="d6-a.html" data-dim="d6" title="D6 · Strategic HR">D6</a>
+  <a href="d7-a.html" data-dim="d7" title="D7 · Team and Culture">D7</a>
+  <a href="d8-a.html" data-dim="d8" title="D8 · Owner Leadership">D8</a>
+</div>
+
+<main class="dc-main" id="dcMain">
+  <div class="dc-loading" id="dcLoading">Loading your diagnostic…</div>
+
+  <div id="dcContent" style="display:none;">
+    <span class="dc-eyebrow label">Welcome to your DeepClarity Business Diagnostic</span>
+    <h1 id="dcWelcomeHeading">Welcome, <span id="dcRespondentName">there</span>.</h1>
+
+    <div class="dc-progress-bar-track"><div class="dc-progress-bar-fill" id="dcProgressFill" style="width:0%"></div></div>
+
+    <p>This questionnaire is a thinking prompt, not a test. Complete what you can before your first meeting. There are no wrong answers, and finishing every section is not required. Some questions are best explored together during your discussion sessions, so leave them if they do not feel ready yet.</p>
+
+    <p>Your answers save automatically as you go. You do not need to click a save button; a small "Saved" note will confirm each answer has been recorded. You can stop at any point and come back later: sign in again at deepclarity.sg/diagnostics with your email address and access code, and you will return to exactly where you left off, on any device.</p>
+
+    <div class="dc-confidentiality">
+      <h3>Confidentiality</h3>
+      <p>Everything entered here is treated as confidential business information. Responses are stored securely within DeepClarity's own systems and are visible only to your consultant. Nothing is shared with third parties, and information co-developed with the Optical Trade Association of Singapore follows the same confidentiality standard as the rest of this diagnostic.</p>
+    </div>
+
+    <div class="dc-confidentiality">
+      <h3>Business Snapshot</h3>
+      <p>A couple of quick facts about your practice before we begin. These help set context and are not part of the diagnostic dimensions that follow.</p>
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-top:1rem;">
+        <div>
+          <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">Years running this business</label>
+          <div class="dc-field dc-field-inline"><input type="text" name="years_running_business" data-autosave /></div>
+        </div>
+        <div>
+          <label style="display:block;font-size:0.75rem;color:var(--grey);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.4rem;">Number of outlets</label>
+          <div class="dc-field dc-field-inline"><input type="text" name="number_of_outlets" data-autosave /></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dc-nav-row">
+      <button class="btn btn-primary" id="dcContinueBtn">Continue</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../platform.js"></script>
+<script src="diagnostic.js"></script>
+<script>
+  // Maps the resume point recorded for this respondent to the page to open.
+  const DC_PAGE_MAP = {
+    'landing': 'd1-a.html',
+    'd1-a': 'd1-a.html', 'd1-b': 'd1-b.html', 'd1-c': 'd1-c.html', 'd1-d': 'd1-d.html',
+    'd1-e': 'd1-e.html', 'd1-f': 'd1-f.html', 'd1-g': 'd1-g.html',
+    'd2-a': 'd2-a.html', 'd2-b': 'd2-b.html', 'd2-c': 'd2-c.html', 'd2-d': 'd2-d.html',
+    'd3-a': 'd3-a.html', 'd3-b': 'd3-b.html', 'd3-c': 'd3-c.html', 'd3-d': 'd3-d.html', 'd3-e': 'd3-e.html',
+    'd4-a': 'd4-a.html', 'd4-b': 'd4-b.html', 'd4-c': 'd4-c.html', 'd4-d': 'd4-d.html', 'd4-e': 'd4-e.html', 'd4-f': 'd4-f.html',
+    'd5-a': 'd5-a.html', 'd5-b': 'd5-b.html', 'd5-c': 'd5-c.html', 'd5-d': 'd5-d.html', 'd5-e': 'd5-e.html',
+    'd6-a': 'd6-a.html', 'd6-b': 'd6-b.html', 'd6-c': 'd6-c.html', 'd6-d': 'd6-d.html', 'd6-e': 'd6-e.html', 'd6-f': 'd6-f.html',
+    'd7-a': 'd7-a.html', 'd7-b': 'd7-b.html', 'd7-c': 'd7-c.html',
+    'd8-a': 'd8-a.html', 'd8-b': 'd8-b.html',
+    'review': 'review.html', 'complete': 'review.html'
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    dcStart().then(function (state) {
+      if (!state) return;
+      document.getElementById('dcLoading').style.display = 'none';
+      document.getElementById('dcContent').style.display = 'block';
+      document.getElementById('dcRespondentName').textContent =
+        (state.respondent.name || '').split(' ')[0] || 'there';
+
+      // Business Snapshot fields save to this respondent's row in the Respondents tab.
+      dcPrefill(state.respondent.fields);
+      dcInitAutosave('Respondents');
+      dcInitJumpNav();
+
+      // Progress estimate across the full diagnostic.
+      const order = ['d1-a','d1-b','d1-c','d1-d','d1-e','d1-f','d1-g','d2-a','d2-b','d2-c','d2-d','d3-a','d3-b','d3-c','d3-d','d3-e','d4-a','d4-b','d4-c','d4-d','d4-e','d4-f','d5-a','d5-b','d5-c','d5-d','d5-e','d6-a','d6-b','d6-c','d6-d','d6-e','d6-f','d7-a','d7-b','d7-c','d8-a','d8-b','review'];
+      const idx = order.indexOf(state.current_page);
+      const pct = idx === -1 ? 0 : Math.round((idx / order.length) * 100);
+      document.getElementById('dcProgressFill').style.width = pct + '%';
+
+      const target = DC_PAGE_MAP[state.current_page] || 'd1-a.html';
+      document.getElementById('dcContinueBtn').addEventListener('click', function () {
+        window.location.href = DC.link(target);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

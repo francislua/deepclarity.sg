@@ -1,0 +1,431 @@
+/* ============================================================
+   DeepClarity Diagnostic — shared styles
+   Loads after ../css/style.css and reuses its design tokens
+   (--navy, --ink, --slate, --amber, --warm-white, --grey, etc.)
+   ============================================================ */
+
+/* Slim header for the diagnostic — wordmark only, no marketing nav,
+   so respondents aren't tempted away from the form mid-flow. */
+.dc-header {
+  background: var(--navy);
+  padding: 1.5rem var(--pad-x);
+}
+
+.dc-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dc-progress {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.55);
+}
+
+.dc-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--pad-x) 6rem;
+  min-height: 60vh;
+}
+
+.dc-eyebrow {
+  color: var(--amber);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.dc-main h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+
+.dc-section-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 2rem;
+}
+
+/* Save status indicator */
+.dc-save-status {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.45);
+  min-width: 90px;
+  text-align: right;
+}
+
+.dc-save-status.saving { color: var(--amber); }
+.dc-save-status.saved  { color: rgba(245, 243, 238, 0.75); }
+.dc-save-status.error  { color: #e0a0a0; }
+
+/* Question blocks */
+.dc-question {
+  margin-bottom: 2.75rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.dc-question:last-of-type {
+  border-bottom: none;
+}
+
+.dc-question-number {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.dc-question-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+  max-width: 60ch;
+}
+
+.dc-question-help {
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 1.2rem;
+  max-width: 60ch;
+}
+
+/* Text inputs — reuse the contact-form floating pattern */
+.dc-field {
+  border: 1px solid var(--grey-light);
+  background: var(--warm-white);
+  position: relative;
+  transition: border-color var(--transition);
+  margin-top: 1rem;
+}
+
+.dc-field:focus-within { border-color: var(--navy); }
+
+.dc-field::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--amber);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.25s ease;
+}
+
+.dc-field:focus-within::before { transform: scaleY(1); }
+
+.dc-field textarea,
+.dc-field input[type="text"],
+.dc-field input[type="number"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--navy);
+  resize: none;
+}
+
+.dc-field textarea { min-height: 110px; }
+
+/* Percent-style small inputs */
+.dc-field.dc-field-inline { display: inline-flex; align-items: center; width: auto; }
+.dc-field.dc-field-inline input { width: 5rem; text-align: right; padding: 0.7rem 0.5rem; }
+.dc-inline-suffix { padding-right: 1rem; color: var(--grey); font-size: 0.85rem; }
+
+/* Radio / checkbox lists */
+.dc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.dc-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--navy);
+  font-weight: 300;
+}
+
+.dc-option input {
+  margin-top: 0.25rem;
+  accent-color: var(--navy);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Table-style questions (Q6, Q11) — built as CSS grid rows rather than an
+   HTML <table>, so a wrapping category label never collides with the row's
+   divider line (a literal <table> lets sibling cells fall out of sync in
+   height, which visually cut rules through wrapped text). */
+.dc-qtable { margin-top: 1rem; font-size: 0.85rem; }
+
+.dc-qtable-head {
+  display: grid;
+  /* Fixed width (not auto) on the middle column: .dc-qtable-head and
+     .dc-qtable-row are separate grid containers, so an "auto" track sizes
+     independently in each — the header's "Carry?" label is narrower than
+     the Yes/No radio pair in the rows below it, which pushed the third
+     column out of alignment with its own header. A fixed width keeps both
+     containers' columns lined up regardless of what each one contains. */
+  grid-template-columns: 1.6fr 8rem 2fr;
+  gap: 1.2rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.dc-qtable-head.dc-qtable-2col { grid-template-columns: 1.8fr 1fr 1.2fr; }
+
+.dc-qtable-head span {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 500;
+}
+
+.dc-qtable-row {
+  display: grid;
+  grid-template-columns: 1.6fr 8rem 2fr;
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.dc-qtable-row.dc-qtable-2col { grid-template-columns: 1.8fr 1fr 1.2fr; }
+
+.dc-qtable-row:last-child { border-bottom: none; }
+
+.dc-qtable-label { color: var(--navy); font-weight: 400; font-size: 0.92rem; line-height: 1.5; }
+
+.dc-qtable .dc-yn { display: flex; gap: 1rem; white-space: nowrap; }
+.dc-qtable .dc-yn label { display: flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; cursor: pointer; }
+
+.dc-qtable input[type="text"] {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--grey-light);
+  background: transparent;
+  padding: 0.4rem 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--navy);
+}
+.dc-qtable input[type="text"]:focus { outline: none; border-bottom-color: var(--navy); }
+.dc-qtable .dc-reference { color: var(--grey); font-style: italic; font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .dc-qtable-head { display: none; }
+  .dc-qtable-row,
+  .dc-qtable-row.dc-qtable-2col {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 1.2rem 0;
+  }
+}
+
+/* Nav row */
+.dc-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.dc-nav-row-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.dc-nav-note {
+  font-size: 0.78rem;
+  color: var(--grey);
+}
+
+/* Review/edit links (used on the pilot-end page to jump into any section) */
+.dc-review-link {
+  display: block;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--grey-light);
+  color: var(--navy);
+  font-size: 0.92rem;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.dc-review-link:hover {
+  border-color: var(--navy);
+  background: rgba(27, 42, 74, 0.03);
+}
+
+/* Jump-to-section nav — a slim strip below the header, present on every
+   page, so respondents aren't limited to sequential Back/Continue. */
+.dc-jumpnav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 760px;
+  margin: 1.4rem auto 0;
+  padding: 0 var(--pad-x);
+}
+
+.dc-jumpnav a {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--grey-light);
+  border-radius: 50%;
+  color: var(--grey);
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: var(--warm-white);
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.dc-jumpnav a:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+.dc-jumpnav a.is-active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--warm-white);
+}
+
+.dc-jumpnav-home {
+  width: auto !important;
+  height: 2rem;
+  border-radius: 999px !important;
+  padding: 0 0.9rem;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dc-jumpnav-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--grey-light);
+  margin: 0 0.3rem;
+}
+
+/* Two-tier nav: a top row of dimension pills (D1-D8), and a second row of
+   section-letter pills scoped to whichever dimension the current page
+   belongs to. The second row sits closer to the first so the pair reads
+   as one navigation block rather than two separate strips. */
+.dc-jumpnav-dims a[data-dim] {
+  width: auto;
+  min-width: 2.1rem;
+  padding: 0 0.55rem;
+  border-radius: 999px;
+}
+
+.dc-jumpnav-sections {
+  margin-top: 0.5rem;
+}
+
+/* Locked / gated placeholder (used by future D2B, D7, D8 pages) */
+.dc-locked {
+  background: rgba(27, 42, 74, 0.04);
+  border: 1px solid var(--grey-light);
+  border-left: 2px solid var(--amber);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.dc-locked h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.dc-locked p { color: var(--ink); font-size: 0.9rem; max-width: 46ch; margin: 0 auto; }
+
+/* Toggle-gated banner (D7/D8 default-visible sections) */
+.dc-discuss-banner {
+  background: rgba(196, 154, 60, 0.08);
+  border-left: 2px solid var(--amber);
+  padding: 1rem 1.4rem;
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+/* Landing page */
+.dc-landing-card {
+  background: var(--warm-white);
+  border: 1px solid var(--grey-light);
+}
+
+.dc-confidentiality {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--grey-light);
+}
+
+.dc-confidentiality h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+
+.dc-confidentiality p {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.dc-progress-bar-track {
+  height: 4px;
+  background: var(--grey-light);
+  margin: 1.5rem 0 2rem;
+}
+
+.dc-progress-bar-fill {
+  height: 100%;
+  background: var(--amber);
+  transition: width 0.4s ease;
+}
+
+.dc-loading, .dc-error {
+  text-align: center;
+  padding: 6rem 2rem;
+  color: var(--grey);
+}
+
+.dc-error { color: #c0392b; }
