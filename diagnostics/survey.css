@@ -1,0 +1,261 @@
+/* ============================================================
+   DeepClarity Diagnostics: single-page survey styles
+   Loads after the site's css/style.css and diagnostics/platform.css,
+   and reuses their design tokens (--navy, --amber, --grey, etc.).
+   ============================================================ */
+
+/* ── Header ── */
+.dcs-header {
+  background: var(--navy);
+  padding: 1.5rem var(--pad-x);
+}
+
+.dcs-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dcs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dc-save-status {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.45);
+  min-width: 90px;
+  text-align: right;
+}
+.dc-save-status.saving { color: var(--amber); }
+.dc-save-status.saved  { color: rgba(245, 243, 238, 0.75); }
+.dc-save-status.error  { color: #e0a0a0; }
+
+/* ── Page ── */
+.dcs-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) var(--pad-x) 6rem;
+  min-height: 60vh;
+}
+
+.dcs-eyebrow {
+  display: block;
+  color: var(--amber);
+  margin-bottom: 1.25rem;
+}
+
+.dcs-main h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.dcs-subtitle {
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.dcs-intro p {
+  color: var(--ink);
+  margin-bottom: 1.4rem;
+  max-width: 62ch;
+}
+
+.dcs-instructions {
+  margin: 2.25rem 0 1rem;
+}
+
+.dcs-instructions p {
+  font-size: 0.92rem;
+  color: var(--slate);
+  margin-bottom: 0.9rem;
+  max-width: 62ch;
+}
+
+.dcs-loading {
+  color: var(--grey);
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+/* ── Section headings ── */
+.dcs-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  font-weight: 400;
+  color: var(--navy);
+  margin: 4rem 0 0.5rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--navy);
+}
+
+/* ── Questions ── */
+.dcs-question {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--grey-light);
+}
+
+.dcs-question-number {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.7rem;
+}
+
+.dcs-question-text {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--navy);
+  margin-bottom: 1.2rem;
+  max-width: 60ch;
+}
+
+.dcs-question-help {
+  font-size: 0.88rem;
+  color: var(--grey);
+  margin: -0.6rem 0 1.2rem;
+  max-width: 60ch;
+}
+
+.dcs-input,
+.dcs-textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--grey-light);
+  background: var(--warm-white);
+  padding: 1rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--navy);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.dcs-textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+
+.dcs-input:focus,
+.dcs-textarea:focus,
+.dcs-select:focus {
+  border-color: var(--navy);
+  box-shadow: inset 2px 0 0 var(--amber);
+}
+
+.dcs-input:disabled,
+.dcs-textarea:disabled,
+.dcs-select:disabled { opacity: 0.55; }
+
+/* Labelled sub-answers (Start / Stop / Continue) */
+.dcs-subfield + .dcs-subfield { margin-top: 1.4rem; }
+
+.dcs-subfield label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.5rem;
+}
+
+/* Ranking */
+.dcs-rank {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dcs-rank-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--grey-light);
+  padding: 0.7rem 1rem;
+}
+
+.dcs-select {
+  flex: 0 0 auto;
+  width: 4.5rem;
+  border: 1px solid var(--grey-light);
+  background: var(--warm-white);
+  padding: 0.5rem 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--navy);
+  border-radius: 0;
+  outline: none;
+}
+
+.dcs-rank-row label {
+  font-size: 0.95rem;
+  color: var(--navy);
+  line-height: 1.45;
+}
+
+/* Missing answers flagged on Submit */
+.dcs-question.is-missing .dcs-question-number { color: #b5523b; }
+.dcs-question.is-missing .dcs-question-number::after { content: ' · Needs an answer'; }
+.dcs-question.is-missing .dcs-input,
+.dcs-question.is-missing .dcs-textarea,
+.dcs-question.is-missing .dcs-rank-row { border-color: #b5523b; }
+
+/* ── Submit ── */
+.dcs-submit {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dcs-submit-note {
+  font-size: 0.88rem;
+  color: var(--slate);
+  max-width: 56ch;
+}
+
+.dcs-submit .btn[disabled] { opacity: 0.55; cursor: default; transform: none; }
+
+.dcs-submit-message {
+  font-size: 0.9rem;
+  color: #b5523b;
+  max-width: 56ch;
+}
+
+/* ── Messages that replace the page ── */
+.dc-locked {
+  background: rgba(27, 42, 74, 0.04);
+  border: 1px solid var(--grey-light);
+  border-left: 2px solid var(--amber);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.dc-locked h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-bottom: 0.8rem;
+}
+
+.dc-locked p { color: var(--ink); font-size: 0.92rem; max-width: 50ch; margin: 0 auto 0.8rem; }
+
+@media (max-width: 640px) {
+  .dcs-question-text { font-size: 1.25rem; }
+  .dcs-rank-row { align-items: flex-start; }
+}
