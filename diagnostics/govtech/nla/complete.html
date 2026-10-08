@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Survey submitted | DeepClarity</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../../css/style.css" />
+<link rel="stylesheet" href="../../platform.css" />
+<link rel="stylesheet" href="../../survey.css" />
+</head>
+<body>
+
+<header class="dcs-header">
+  <div class="dcs-header-inner">
+    <a href="../../" class="nav-wordmark" aria-label="DeepClarity diagnostics home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div class="dcs-header-right">
+      <div class="dcp-account">
+        <a href="../../">Dashboard</a>
+        <button type="button" onclick="DCP.logout()">Sign out</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="dcs-main">
+  <p class="dcs-loading" id="dcsLoading">Loading…</p>
+
+  <div id="dcsContent" style="display:none;">
+    <span class="dcs-eyebrow label">GovTech</span>
+    <h1>New Leader Assimilation</h1>
+    <span class="dcs-subtitle label">Pre-work survey</span>
+
+    <div class="dc-locked">
+      <h3>Thank you. Your responses have been submitted.</h3>
+      <p id="dcsSubmittedOn"></p>
+      <p>Your facilitator will review all responses in preparation for the New Leader Assimilation session.</p>
+      <a class="btn btn-primary" href="../../" style="margin-top:1.25rem;">Go to your dashboard</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../../platform.js"></script>
+<script src="../../survey.js"></script>
+<script>
+  dcsInitComplete({ surveyPage: 'index.html' });
+</script>
+</body>
+</html>

@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Leader Assimilation | DeepClarity</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="../../../css/style.css" />
+<link rel="stylesheet" href="../../platform.css" />
+<link rel="stylesheet" href="../../survey.css" />
+</head>
+<body>
 
+<header class="dcs-header">
+  <div class="dcs-header-inner">
+    <a href="../../" class="nav-wordmark" aria-label="DeepClarity diagnostics home">
+      <div><div class="wordmark-name"><span class="deep">Deep</span><span class="clarity">Clarity</span></div></div>
+    </a>
+    <div class="dcs-header-right">
+      <span class="dc-save-status" id="dcsSaveStatus"></span>
+      <div class="dcp-account">
+        <a href="../../" id="dcsDashboard">Dashboard</a>
+        <button type="button" id="dcsSignOut">Sign out</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="dcs-main">
+  <span class="dcs-eyebrow label">GovTech</span>
+  <h1>New Leader Assimilation</h1>
+  <span class="dcs-subtitle label">Pre-work survey</span>
+
+  <div class="dcs-intro">
+    <p>This survey is pre-work for the New Leader Assimilation session. It provides an opportunity to share your perspectives, expectations and questions to help your new leader and team work effectively together.</p>
+    <p>Please respond openly and constructively. All responses will be treated as confidential. The DeepClarity facilitator will be able to identify individual respondents and review their answers to prepare for the session.</p>
+    <p>During the session, the facilitator will share themes drawn from the responses. Any individual comments used will be anonymised, with names and identifying details removed or paraphrased to reduce the risk of identification. Please bear in mind that distinctive experiences or circumstances may still be recognisable to others.</p>
+  </div>
+
+  <div class="dcs-instructions">
+    <p>All 14 questions are required. Your answers save automatically as you go, so you can stop at any point and come back later by signing in again. Once you submit, your answers are final and cannot be changed.</p>
+    <p>If you do not yet have a view on a question, you may say so. Please keep your sign-in details private.</p>
+  </div>
+
+  <p class="dcs-loading" id="dcsLoading">Loading your answers…</p>
+
+  <form id="dcsForm" novalidate onsubmit="return false;">
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 1 · Required</span>
+      <label class="dcs-question-text" for="q1">Name</label>
+      <input class="dcs-input" type="text" id="q1" name="q1_name" autocomplete="name" />
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 2 · Required</span>
+      <label class="dcs-question-text" for="q2">Position / Title</label>
+      <input class="dcs-input" type="text" id="q2" name="q2_position" autocomplete="organization-title" />
+    </div>
+
+    <h2 class="dcs-section-title">New Leader Assimilation</h2>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 3 · Required</span>
+      <label class="dcs-question-text" for="q3">What do you already know about your new leader?</label>
+      <textarea class="dcs-textarea" id="q3" name="q3_already_know"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 4 · Required</span>
+      <label class="dcs-question-text" for="q4">What do you not know but would like to know about your new leader?</label>
+      <textarea class="dcs-textarea" id="q4" name="q4_would_like_to_know"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 5 · Required</span>
+      <label class="dcs-question-text" for="q5">What do you want your new leader to know about this team?</label>
+      <textarea class="dcs-textarea" id="q5" name="q5_leader_should_know_about_team"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 6 · Required</span>
+      <label class="dcs-question-text" for="q6">What are the priority issues you'd want your new leader to address?</label>
+      <textarea class="dcs-textarea" id="q6" name="q6_priority_issues"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 7 · Required</span>
+      <label class="dcs-question-text" for="q7">What challenges might your new leader face?</label>
+      <textarea class="dcs-textarea" id="q7" name="q7_challenges_for_leader"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 8 · Required</span>
+      <label class="dcs-question-text" for="q8">What do you want / need most from your new leader?</label>
+      <textarea class="dcs-textarea" id="q8" name="q8_want_need_most"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 9 · Required</span>
+      <span class="dcs-question-text">What would you like your new leader to START / STOP / CONTINUE?</span>
+      <div class="dcs-subfield">
+        <label for="q9a">Start</label>
+        <textarea class="dcs-textarea" id="q9a" name="q9_start"></textarea>
+      </div>
+      <div class="dcs-subfield">
+        <label for="q9b">Stop</label>
+        <textarea class="dcs-textarea" id="q9b" name="q9_stop"></textarea>
+      </div>
+      <div class="dcs-subfield">
+        <label for="q9c">Continue</label>
+        <textarea class="dcs-textarea" id="q9c" name="q9_continue"></textarea>
+      </div>
+    </div>
+
+    <h2 class="dcs-section-title">Envision the Future</h2>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 10 · Required</span>
+      <label class="dcs-question-text" for="q10">In your own words, describe WHAT the future of your organisation should look like.</label>
+      <textarea class="dcs-textarea" id="q10" name="q10_future_what"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 11 · Required</span>
+      <label class="dcs-question-text" for="q11">Describe the difference between HOW your organisation is functioning/working today vs how it should be functioning/working in 2-3 years time.</label>
+      <textarea class="dcs-textarea" id="q11" name="q11_future_how"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 12 · Required</span>
+      <label class="dcs-question-text" for="q12">What do you think are the 2-3 biggest challenges facing this organisation over the next 2-3 years?</label>
+      <textarea class="dcs-textarea" id="q12" name="q12_biggest_challenges"></textarea>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 13 · Required</span>
+      <span class="dcs-question-text">Prioritise these areas based on most amount of change required vs current state.</span>
+      <p class="dcs-question-help">Rank each area from 1 to 7, where 1 is the highest priority (most change required). Use each number once.</p>
+      <div class="dcs-rank">
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13a" name="q13_rank_strategic_direction" aria-label="Rank for Strategic direction and vision">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13a">Strategic direction and vision</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13b" name="q13_rank_teamwork_accountability" aria-label="Rank for Teamwork and mutual accountability">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13b">Teamwork and mutual accountability</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13c" name="q13_rank_communication" aria-label="Rank for Communication and information flow">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13c">Communication and information flow</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13d" name="q13_rank_tough_decisions" aria-label="Rank for Debating and making tough decisions">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13d">Debating and making tough decisions</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13e" name="q13_rank_engaging_outside" aria-label="Rank for Engaging outside immediate team and function">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13e">Engaging outside immediate team and function</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13f" name="q13_rank_processes_rhythms" aria-label="Rank for Internal processes and rhythms">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13f">Internal processes and rhythms</label>
+        </div>
+        <div class="dcs-rank-row">
+          <select class="dcs-select" id="q13g" name="q13_rank_capability" aria-label="Rank for Individual development and building required capability to be successful">
+            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
+          </select>
+          <label for="q13g">Individual development and building required capability to be successful</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="dcs-question" data-required>
+      <span class="dcs-question-number">Question 14 · Required</span>
+      <label class="dcs-question-text" for="q14">If this change is to fail, what are the most likely reasons and why?</label>
+      <textarea class="dcs-textarea" id="q14" name="q14_reasons_for_failure"></textarea>
+    </div>
+
+    <div class="dcs-submit">
+      <p class="dcs-submit-note">Once you submit, your answers are final and cannot be changed.</p>
+      <button type="button" class="btn btn-primary" id="dcsSubmit">Submit</button>
+      <p class="dcs-submit-message" id="dcsSubmitMessage" role="alert" style="display:none;"></p>
+    </div>
+  </form>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-wordmark"><span class="deep">Deep</span><span class="clarity">Clarity</span></div>
+      <div class="footer-tagline">Clarity before momentum.</div>
+    </div>
+    <div class="footer-copy">© 2026 DeepClarity Pte. Ltd. · Singapore · All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="../../platform.js"></script>
+<script src="../../survey.js"></script>
+<script>
+  dcsInit({ section: 'NLA', prefillName: 'q1_name' });
+</script>
+</body>
+</html>
