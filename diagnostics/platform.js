@@ -29,6 +29,12 @@ const DCP = (function () {
   function clearSession() {
     memorySession = null;
     try { localStorage.removeItem(KEY); } catch (e) {}
+    // Diagnostics keep a copy of answers in the tab for speed; don't leave it behind.
+    try {
+      Object.keys(sessionStorage).forEach(function (k) {
+        if (k.indexOf('dc_state:') === 0) sessionStorage.removeItem(k);
+      });
+    } catch (e) {}
   }
 
   // Google occasionally holds a request for 20+ seconds or returns an error
