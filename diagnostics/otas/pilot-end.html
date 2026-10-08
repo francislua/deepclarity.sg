@@ -65,7 +65,7 @@
 <script src="diagnostic.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart().then(function (state) {
+    dcStart({ section: 'none' }).then(function (state) {
       if (!state) return;
       document.querySelectorAll('#dcReviewLinks a').forEach(function (a) {
         a.href = DC.link(a.getAttribute('href'));

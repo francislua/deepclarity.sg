@@ -22,11 +22,71 @@ const DC = (function () {
     return u.toString();
   }
 
-  function loadState() { return DCP.call('getState', { assignment: assignment }); }
-
-  function saveField(section, field, value) {
-    return DCP.call('saveField', { assignment: assignment, section: section, field: field, value: value });
+  /** section: a section name (e.g. 'D3') loads only its answers; 'none' loads none; omit for all. */
+  function loadState(section) {
+    const payload = { assignment: assignment };
+    if (section) payload.section = section;
+    return DCP.call('getState', payload);
   }
+
+  // ── Save queue ──
+  // Answers are queued and sent together, one request at a time, so quick
+  // changes across several questions become a single save.
+  const pending = {};          // 'section|field' -> { section, field, value }
+  let inFlight = null;
+  let statusListener = function () {};
+  let waiters = [];
+
+  function onSaveStatus(fn) { statusListener = fn; }
+
+  function hasPending() { return Object.keys(pending).length > 0; }
+
+  function settleWaiters(ok) {
+    const w = waiters; waiters = [];
+    w.forEach(function (fn) { fn(ok); });
+  }
+
+  function flush() {
+    if (inFlight) return;
+    if (!hasPending()) { settleWaiters(true); return; }
+    const batch = Object.keys(pending).map(function (k) { const f = pending[k]; delete pending[k]; return f; });
+    statusListener('saving');
+    inFlight = DCP.call('saveFields', { assignment: assignment, fields: batch })
+      .then(function (res) {
+        if (res && res.ok) { statusListener('saved'); return true; }
+        // Keep the answers queued (unless already changed again) for the next attempt.
+        batch.forEach(function (f) { const k = f.section + '|' + f.field; if (!pending[k]) pending[k] = f; });
+        statusListener('error', res);
+        return false;
+      }, function () {
+        batch.forEach(function (f) { const k = f.section + '|' + f.field; if (!pending[k]) pending[k] = f; });
+        statusListener('error', null);
+        return false;
+      })
+      .then(function (ok) {
+        inFlight = null;
+        if (ok && hasPending()) flush();
+        else settleWaiters(ok && !hasPending());
+      });
+  }
+
+  function queueSave(section, field, value) {
+    pending[section + '|' + field] = { section: section, field: field, value: value };
+    flush();
+  }
+
+  /** Resolves true once everything typed so far is saved, false if a save failed. */
+  function saveAll() {
+    return new Promise(function (resolve) {
+      if (!inFlight && !hasPending()) { resolve(true); return; }
+      waiters.push(resolve);
+      if (!inFlight) flush();
+    });
+  }
+
+  window.addEventListener('beforeunload', function (e) {
+    if (inFlight || hasPending()) { e.preventDefault(); e.returnValue = ''; }
+  });
 
   function setCurrentPage(page) {
     return DCP.call('setCurrentPage', { assignment: assignment, page: page });
@@ -34,8 +94,8 @@ const DC = (function () {
 
   function submit() { return DCP.call('submit', { assignment: assignment }); }
 
-  return { assignment: assignment, link: link, loadState: loadState, saveField: saveField,
-    setCurrentPage: setCurrentPage, submit: submit };
+  return { assignment: assignment, link: link, loadState: loadState, queueSave: queueSave,
+    saveAll: saveAll, onSaveStatus: onSaveStatus, setCurrentPage: setCurrentPage, submit: submit };
 })();
 
 /** Adds "Dashboard" and "Sign out" to the page header. */
@@ -94,7 +154,7 @@ function dcStart(opts) {
   dcInitAccountLinks();
   if (!DCP.isSignedIn()) { window.location.href = DCP.root; return Promise.resolve(null); }
   if (!DC.assignment) { window.location.href = DCP.root; return Promise.resolve(null); }
-  return DC.loadState().then(function (state) {
+  return DC.loadState(opts.section).then(function (state) {
     if (!state || state.error) { dcShowProblem(state); return null; }
     if (state.submitted && !opts.allowSubmitted) {
       window.location.replace(DC.link('complete.html'));
@@ -133,24 +193,19 @@ function dcInitAutosave(section) {
     return el.value;
   }
 
+  DC.onSaveStatus(function (state, res) {
+    if (state === 'saving') { setStatus('Saving…', 'saving'); return; }
+    if (state === 'saved') { setStatus('Saved', 'saved'); return; }
+    if (res && (res.error === 'session_expired' || res.error === 'submitted' || res.error === 'no_access')) {
+      dcShowProblem(res);
+      return;
+    }
+    setStatus(res ? 'Save failed' : 'Save failed: check connection', 'error');
+  });
+
   function doSave(el) {
-    const field = el.name;
-    if (!field) return;
-    const value = currentValue(el);
-    setStatus('Saving…', 'saving');
-    DC.saveField(section, field, value)
-      .then(function (res) {
-        if (res && res.error) {
-          if (res.error === 'session_expired' || res.error === 'submitted' || res.error === 'no_access') {
-            dcShowProblem(res);
-            return;
-          }
-          setStatus('Save failed', 'error');
-          return;
-        }
-        setStatus('Saved', 'saved');
-      })
-      .catch(function () { setStatus('Save failed: check connection', 'error'); });
+    if (!el.name) return;
+    DC.queueSave(section, el.name, currentValue(el));
   }
 
   document.querySelectorAll('[data-autosave]').forEach(function (el) {
@@ -218,8 +273,18 @@ function dcInitJumpNav() {
  */
 function dcBootstrapPage(opts) {
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart().then(function (state) {
+    // Until saved answers have loaded, keep the questions and buttons locked
+    // so nothing typed in the meantime goes unsaved.
+    const lockable = Array.prototype.slice.call(
+      document.querySelectorAll('.dc-main input, .dc-main textarea, .dc-main select, .dc-main button'));
+    lockable.forEach(function (el) { el.disabled = true; });
+    const statusEl = document.getElementById('dcSaveStatus');
+    if (statusEl) { statusEl.textContent = 'Loading…'; statusEl.className = 'dc-save-status saving'; }
+
+    dcStart({ section: opts.dimension }).then(function (state) {
       if (!state) return;
+      lockable.forEach(function (el) { el.disabled = false; });
+      if (statusEl) { statusEl.textContent = ''; statusEl.className = 'dc-save-status'; }
       dcPrefill(state.responses);
       dcInitAutosave(opts.dimension);
       dcInitJumpNav();
@@ -236,18 +301,41 @@ function dcBootstrapPage(opts) {
       if (continueBtn) {
         continueBtn.addEventListener('click', function () {
           const resumeCode = opts.nextPage.replace('.html', '');
-          DC.setCurrentPage(resumeCode).finally(function () {
-            window.location.href = DC.link(opts.nextPage);
-          });
+          dcLeaveAfterSaving(continueBtn, function () {
+            return DC.setCurrentPage(resumeCode).catch(function () {});
+          }, opts.nextPage);
         });
       }
 
       const backBtn = document.getElementById('dcBack');
       if (backBtn && opts.prevPage) {
         backBtn.addEventListener('click', function () {
-          window.location.href = DC.link(opts.prevPage);
+          dcLeaveAfterSaving(backBtn, null, opts.prevPage);
         });
       }
+    });
+  });
+}
+
+/**
+ * Waits for queued answers to finish saving, then (optionally) runs `before`
+ * and goes to `page`. If a save fails, stays put and says so, so nothing
+ * typed is lost.
+ */
+function dcLeaveAfterSaving(btn, before, page) {
+  const label = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  DC.saveAll().then(function (ok) {
+    if (!ok) {
+      btn.disabled = false;
+      btn.textContent = label;
+      const status = document.getElementById('dcSaveStatus');
+      if (status) { status.textContent = 'Save failed: please try again'; status.className = 'dc-save-status error'; }
+      return;
+    }
+    Promise.resolve(before ? before() : null).then(function () {
+      window.location.href = DC.link(page);
     });
   });
 }

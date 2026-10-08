@@ -106,7 +106,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    dcStart().then(function (state) {
+    dcStart({ section: 'none' }).then(function (state) {
       if (!state) return;
       document.getElementById('dcLoading').style.display = 'none';
       document.getElementById('dcContent').style.display = 'block';
@@ -125,8 +125,9 @@
       document.getElementById('dcProgressFill').style.width = pct + '%';
 
       const target = DC_PAGE_MAP[state.current_page] || 'd1-a.html';
-      document.getElementById('dcContinueBtn').addEventListener('click', function () {
-        window.location.href = DC.link(target);
+      const continueBtn = document.getElementById('dcContinueBtn');
+      continueBtn.addEventListener('click', function () {
+        dcLeaveAfterSaving(continueBtn, null, target);
       });
     });
   });
