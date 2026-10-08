@@ -96,6 +96,7 @@
   // ── Sign-in ──
   function showSignIn(message) {
     show('dcpSignIn');
+    $('dcpPageError').classList.add('dcp-hidden');
     const params = new URLSearchParams(window.location.search);
     const email = params.get('email');
     if (email && !$('dcpEmail').value) $('dcpEmail').value = email;
@@ -118,17 +119,27 @@
     }
     $('dcpSubmit').disabled = true;
     $('dcpSubmit').textContent = 'Signing in…';
+    const slow = setTimeout(function () {
+      $('dcpFormError').textContent = 'Still working on it. This can occasionally take up to a minute.';
+      $('dcpFormError').classList.remove('dcp-hidden');
+      $('dcpFormError').classList.remove('is-error');
+    }, 6000);
     DCP.login(email, code).then(function (res) {
+      clearTimeout(slow);
+      $('dcpFormError').classList.add('dcp-hidden', 'is-error');
       if (res && res.ok) {
         $('dcpCode').value = '';
         // Drop ?email= from the address bar once signed in.
         if (window.history && history.replaceState) history.replaceState(null, '', window.location.pathname);
-        loadDashboard();
+        if (res.dashboard && res.dashboard.ok) renderDashboard(res.dashboard);
+        else loadDashboard();
         return;
       }
       $('dcpFormError').textContent = (res && res.message) || 'Sign-in did not work. Please try again.';
       $('dcpFormError').classList.remove('dcp-hidden');
     }).catch(function () {
+      clearTimeout(slow);
+      $('dcpFormError').classList.add('is-error');
       $('dcpFormError').textContent = NETWORK_ERROR;
       $('dcpFormError').classList.remove('dcp-hidden');
     }).finally(function () {
@@ -174,6 +185,7 @@
 
   function loadDashboard() {
     show('dcpLoading');
+    $('dcpPageError').classList.add('dcp-hidden');
     DCP.call('dashboard').then(function (res) {
       if (!res || res.error) {
         if (res && res.error === 'session_expired') { showSignIn(); return; }
@@ -181,6 +193,15 @@
         pageError((res && res.message) || NETWORK_ERROR);
         return;
       }
+      renderDashboard(res);
+    }).catch(function () {
+      show('dcpSignIn');
+      pageError(NETWORK_ERROR);
+    });
+  }
+
+  function renderDashboard(res) {
+      $('dcpPageError').classList.add('dcp-hidden');
       $('dcpName').textContent = (res.name || '').split(' ')[0] || 'there';
       $('dcpOrg').textContent = res.organisation ? res.organisation : 'Your diagnostics';
       const cards = $('dcpCards');
@@ -197,10 +218,6 @@
         res.assignments.forEach(function (a) { cards.appendChild(renderCard(a)); });
       }
       show('dcpDashboard');
-    }).catch(function () {
-      show('dcpSignIn');
-      pageError(NETWORK_ERROR);
-    });
   }
 
   if (DCP.isSignedIn()) loadDashboard(); else showSignIn();
