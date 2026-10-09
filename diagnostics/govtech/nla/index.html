@@ -80,7 +80,7 @@
 
     <div class="dcs-question" data-required>
       <span class="dcs-question-number">Question 6 · Required</span>
-      <label class="dcs-question-text" for="q6">What are the priority issues you'd want your new leader to address?</label>
+      <label class="dcs-question-text" for="q6">What are the priority issues you would want your new leader to address?</label>
       <textarea class="dcs-textarea" id="q6" name="q6_priority_issues"></textarea>
     </div>
 
@@ -123,7 +123,7 @@
 
     <div class="dcs-question" data-required>
       <span class="dcs-question-number">Question 11 · Required</span>
-      <label class="dcs-question-text" for="q11">Describe the difference between HOW your organisation is functioning/working today vs how it should be functioning/working in 2-3 years time.</label>
+      <label class="dcs-question-text" for="q11">Describe the difference between HOW your organisation is functioning/working today vs how it should be functioning/working in 2-3 years' time.</label>
       <textarea class="dcs-textarea" id="q11" name="q11_future_how"></textarea>
     </div>
 
@@ -136,56 +136,81 @@
     <div class="dcs-question" data-required>
       <span class="dcs-question-number">Question 13 · Required</span>
       <span class="dcs-question-text">Prioritise these areas based on most amount of change required vs current state.</span>
-      <p class="dcs-question-help">Rank each area from 1 to 7, where 1 is the highest priority (most change required). Use each number once.</p>
-      <div class="dcs-rank">
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13a" name="q13_rank_strategic_direction" aria-label="Rank for Strategic direction and vision">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13a">Strategic direction and vision</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13b" name="q13_rank_teamwork_accountability" aria-label="Rank for Teamwork and mutual accountability">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13b">Teamwork and mutual accountability</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13c" name="q13_rank_communication" aria-label="Rank for Communication and information flow">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13c">Communication and information flow</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13d" name="q13_rank_tough_decisions" aria-label="Rank for Debating and making tough decisions">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13d">Debating and making tough decisions</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13e" name="q13_rank_engaging_outside" aria-label="Rank for Engaging outside immediate team and function">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13e">Engaging outside immediate team and function</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13f" name="q13_rank_processes_rhythms" aria-label="Rank for Internal processes and rhythms">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13f">Internal processes and rhythms</label>
-        </div>
-        <div class="dcs-rank-row">
-          <select class="dcs-select" id="q13g" name="q13_rank_capability" aria-label="Rank for Individual development and building required capability to be successful">
-            <option value="">–</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option>
-          </select>
-          <label for="q13g">Individual development and building required capability to be successful</label>
-        </div>
+      <p class="dcs-question-help">Drag the areas into order, from most change required at the top (1) to least at the bottom (7). You can also use the arrows. When the order is right, click Confirm this order.</p>
+      <ol class="dcs-rank">
+        <li class="dcs-rank-item" data-field="q13_rank_strategic_direction">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Strategic direction and vision</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Strategic direction and vision up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Strategic direction and vision down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_teamwork_accountability">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Teamwork and mutual accountability</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Teamwork and mutual accountability up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Teamwork and mutual accountability down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_communication">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Communication and information flow</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Communication and information flow up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Communication and information flow down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_tough_decisions">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Debating and making tough decisions</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Debating and making tough decisions up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Debating and making tough decisions down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_engaging_outside">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Engaging outside immediate team and function</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Engaging outside immediate team and function up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Engaging outside immediate team and function down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_processes_rhythms">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Internal processes and rhythms</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Internal processes and rhythms up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Internal processes and rhythms down">▼</button>
+          </span>
+        </li>
+        <li class="dcs-rank-item" data-field="q13_rank_capability">
+          <span class="dcs-rank-num"></span>
+          <span class="dcs-rank-handle" aria-hidden="true">⠿</span>
+          <span class="dcs-rank-label">Individual development and building required capability to be successful</span>
+          <span class="dcs-rank-move">
+            <button type="button" data-move="up" aria-label="Move Individual development and building required capability to be successful up">▲</button>
+            <button type="button" data-move="down" aria-label="Move Individual development and building required capability to be successful down">▼</button>
+          </span>
+        </li>
+      </ol>
+      <div class="dcs-rank-actions">
+        <button type="button" class="btn btn-outline dcs-rank-confirm">Confirm this order</button>
+        <span class="dcs-rank-status" role="status"></span>
       </div>
     </div>
 
     <div class="dcs-question" data-required>
       <span class="dcs-question-number">Question 14 · Required</span>
-      <label class="dcs-question-text" for="q14">If this change is to fail, what are the most likely reasons and why?</label>
+      <label class="dcs-question-text" for="q14">If the transformation to achieve the desired future organisation is to fail, what are the most likely reasons and why?</label>
       <textarea class="dcs-textarea" id="q14" name="q14_reasons_for_failure"></textarea>
     </div>
 
@@ -208,6 +233,7 @@
 </footer>
 
 <script src="../../platform.js"></script>
+<script src="../../vendor/Sortable.min.js"></script>
 <script src="../../survey.js"></script>
 <script>
   dcsInit({ section: 'NLA', prefillName: 'q1_name' });
