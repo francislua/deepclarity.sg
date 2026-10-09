@@ -172,46 +172,100 @@
   margin-bottom: 0.5rem;
 }
 
-/* Ranking */
+/* Ranking: drag to order, then confirm */
 .dcs-rank {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
-.dcs-rank-row {
+.dcs-rank-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.9rem;
   border: 1px solid var(--grey-light);
-  padding: 0.7rem 1rem;
+  background: #fff;
+  padding: 0.75rem 0.9rem;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.dcs-select {
+.dcs-rank-item:active { cursor: grabbing; }
+.dcs-rank-item.sortable-ghost { opacity: 0.4; }
+.dcs-rank-item.sortable-chosen { border-color: var(--navy); box-shadow: inset 2px 0 0 var(--amber); }
+
+.dcs-rank-num {
+  flex: 0 0 1.8rem;
+  height: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  color: var(--warm-white);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.dcs-rank-handle {
   flex: 0 0 auto;
-  width: 4.5rem;
-  border: 1px solid var(--grey-light);
-  background: var(--warm-white);
-  padding: 0.5rem 0.6rem;
-  font-family: var(--font-body);
-  font-size: 0.98rem;
-  color: var(--navy);
-  border-radius: 0;
-  outline: none;
+  color: var(--grey);
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
-.dcs-rank-row label {
+.dcs-rank-label {
+  flex: 1 1 auto;
   font-size: 0.95rem;
   color: var(--navy);
   line-height: 1.45;
 }
+
+.dcs-rank-move {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.dcs-rank-move button {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--grey-light);
+  background: var(--warm-white);
+  color: var(--slate);
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.dcs-rank-move button:hover { border-color: var(--navy); color: var(--navy); }
+.dcs-rank-move button:disabled { opacity: 0.4; cursor: default; }
+
+.dcs-rank-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.dcs-rank-actions .btn[disabled] { opacity: 0.5; cursor: default; }
+
+.dcs-rank-status {
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+.dcs-rank-status.is-confirmed { color: var(--navy); font-weight: 400; }
+.dcs-rank-status.is-confirmed::before { content: '✓ '; color: var(--amber); }
 
 /* Missing answers flagged on Submit */
 .dcs-question.is-missing .dcs-question-number { color: #b5523b; }
 .dcs-question.is-missing .dcs-question-number::after { content: ' · Needs an answer'; }
 .dcs-question.is-missing .dcs-input,
 .dcs-question.is-missing .dcs-textarea,
-.dcs-question.is-missing .dcs-rank-row { border-color: #b5523b; }
+.dcs-question.is-missing .dcs-rank-item { border-color: #b5523b; }
 
 /* ── Submit ── */
 .dcs-submit {
@@ -256,6 +310,9 @@
 .dc-locked p { color: var(--ink); font-size: 0.92rem; max-width: 50ch; margin: 0 auto 0.8rem; }
 
 @media (max-width: 640px) {
+  .dcs-header-inner { flex-wrap: wrap; row-gap: 0.6rem; }
+  .dcs-header-right { gap: 1rem; }
+  .dc-save-status { min-width: 0; }
   .dcs-question-text { font-size: 1.25rem; }
-  .dcs-rank-row { align-items: flex-start; }
+  .dcs-rank-item { gap: 0.6rem; padding: 0.7rem; }
 }
