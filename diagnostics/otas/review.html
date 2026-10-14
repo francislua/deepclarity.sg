@@ -190,7 +190,7 @@
           return DC.submit();
         }).then(function (res) {
           if (res && res.ok) { window.location.href = DC.link('complete.html'); return; }
-          if (res && (res.error === 'session_expired' || res.error === 'no_access')) { dcShowProblem(res); return; }
+          if (res && (res.error === 'session_expired' || res.error === 'no_access' || res.error === 'closed')) { dcShowProblem(res); return; }
           err.textContent = (res && res.message) || 'Your diagnostic could not be submitted. Please try again.';
           err.style.display = '';
           btn.textContent = 'Submit diagnostic';

@@ -119,7 +119,7 @@ const DC = (function () {
   // little longer each time (5s, 10s, 20s, then every 30s).
   let retryTimer = null;
   let retryDelay = 5000;
-  const FINAL_ERRORS = ['session_expired', 'no_access', 'submitted', 'invalid'];
+  const FINAL_ERRORS = ['session_expired', 'no_access', 'submitted', 'invalid', 'closed'];
 
   function scheduleRetry(res) {
     if (res && FINAL_ERRORS.indexOf(res.error) !== -1) return;
@@ -311,6 +311,12 @@ function dcStart(opts) {
       window.location.replace(DC.link('complete.html'));
       return true;
     }
+    if (state.closed && !state.submitted) {
+      const when = DCP.formatDate(state.closes_on);
+      dcShowProblem({ error: 'closed', message: 'This diagnostic closed' + (when ? ' on ' + when : '') +
+        ' and is no longer accepting responses. If you need more time, please contact Francis at francislua@deepclarity.sg.' });
+      return true;
+    }
     return false;
   }
 
@@ -364,7 +370,7 @@ function dcInitAutosave(section) {
   DC.onSaveStatus(function (state, res) {
     if (state === 'saving') { setStatus('Saving…', 'saving'); return; }
     if (state === 'saved') { setStatus('Saved', 'saved'); return; }
-    if (res && (res.error === 'session_expired' || res.error === 'submitted' || res.error === 'no_access')) {
+    if (res && (res.error === 'session_expired' || res.error === 'submitted' || res.error === 'no_access' || res.error === 'closed')) {
       dcShowProblem(res);
       return;
     }
