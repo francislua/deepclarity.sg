@@ -106,7 +106,7 @@ function dcsInit(config) {
           if (Object.keys(pending).length) flush(); else finishWaiting(true);
           return;
         }
-        if (res && (res.error === 'session_expired' || res.error === 'no_access' || res.error === 'submitted')) {
+        if (res && (res.error === 'session_expired' || res.error === 'no_access' || res.error === 'submitted' || res.error === 'closed')) {
           showProblem(res);
           finishWaiting(false);
           return;
@@ -137,7 +137,15 @@ function dcsInit(config) {
   });
 
   // ── Problems that stop the page ──
+  // `when` is given when the page loads closed; a save refused part-way
+  // through says "has now closed", since the date may have just changed.
+  function closedMessage(when) {
+    return (when ? 'This survey closed on ' + when : 'This survey has now closed') +
+      ' and is no longer accepting responses. If you need more time, please contact Francis at francislua@deepclarity.sg.';
+  }
+
   function showProblem(res) {
+    if (res && res.error === 'closed') res = { error: 'closed', message: closedMessage(res.when) };
     const main = document.querySelector('.dcs-main');
     const code = res && res.error;
     const box = document.createElement('div');
@@ -331,7 +339,7 @@ function dcsInit(config) {
       return DCP.call('submit', { assignment: assignment });
     }).then(function (res) {
       if (res && res.ok) { goTo(completePage); return; }
-      if (res && (res.error === 'session_expired' || res.error === 'no_access')) { showProblem(res); return; }
+      if (res && (res.error === 'session_expired' || res.error === 'no_access' || res.error === 'closed')) { showProblem(res); return; }
       throw res;
     }).catch(function (err) {
       showSubmitMessage((err && err.message) || 'Your survey could not be submitted. Your answers are saved; please try again.');
@@ -348,6 +356,7 @@ function dcsInit(config) {
   DCP.call('getState', { assignment: assignment, section: section, page: 'survey' }).then(function (state) {
     if (!state || state.error) { showProblem(state); return; }
     if (state.submitted) { goTo(completePage); return; }
+    if (state.closed) { showProblem({ error: 'closed', when: DCP.formatDate(state.closes_on) }); return; }
 
     const saved = state.responses || {};
     // Answers still waiting to be sent from an earlier visit take priority.

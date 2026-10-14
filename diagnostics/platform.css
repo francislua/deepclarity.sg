@@ -157,6 +157,7 @@
 }
 
 .dcp-card.is-completed { border-left-color: var(--slate); background: rgba(255, 255, 255, 0.6); }
+.dcp-card.is-closed { border-left-color: var(--grey-light); background: rgba(255, 255, 255, 0.6); }
 
 .dcp-card h2 {
   font-family: var(--font-display);
@@ -203,6 +204,7 @@
 .dcp-status.is-not-started { color: var(--grey); }
 .dcp-status.is-in-progress { color: #9a7424; background: rgba(196, 154, 60, 0.08); }
 .dcp-status.is-completed   { color: var(--slate); background: rgba(74, 94, 138, 0.07); }
+.dcp-status.is-closed      { color: var(--grey); background: rgba(138, 142, 150, 0.08); }
 
 .dcp-card .btn { white-space: nowrap; }
 

@@ -159,22 +159,31 @@
 
   function renderCard(a) {
     const done = a.status === 'Completed';
-    const card = el('article', 'dcp-card' + (done ? ' is-completed' : ''));
+    const closed = !done && a.closed;
+    const card = el('article', 'dcp-card' + (done ? ' is-completed' : '') + (closed ? ' is-closed' : ''));
     const body = el('div');
     body.appendChild(el('h2', null, a.display_name));
     if (a.label) body.appendChild(el('span', 'dcp-card-label', a.label));
     if (a.description) body.appendChild(el('p', null, a.description));
 
     const meta = el('div', 'dcp-card-meta');
-    meta.appendChild(el('span', 'dcp-status ' + statusClass(a.status), done ? 'Submitted' : a.status));
-    let when = '';
-    if (done && a.date_completed) when = 'Submitted on ' + DCP.formatDate(a.date_completed);
-    else if (a.status === 'In progress' && a.last_updated) when = 'Last saved ' + DCP.formatDate(a.last_updated);
-    if (when) meta.appendChild(el('span', null, when));
+    const statusText = done ? 'Submitted' : closed ? 'Closed' : a.status;
+    const statusCls = done ? 'is-completed' : closed ? 'is-closed' : statusClass(a.status);
+    meta.appendChild(el('span', 'dcp-status ' + statusCls, statusText));
+    const notes = [];
+    if (done) {
+      if (a.date_completed) notes.push('Submitted on ' + DCP.formatDate(a.date_completed));
+    } else if (closed) {
+      notes.push('Closed on ' + DCP.formatDate(a.closes_on));
+    } else {
+      if (a.status === 'In progress' && a.last_updated) notes.push('Last saved ' + DCP.formatDate(a.last_updated));
+      if (a.closes_on) notes.push('Open until ' + DCP.formatDate(a.closes_on));
+    }
+    notes.forEach(function (n) { meta.appendChild(el('span', null, n)); });
     body.appendChild(meta);
     card.appendChild(body);
 
-    if (!done) {
+    if (!done && !closed) {
       const btn = el('a', 'btn ' + (a.status === 'In progress' ? 'btn-primary' : 'btn-outline'),
         a.status === 'In progress' ? 'Continue' : 'Start');
       btn.href = new URL(a.url, DCP.root).href;
